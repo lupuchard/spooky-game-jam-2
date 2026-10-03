@@ -9,20 +9,39 @@
 [ext_resource type="PackedScene" uid="uid://mq1e4rbf1qja" path="res://Scenes/entrance.tscn" id="4_fpfj3"]
 [ext_resource type="Script" uid="uid://dqoqkris17jhv" path="res://Scripts/RabbitState.gd" id="5_20pc6"]
 [ext_resource type="Texture2D" uid="uid://dgjgfmh7fh530" path="res://Assets/bunny.png" id="5_c6i3y"]
+[ext_resource type="Script" uid="uid://b5uuicu5gq643" path="res://Scripts/Forage.gd" id="7_mxvw5"]
 [ext_resource type="Texture2D" uid="uid://b00hnpoxs0cyl" path="res://Assets/grass2.png" id="7_wkp8b"]
+[ext_resource type="Texture2D" uid="uid://bjx6kmw13msr5" path="res://Assets/forage/clover.png" id="8_hri7i"]
+[ext_resource type="Texture2D" uid="uid://dv2f5fq7d7iih" path="res://Assets/forage/dandelion.png" id="8_mxvw5"]
 [ext_resource type="Material" uid="uid://b01xijioyg2xi" path="res://PostProcess.tres" id="9_03owx"]
-[ext_resource type="Script" uid="uid://ddnnt3yp7nd0l" path="res://Scripts/PredatorSpawner.gd" id="11_5vvyt"]
+[ext_resource type="Texture2D" uid="uid://chl8a57l4dieh" path="res://Assets/forage/clover_glow.png" id="9_w3rk5"]
+[ext_resource type="Texture2D" uid="uid://b1x51ki1jjel" path="res://Assets/forage/dandelion_glow.png" id="9_xrxkg"]
 [ext_resource type="Texture2D" uid="uid://ltlry5ejtrk6" path="res://Assets/dirt.png" id="12_c6i3y"]
+[ext_resource type="Script" uid="uid://dx6k0fi7d6glf" path="res://Scripts/Beast.gd" id="12_oye8v"]
 [ext_resource type="Texture2D" uid="uid://dgj5oyyj22ujt" path="res://Assets/dens/burrow3.png" id="13_c2ibq"]
 [ext_resource type="Script" uid="uid://bj7e1xl6pel4u" path="res://Scripts/Exit.gd" id="14_5tuhn"]
 [ext_resource type="Script" uid="uid://clek30vf5u68c" path="res://Scripts/Burrow.gd" id="14_bg4s2"]
 [ext_resource type="Texture2D" uid="uid://tewgoij5w407" path="res://Assets/arrow.png" id="14_kjvhd"]
 [ext_resource type="Texture2D" uid="uid://dj1wnq17ngyrm" path="res://Assets/clock.png" id="15_fpfj3"]
 [ext_resource type="Texture2D" uid="uid://cd0dwa60fsf16" path="res://Assets/arrrow.png" id="16_sc1dx"]
+[ext_resource type="Script" uid="uid://bcmmflylr88mk" path="res://Scripts/PredatorInfo.gd" id="17_5mvff"]
+[ext_resource type="Texture2D" uid="uid://bi5r81w0ju3ke" path="res://Assets/predators/grell_sheet.png" id="18_oye8v"]
 [ext_resource type="Texture2D" uid="uid://dtrijlhs14kks" path="res://Assets/fatigue_icon.png" id="20_2gh4u"]
 [ext_resource type="FontFile" uid="uid://cc10oe0627ff2" path="res://Assets/BitPotionExt.ttf" id="20_hhcpw"]
 [ext_resource type="Texture2D" uid="uid://jokgaceffol4" path="res://Assets/food_icon.png" id="21_3b0ty"]
 [ext_resource type="Texture2D" uid="uid://i4i1ehjkl00e" path="res://Assets/health_icon.png" id="22_bg4s2"]
+[ext_resource type="Shader" uid="uid://ov7i5ok613e3" path="res://spooky.gdshader" id="29_w3rk5"]
+[ext_resource type="FontFile" uid="uid://be670rmkfx2dq" path="res://Assets/m5x7.ttf" id="32_40n85"]
+[ext_resource type="Script" uid="uid://csu3g8dkhwffw" path="res://Scripts/DeathPopup.gd" id="32_gb15f"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_06wwg"]
+radius = 13.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mxsw3"]
+size = Vector2(517, 324)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hri7i"]
+size = Vector2(491, 131)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5vvyt"]
 atlas = ExtResource("5_c6i3y")
@@ -168,6 +187,15 @@ shader = ExtResource("2_lgr22")
 shader_parameter/cursor_pos = Vector2(0, 0)
 shader_parameter/searching_factor = 0.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jnsvb"]
+size = Vector2(527, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5mvff"]
+size = Vector2(13.5, 438)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wfpdq"]
+radius = 29.017237
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_jnsvb"]
 radius = 20.0
 
@@ -240,6 +268,15 @@ corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wfpdq"]
+content_margin_left = 3.0
+content_margin_right = 2.0
+bg_color = Color(0.42, 0, 0, 0.69411767)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jnsvb"]
 content_margin_left = 2.0
 content_margin_top = 2.0
@@ -264,6 +301,16 @@ corner_radius_top_left = 2
 corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jnsvb"]
+shader = ExtResource("29_w3rk5")
+shader_parameter/pixel_resolution = 9.999999747e-05
+shader_parameter/color_steps = 32
+shader_parameter/noise_strength = 0.1050000049875
+shader_parameter/enable_dither = true
+shader_parameter/dither_strength = 0.09600000456
+shader_parameter/enable_vintage = true
+shader_parameter/vintage_strength = 0.8
 
 [node name="Control" type="Control" unique_id=2107743421 node_paths=PackedStringArray("rabbit")]
 layout_mode = 3
@@ -297,6 +344,56 @@ rabbit = NodePath("../RabbitSprite")
 [node name="Entrance2" parent="Root/Field" unique_id=176843185 node_paths=PackedStringArray("rabbit") instance=ExtResource("4_fpfj3")]
 position = Vector2(17, 279)
 rabbit = NodePath("../RabbitSprite")
+
+[node name="Forage" type="Node2D" parent="Root/Field" unique_id=1576079462]
+
+[node name="Dandelion" type="Node2D" parent="Root/Field/Forage" unique_id=1490080677]
+script = ExtResource("7_mxvw5")
+restore_health = 0.1
+reduce_hunger = 0.1
+base_sprite = ExtResource("8_mxvw5")
+glow_sprite = ExtResource("9_xrxkg")
+
+[node name="Instance" type="Area2D" parent="Root/Field/Forage/Dandelion" unique_id=2080450280]
+position = Vector2(144, 59)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Root/Field/Forage/Dandelion/Instance" unique_id=161147453]
+shape = SubResource("CircleShape2D_06wwg")
+
+[node name="Sprite" type="Sprite2D" parent="Root/Field/Forage/Dandelion/Instance" unique_id=1098976582]
+texture = ExtResource("8_mxvw5")
+
+[node name="Spawn" type="Area2D" parent="Root/Field/Forage/Dandelion" unique_id=502195065]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Root/Field/Forage/Dandelion/Spawn" unique_id=1469135288]
+position = Vector2(317.5, 162)
+shape = SubResource("RectangleShape2D_mxsw3")
+
+[node name="Clover" type="Node2D" parent="Root/Field/Forage" unique_id=2005671934]
+script = ExtResource("7_mxvw5")
+restore_health = 0.1
+reduce_hunger = 0.2
+base_sprite = ExtResource("8_hri7i")
+glow_sprite = ExtResource("9_w3rk5")
+
+[node name="Instance" type="Area2D" parent="Root/Field/Forage/Clover" unique_id=2112622617]
+position = Vector2(218, 157)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Root/Field/Forage/Clover/Instance" unique_id=995861852]
+shape = SubResource("CircleShape2D_06wwg")
+
+[node name="Sprite" type="Sprite2D" parent="Root/Field/Forage/Clover/Instance" unique_id=1239886129]
+texture = ExtResource("8_hri7i")
+
+[node name="Spawn" type="Area2D" parent="Root/Field/Forage/Clover" unique_id=1895526754]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Root/Field/Forage/Clover/Spawn" unique_id=405215393]
+position = Vector2(254.5, 168.5)
+shape = SubResource("RectangleShape2D_hri7i")
 
 [node name="RabbitSprite" type="Area2D" parent="Root/Field" unique_id=1204517704]
 position = Vector2(321, 159)
@@ -338,10 +435,46 @@ material = SubResource("ShaderMaterial_5vvyt")
 multimesh = ExtResource("2_3dxm6")
 texture = ExtResource("7_wkp8b")
 
+[node name="BeastSpawn" type="Area2D" parent="Root/Field" unique_id=675011163]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Root/Field/BeastSpawn" unique_id=1025914226]
+position = Vector2(488, -55)
+shape = SubResource("RectangleShape2D_jnsvb")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Root/Field/BeastSpawn" unique_id=1446748246]
+position = Vector2(498, 404)
+shape = SubResource("RectangleShape2D_jnsvb")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Root/Field/BeastSpawn" unique_id=620624875]
+position = Vector2(760, 175)
+shape = SubResource("RectangleShape2D_5mvff")
+
+[node name="Beast" type="Area2D" parent="Root/Field" unique_id=1105973653 node_paths=PackedStringArray("target")]
+unique_name_in_owner = true
+position = Vector2(434, -53)
+script = ExtResource("12_oye8v")
+target = NodePath("../RabbitSprite")
+
+[node name="Sprite" type="Sprite2D" parent="Root/Field/Beast" unique_id=884765820]
+texture = ExtResource("18_oye8v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Root/Field/Beast" unique_id=173558587]
+shape = SubResource("CircleShape2D_wfpdq")
+
 [node name="PredatorSpawner" type="Node2D" parent="Root" unique_id=1753401050]
-script = ExtResource("11_5vvyt")
 
 [node name="Predators" type="Node" parent="Root/PredatorSpawner" unique_id=1073571381]
+unique_name_in_owner = true
+
+[node name="TestPredator" type="Node" parent="Root/PredatorSpawner/Predators" unique_id=885880264]
+script = ExtResource("17_5mvff")
+warning_time = 2.0
+sprite = ExtResource("18_oye8v")
+entry_text = "Beast approaching!"
+exit_text = "Beast wandering off..."
 
 [node name="Camera2D" type="Camera2D" parent="Root" unique_id=2110956189]
 position = Vector2(300, 160)
@@ -448,6 +581,19 @@ offset_bottom = 8.0
 theme_override_fonts/font = ExtResource("20_hhcpw")
 text = "Sleep (hold)"
 
+[node name="TooHungryPanel" type="PanelContainer" parent="Root/Clock" unique_id=1131995401]
+unique_name_in_owner = true
+offset_left = -65.0
+offset_top = 10.0
+offset_right = 65.0
+offset_bottom = 25.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_wfpdq")
+
+[node name="TooHungryLabel" type="Label" parent="Root/Clock/TooHungryPanel" unique_id=318132640]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.48000002, 0.48000002, 1)
+text = "Too hungry to sleep or dig"
+
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1493240666]
 visible = false
 material = ExtResource("9_03owx")
@@ -544,3 +690,86 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_2gh4u")
 max_value = 1.0
 value = 0.4
 show_percentage = false
+
+[node name="PredatorWarning" type="ProgressBar" parent="CanvasLayer" unique_id=1130754267]
+unique_name_in_owner = true
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.0
+offset_top = 43.0
+offset_right = 100.0
+offset_bottom = 59.0
+grow_horizontal = 2
+max_value = 1.0
+value = 0.39
+show_percentage = false
+
+[node name="Label" type="Label" parent="CanvasLayer/PredatorWarning" unique_id=975584942]
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("20_hhcpw")
+text = "Beast approaching!"
+horizontal_alignment = 1
+
+[node name="SpookyShader" type="ColorRect" parent="CanvasLayer" unique_id=917325579]
+unique_name_in_owner = true
+visible = false
+material = SubResource("ShaderMaterial_jnsvb")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="DeathPopup" type="PanelContainer" parent="CanvasLayer" unique_id=1500776163]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("32_gb15f")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/DeathPopup" unique_id=1005748199]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/DeathPopup/MarginContainer" unique_id=1529196597]
+layout_mode = 2
+
+[node name="DeathText" type="Label" parent="CanvasLayer/DeathPopup/MarginContainer/VBoxContainer" unique_id=1560197453]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("20_hhcpw")
+text = "You have died of gastrointestinal stasis."
+
+[node name="RestartButton" type="Button" parent="CanvasLayer/DeathPopup/MarginContainer/VBoxContainer" unique_id=1474536073]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 0)
+custom_maximum_size = Vector2(-1, 16)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Restart"
+
+[node name="DebugValues" type="VBoxContainer" parent="CanvasLayer" unique_id=588097943]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TimeUntilPredatorLabel" type="Label" parent="CanvasLayer/DebugValues" unique_id=608457004]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("32_40n85")
+text = "0.0"
+horizontal_alignment = 1

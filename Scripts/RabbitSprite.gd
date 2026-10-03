@@ -40,5 +40,5 @@ func _process(delta: float):
 		if !sprite.is_playing():
 			sprite.play()
 		standing = false
-	global_position = clamp(global_position, Vector2.ZERO, get_viewport().get_visible_rect().size)
+	global_position = global_position.clamp(Vector2.ZERO, get_viewport().get_visible_rect().size)
 	

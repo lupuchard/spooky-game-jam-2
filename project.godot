@@ -29,6 +29,10 @@ window/stretch/scale_mode="integer"
 
 project/assembly_name="grass"
 
+[gui]
+
+theme/custom_font="uid://cc10oe0627ff2"
+
 [input]
 
 forage={
