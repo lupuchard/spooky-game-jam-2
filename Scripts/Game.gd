@@ -27,8 +27,9 @@ var location_change_tween: Tween
 @onready var darkness := %Darkness
 @onready var gameplay_root := $Root
 
-@onready var forest_ambience := %ForestAmbience
+#@onready var forest_ambience := %ForestAmbience
 @onready var spook_ambience := %SpookAmbience
+@onready var outside_ambience: int
 @onready var digging_sound1 := %DiggingSound1
 @onready var digging_sound2 := %DiggingSound2
 @onready var beast_approach_sound := %BeastApproachSound
@@ -116,6 +117,7 @@ func _ready() -> void:
 			digging_sound2.play()
 	)
 	
+	outside_ambience = AudioServer.get_bus_index("OutsideAmbience")
 	spook_ambience.volume_db = -20.0
 
 func start_digging():
@@ -235,7 +237,7 @@ func complete_dig():
 	dig_progress = 0
 	if burrow_state < 5:
 		burrow_state += 1
-		burrow.set_state(burrow_state)
+		burrow.set_burrow_state(burrow_state)
 	stop_digging()
 	finish_dig_sound.play()
 	
@@ -295,7 +297,8 @@ func enter_burrow(_from: Entrance) -> void:
 			time_until_attack = 0.0
 		predator_warning_label.text = predator.exit_text
 	
-	forest_ambience.volume_db = -15.0
+	#forest_ambience.volume_db = -15.0
+	AudioServer.set_bus_volume_db(outside_ambience, -15.0)
 	spook_ambience.volume_db = 0.0
 	beast_approach_sound.stop()
 
@@ -310,7 +313,8 @@ func exit_burrow(to: Entrance) -> void:
 	if predator != null:
 		predator_warning_label.text = predator.entry_text
 	
-	forest_ambience.volume_db = -5.0
+	#forest_ambience.volume_db = -5.0
+	AudioServer.set_bus_volume_db(outside_ambience, -5.0)
 	spook_ambience.volume_db = -10.0
 
 func change_location(new_location: Location) -> void:
@@ -329,7 +333,7 @@ func get_location_position() -> Vector2:
 
 func pass_time(minutes: float) -> void:
 	time_passed += minutes / MINUTES_PER_DAY
-	darkness.set_time_of_day(fmod(time_passed, 1.0))
+	darkness.set_time(time_passed)
 	
 	fatigue += minutes * FATIGUE_PER_DAY / MINUTES_PER_DAY
 	if fatigue > 1.0:

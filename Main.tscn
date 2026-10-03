@@ -16,10 +16,14 @@
 [ext_resource type="Material" uid="uid://b01xijioyg2xi" path="res://PostProcess.tres" id="9_03owx"]
 [ext_resource type="Texture2D" uid="uid://chl8a57l4dieh" path="res://Assets/forage/clover_glow.png" id="9_w3rk5"]
 [ext_resource type="Texture2D" uid="uid://b1x51ki1jjel" path="res://Assets/forage/dandelion_glow.png" id="9_xrxkg"]
+[ext_resource type="Texture2D" uid="uid://b532jwbcq2vxu" path="res://Assets/forage/thistle.png" id="10_ek63v"]
+[ext_resource type="Texture2D" uid="uid://yvptnq7bs0y2" path="res://Assets/forage/thistle_glow.png" id="11_oaklg"]
+[ext_resource type="Texture2D" uid="uid://cmhgkplt1qvwt" path="res://Assets/forage/yarrow.png" id="12_4bst2"]
 [ext_resource type="Texture2D" uid="uid://ltlry5ejtrk6" path="res://Assets/dirt.png" id="12_c6i3y"]
 [ext_resource type="AudioStream" uid="uid://brqt77sdj60b" path="res://Assets/sound/footsteps/step1.mp3" id="12_o7g6l"]
 [ext_resource type="Script" uid="uid://dx6k0fi7d6glf" path="res://Scripts/Beast.gd" id="12_oye8v"]
 [ext_resource type="Texture2D" uid="uid://dgj5oyyj22ujt" path="res://Assets/dens/burrow3.png" id="13_c2ibq"]
+[ext_resource type="Texture2D" uid="uid://wksv26jipc2i" path="res://Assets/forage/yarrow_glow.png" id="13_uy3go"]
 [ext_resource type="AudioStream" uid="uid://cvyf421wn0sbh" path="res://Assets/sound/footsteps/step2.mp3" id="13_vi5kq"]
 [ext_resource type="Script" uid="uid://clek30vf5u68c" path="res://Scripts/Burrow.gd" id="14_bg4s2"]
 [ext_resource type="AudioStream" uid="uid://godu7nevd5tq" path="res://Assets/sound/footsteps/step11.mp3" id="14_y1tbi"]
@@ -49,11 +53,14 @@
 [ext_resource type="FontFile" uid="uid://be670rmkfx2dq" path="res://Assets/m5x7.ttf" id="32_40n85"]
 [ext_resource type="Script" uid="uid://csu3g8dkhwffw" path="res://Scripts/DeathPopup.gd" id="32_gb15f"]
 [ext_resource type="PackedScene" uid="uid://dykgl1p1wijy7" path="res://Scenes/exit.tscn" id="38_im7ls"]
+[ext_resource type="Texture2D" uid="uid://b415wx4ncjbt2" path="res://Assets/predators/bild_silhouette.png" id="40_uy3go"]
 [ext_resource type="AudioStream" uid="uid://cxc7nevvn7ars" path="res://Assets/sound/forest_ambience.mp3" id="44_5tfui"]
 [ext_resource type="AudioStream" uid="uid://c6ug8sfdqbnwb" path="res://Assets/sound/digging2.mp3" id="44_khphd"]
 [ext_resource type="AudioStream" uid="uid://4tboa81xp0ve" path="res://Assets/sound/spook_ambience.mp3" id="45_38apo"]
 [ext_resource type="AudioStream" uid="uid://k72atv812ugb" path="res://Assets/sound/enemy_approach.mp3" id="47_g4yo4"]
 [ext_resource type="AudioStream" uid="uid://c4smolfg3gakm" path="res://Assets/sound/finish_dig.mp3" id="48_a34eg"]
+[ext_resource type="AudioStream" uid="uid://c5bn1cg6j4n2c" path="res://Assets/sound/rain.mp3" id="49_via5u"]
+[ext_resource type="Shader" uid="uid://d2eg1hunieg8t" path="res://rain.gdshader" id="52_a34eg"]
 [ext_resource type="Script" uid="uid://cytgobtpvbtlo" path="res://Darkness.gd" id="53_im7ls"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_06wwg"]
@@ -64,6 +71,12 @@ size = Vector2(517, 324)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hri7i"]
 size = Vector2(491, 131)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4bst2"]
+size = Vector2(207, 294)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf3a2"]
+size = Vector2(208, 294)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c2ibq"]
 atlas = ExtResource("5_c6i3y")
@@ -245,6 +258,18 @@ size = Vector2(13.5, 438)
 [sub_resource type="CircleShape2D" id="CircleShape2D_wfpdq"]
 radius = 29.017237
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_im7ls"]
+shader = ExtResource("52_a34eg")
+shader_parameter/count = 150
+shader_parameter/slant = -0.01
+shader_parameter/speed = 40.0000007125
+shader_parameter/blur = 0.002
+shader_parameter/colour = Color(1, 1, 1, 1)
+shader_parameter/size = Vector2(0.01, 0.3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_06wwg"]
+size = Vector2(780, 20)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_xrxkg"]
 atlas = ExtResource("5_c6i3y")
 region = Rect2(96, 64, 48, 32)
@@ -402,8 +427,9 @@ unlock_state = 1
 
 [node name="Dandelion" type="Node2D" parent="Root/Field/Forage" unique_id=1490080677]
 script = ExtResource("7_mxvw5")
-restore_health = 0.1
+restore_health = 0.15
 reduce_hunger = 0.1
+respawn_time_minutes = 200.0
 base_sprite = ExtResource("8_mxvw5")
 glow_sprite = ExtResource("9_xrxkg")
 
@@ -428,6 +454,7 @@ shape = SubResource("RectangleShape2D_mxsw3")
 script = ExtResource("7_mxvw5")
 restore_health = 0.1
 reduce_hunger = 0.2
+respawn_time_minutes = 300.0
 base_sprite = ExtResource("8_hri7i")
 glow_sprite = ExtResource("9_w3rk5")
 
@@ -447,6 +474,57 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Root/Field/Forage/Clover/Spawn" unique_id=405215393]
 position = Vector2(254.5, 168.5)
 shape = SubResource("RectangleShape2D_hri7i")
+
+[node name="Thistle" type="Node2D" parent="Root/Field/Forage" unique_id=1363147331]
+script = ExtResource("7_mxvw5")
+restore_health = 0.15
+reduce_hunger = 0.1
+initial_spawn_time_minutes = 200.0
+respawn_time_minutes = 400.0
+base_sprite = ExtResource("10_ek63v")
+glow_sprite = ExtResource("11_oaklg")
+
+[node name="Instance" type="Area2D" parent="Root/Field/Forage/Thistle" unique_id=1800776700]
+position = Vector2(262, 43)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Root/Field/Forage/Thistle/Instance" unique_id=57224812]
+shape = SubResource("CircleShape2D_06wwg")
+
+[node name="Sprite" type="Sprite2D" parent="Root/Field/Forage/Thistle/Instance" unique_id=372717056]
+texture = ExtResource("10_ek63v")
+
+[node name="Spawn" type="Area2D" parent="Root/Field/Forage/Thistle" unique_id=1667632081]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Root/Field/Forage/Thistle/Spawn" unique_id=930287840]
+position = Vector2(261.5, 162)
+shape = SubResource("RectangleShape2D_4bst2")
+
+[node name="Yarrow" type="Node2D" parent="Root/Field/Forage" unique_id=1676055125]
+script = ExtResource("7_mxvw5")
+restore_health = 0.15
+reduce_hunger = 0.2
+respawn_time_minutes = 500.0
+base_sprite = ExtResource("12_4bst2")
+glow_sprite = ExtResource("13_uy3go")
+
+[node name="Instance" type="Area2D" parent="Root/Field/Forage/Yarrow" unique_id=1947485535]
+position = Vector2(262, 43)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Root/Field/Forage/Yarrow/Instance" unique_id=1178820274]
+shape = SubResource("CircleShape2D_06wwg")
+
+[node name="Sprite" type="Sprite2D" parent="Root/Field/Forage/Yarrow/Instance" unique_id=167328834]
+texture = ExtResource("12_4bst2")
+
+[node name="Spawn" type="Area2D" parent="Root/Field/Forage/Yarrow" unique_id=1028884967]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Root/Field/Forage/Yarrow/Spawn" unique_id=912145407]
+position = Vector2(470, 162)
+shape = SubResource("RectangleShape2D_yf3a2")
 
 [node name="RabbitSprite" type="Area2D" parent="Root/Field" unique_id=1204517704]
 position = Vector2(321, 159)
@@ -527,6 +605,34 @@ texture = ExtResource("18_oye8v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Root/Field/Beast" unique_id=173558587]
 shape = SubResource("CircleShape2D_wfpdq")
+
+[node name="RainShader" type="ColorRect" parent="Root/Field" unique_id=1247588104]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_im7ls")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 576.0
+offset_bottom = 324.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BildSilhouette" type="Sprite2D" parent="Root/Field" unique_id=1029636160]
+modulate = Color(1, 1, 1, 0.24705882)
+position = Vector2(298, 150)
+texture = ExtResource("40_uy3go")
+
+[node name="BirdSpawnTop" type="Area2D" parent="Root/Field" unique_id=1209555098]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Root/Field/BirdSpawnTop" unique_id=1818533791]
+position = Vector2(352, -89)
+shape = SubResource("RectangleShape2D_06wwg")
+
+[node name="BirdSpawnBottom" type="Area2D" parent="Root/Field" unique_id=65166709]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Root/Field/BirdSpawnBottom" unique_id=618153689]
+position = Vector2(340, 434)
+shape = SubResource("RectangleShape2D_06wwg")
 
 [node name="PredatorSpawner" type="Node2D" parent="Root" unique_id=1753401050]
 
@@ -672,8 +778,8 @@ text = "Too hungry to sleep or dig"
 [node name="ForestAmbience" type="AudioStreamPlayer" parent="Root" unique_id=1282262854]
 unique_name_in_owner = true
 stream = ExtResource("44_5tfui")
-volume_db = -5.0
 autoplay = true
+bus = &"OutsideAmbience"
 
 [node name="SpookAmbience" type="AudioStreamPlayer" parent="Root" unique_id=90131640]
 unique_name_in_owner = true
@@ -687,6 +793,11 @@ stream = ExtResource("47_g4yo4")
 [node name="FinishDigSound" type="AudioStreamPlayer" parent="Root" unique_id=10791195]
 unique_name_in_owner = true
 stream = ExtResource("48_a34eg")
+
+[node name="RainAmbience" type="AudioStreamPlayer" parent="Root" unique_id=1531293941]
+unique_name_in_owner = true
+stream = ExtResource("49_via5u")
+bus = &"OutsideAmbience"
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1493240666]
 visible = false
@@ -807,7 +918,7 @@ theme_override_fonts/font = ExtResource("20_hhcpw")
 text = "Beast approaching!"
 horizontal_alignment = 1
 
-[node name="Darkness" type="ColorRect" parent="CanvasLayer" unique_id=33013945]
+[node name="Darkness" type="ColorRect" parent="CanvasLayer" unique_id=33013945 node_paths=PackedStringArray("rain", "rain_ambience")]
 unique_name_in_owner = true
 anchors_preset = 15
 anchor_right = 1.0
@@ -817,6 +928,8 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 0)
 script = ExtResource("53_im7ls")
+rain = NodePath("../../Root/Field/RainShader")
+rain_ambience = NodePath("../../Root/RainAmbience")
 
 [node name="SpookyShader" type="ColorRect" parent="CanvasLayer" unique_id=917325579]
 unique_name_in_owner = true

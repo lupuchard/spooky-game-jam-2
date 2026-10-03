@@ -26,6 +26,7 @@ var bunny_state := State.Sitting
 func _ready():
 	set_burrow_state(0)
 	hide_all_bunnies()
+	set_rabbit_state(bunny_state)
 
 func set_burrow_state(state: int):
 	burrow_state = state
