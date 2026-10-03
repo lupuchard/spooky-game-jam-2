@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://dykgl1p1wijy7"]
+
+[ext_resource type="Script" uid="uid://bj7e1xl6pel4u" path="res://Scripts/Exit.gd" id="1_ljsmn"]
+[ext_resource type="Texture2D" uid="uid://tewgoij5w407" path="res://Assets/arrow.png" id="2_650lm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jnsvb"]
+radius = 20.0
+
+[node name="Exit1" type="Area2D" unique_id=444094360 node_paths=PackedStringArray("entrance")]
+scale = Vector2(2, 2)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_ljsmn")
+entrance = NodePath("")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=103075413]
+shape = SubResource("CircleShape2D_jnsvb")
+
+[node name="Arrow" type="Sprite2D" parent="." unique_id=818242452]
+modulate = Color(0.66, 0.66, 0.66, 1)
+z_index = 1
+position = Vector2(4, 0)
+texture = ExtResource("2_650lm")
+flip_h = true

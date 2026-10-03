@@ -8,7 +8,7 @@ uniform bool enable_dither = true;
 uniform float dither_strength : hint_range(0.0, 1.0) = 0.3;
 
 uniform bool enable_vintage = true;  // 🔥 Toggle
-uniform float vintage_strength : hint_range(0.0, 1.0) = 0.8;
+uniform float vintage_strength : hint_range(0.0, 2.0) = 0.8;
 
 float random(vec2 co) {
 	return fract(sin(dot(co.xy, vec2(12.9898, 78.233))) * 43758.5453);

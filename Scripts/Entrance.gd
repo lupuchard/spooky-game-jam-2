@@ -4,6 +4,7 @@ extends Area2D
 signal entered
 
 @export var rabbit: RabbitSprite
+@export var unlock_state := 0
 var rabbit_here := false
 
 @onready var arrow: Sprite2D = $Arrow

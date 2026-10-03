@@ -8,10 +8,18 @@ const FORAGING_TRANSITION_SPEED = 3.0
 const FORAGING_SLOWDOWN_FACTOR = 0.5
 
 @onready var sprite: AnimatedSprite2D = $Sprite
+@onready var footstep_sound: AudioStreamPlayer2D = $FootstepSound
+@onready var eat_sound: AudioStreamPlayer2D = $EatSound
 
 var foraging := 0.0
 var facing_right := true
 var standing := true
+
+func _ready():
+	sprite.animation_looped.connect(func():
+		if !standing:
+			footstep_sound.play()
+	)
 
 func _process(delta: float):
 	if Input.is_action_pressed("forage"):
@@ -19,6 +27,7 @@ func _process(delta: float):
 	else:
 		foraging -= delta * FORAGING_TRANSITION_SPEED
 	foraging = clamp(foraging, 0.0, 1.0)
+	sprite.speed_scale = 2.0 - foraging
 	
 	var mouse_pos := get_viewport().get_mouse_position()
 	var disp := mouse_pos - global_position

@@ -17,22 +17,44 @@
 [ext_resource type="Texture2D" uid="uid://chl8a57l4dieh" path="res://Assets/forage/clover_glow.png" id="9_w3rk5"]
 [ext_resource type="Texture2D" uid="uid://b1x51ki1jjel" path="res://Assets/forage/dandelion_glow.png" id="9_xrxkg"]
 [ext_resource type="Texture2D" uid="uid://ltlry5ejtrk6" path="res://Assets/dirt.png" id="12_c6i3y"]
+[ext_resource type="AudioStream" uid="uid://brqt77sdj60b" path="res://Assets/sound/footsteps/step1.mp3" id="12_o7g6l"]
 [ext_resource type="Script" uid="uid://dx6k0fi7d6glf" path="res://Scripts/Beast.gd" id="12_oye8v"]
 [ext_resource type="Texture2D" uid="uid://dgj5oyyj22ujt" path="res://Assets/dens/burrow3.png" id="13_c2ibq"]
-[ext_resource type="Script" uid="uid://bj7e1xl6pel4u" path="res://Scripts/Exit.gd" id="14_5tuhn"]
+[ext_resource type="AudioStream" uid="uid://cvyf421wn0sbh" path="res://Assets/sound/footsteps/step2.mp3" id="13_vi5kq"]
 [ext_resource type="Script" uid="uid://clek30vf5u68c" path="res://Scripts/Burrow.gd" id="14_bg4s2"]
-[ext_resource type="Texture2D" uid="uid://tewgoij5w407" path="res://Assets/arrow.png" id="14_kjvhd"]
+[ext_resource type="AudioStream" uid="uid://godu7nevd5tq" path="res://Assets/sound/footsteps/step11.mp3" id="14_y1tbi"]
+[ext_resource type="AudioStream" uid="uid://di7tayfhqwd83" path="res://Assets/sound/footsteps/step12.mp3" id="15_c2s76"]
 [ext_resource type="Texture2D" uid="uid://dj1wnq17ngyrm" path="res://Assets/clock.png" id="15_fpfj3"]
+[ext_resource type="AudioStream" uid="uid://dkpiyxqls27bn" path="res://Assets/sound/footsteps/step3.mp3" id="16_f4ese"]
 [ext_resource type="Texture2D" uid="uid://cd0dwa60fsf16" path="res://Assets/arrrow.png" id="16_sc1dx"]
 [ext_resource type="Script" uid="uid://bcmmflylr88mk" path="res://Scripts/PredatorInfo.gd" id="17_5mvff"]
+[ext_resource type="AudioStream" uid="uid://bifgpb4s1n5lv" path="res://Assets/sound/footsteps/step4.mp3" id="17_rchyr"]
 [ext_resource type="Texture2D" uid="uid://bi5r81w0ju3ke" path="res://Assets/predators/grell_sheet.png" id="18_oye8v"]
+[ext_resource type="AudioStream" uid="uid://dp5r2myl80snj" path="res://Assets/sound/footsteps/step5.mp3" id="18_pljue"]
+[ext_resource type="AudioStream" uid="uid://drxbxnaqx0krx" path="res://Assets/sound/footsteps/step6.mp3" id="19_nx4yo"]
 [ext_resource type="Texture2D" uid="uid://dtrijlhs14kks" path="res://Assets/fatigue_icon.png" id="20_2gh4u"]
+[ext_resource type="AudioStream" uid="uid://e7toewndbctq" path="res://Assets/sound/footsteps/step7.mp3" id="20_5tfui"]
 [ext_resource type="FontFile" uid="uid://cc10oe0627ff2" path="res://Assets/BitPotionExt.ttf" id="20_hhcpw"]
 [ext_resource type="Texture2D" uid="uid://jokgaceffol4" path="res://Assets/food_icon.png" id="21_3b0ty"]
+[ext_resource type="AudioStream" uid="uid://bbpr40lbortuh" path="res://Assets/sound/footsteps/step8.mp3" id="21_38apo"]
 [ext_resource type="Texture2D" uid="uid://i4i1ehjkl00e" path="res://Assets/health_icon.png" id="22_bg4s2"]
+[ext_resource type="AudioStream" uid="uid://btiucg2k4y1qk" path="res://Assets/sound/footsteps/step9.mp3" id="22_khphd"]
+[ext_resource type="AudioStream" uid="uid://c0am6jgw6qx2f" path="res://Assets/sound/footsteps/step10.mp3" id="23_g4yo4"]
+[ext_resource type="AudioStream" uid="uid://bn2xda3hwcimi" path="res://Assets/sound/chew1.mp3" id="24_nx4yo"]
+[ext_resource type="AudioStream" uid="uid://bk46twyo324js" path="res://Assets/sound/chew2.mp3" id="25_5tfui"]
+[ext_resource type="AudioStream" uid="uid://bgv3b0xfps6ej" path="res://Assets/sound/chew3.mp3" id="26_38apo"]
+[ext_resource type="AudioStream" uid="uid://dbr4mqn0s1ytv" path="res://Assets/sound/chew4.mp3" id="27_khphd"]
+[ext_resource type="AudioStream" uid="uid://b5omspgt0qwkr" path="res://Assets/sound/chew5.mp3" id="28_g4yo4"]
 [ext_resource type="Shader" uid="uid://ov7i5ok613e3" path="res://spooky.gdshader" id="29_w3rk5"]
 [ext_resource type="FontFile" uid="uid://be670rmkfx2dq" path="res://Assets/m5x7.ttf" id="32_40n85"]
 [ext_resource type="Script" uid="uid://csu3g8dkhwffw" path="res://Scripts/DeathPopup.gd" id="32_gb15f"]
+[ext_resource type="PackedScene" uid="uid://dykgl1p1wijy7" path="res://Scenes/exit.tscn" id="38_im7ls"]
+[ext_resource type="AudioStream" uid="uid://cxc7nevvn7ars" path="res://Assets/sound/forest_ambience.mp3" id="44_5tfui"]
+[ext_resource type="AudioStream" uid="uid://c6ug8sfdqbnwb" path="res://Assets/sound/digging2.mp3" id="44_khphd"]
+[ext_resource type="AudioStream" uid="uid://4tboa81xp0ve" path="res://Assets/sound/spook_ambience.mp3" id="45_38apo"]
+[ext_resource type="AudioStream" uid="uid://k72atv812ugb" path="res://Assets/sound/enemy_approach.mp3" id="47_g4yo4"]
+[ext_resource type="AudioStream" uid="uid://c4smolfg3gakm" path="res://Assets/sound/finish_dig.mp3" id="48_a34eg"]
+[ext_resource type="Script" uid="uid://cytgobtpvbtlo" path="res://Darkness.gd" id="53_im7ls"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_06wwg"]
 radius = 13.0
@@ -43,14 +65,6 @@ size = Vector2(517, 324)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hri7i"]
 size = Vector2(491, 131)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5vvyt"]
-atlas = ExtResource("5_c6i3y")
-region = Rect2(0, 0, 48, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_c6i3y"]
-atlas = ExtResource("5_c6i3y")
-region = Rect2(48, 0, 48, 32)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_c2ibq"]
 atlas = ExtResource("5_c6i3y")
 region = Rect2(96, 0, 48, 32)
@@ -59,13 +73,13 @@ region = Rect2(96, 0, 48, 32)
 atlas = ExtResource("5_c6i3y")
 region = Rect2(144, 0, 48, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fpfj3"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_5vvyt"]
 atlas = ExtResource("5_c6i3y")
-region = Rect2(0, 32, 48, 32)
+region = Rect2(0, 0, 48, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_sc1dx"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_c6i3y"]
 atlas = ExtResource("5_c6i3y")
-region = Rect2(48, 32, 48, 32)
+region = Rect2(48, 0, 48, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kjvhd"]
 atlas = ExtResource("5_c6i3y")
@@ -74,6 +88,14 @@ region = Rect2(96, 32, 48, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_bg4s2"]
 atlas = ExtResource("5_c6i3y")
 region = Rect2(144, 32, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fpfj3"]
+atlas = ExtResource("5_c6i3y")
+region = Rect2(0, 32, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sc1dx"]
+atlas = ExtResource("5_c6i3y")
+region = Rect2(48, 32, 48, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hhcpw"]
 atlas = ExtResource("5_c6i3y")
@@ -87,16 +109,16 @@ region = Rect2(48, 64, 48, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_5vvyt")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_c6i3y")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_c2ibq")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_j4qnp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5vvyt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c6i3y")
 }],
 "loop": 1,
 "name": &"run_left",
@@ -104,16 +126,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_fpfj3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sc1dx")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_kjvhd")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_bg4s2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fpfj3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sc1dx")
 }],
 "loop": 1,
 "name": &"run_right",
@@ -177,6 +199,33 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jnsvb"]
 height = 32.0
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_jnsvb"]
+random_pitch = 1.0293022
+random_volume_offset_db = 0.5
+streams_count = 12
+stream_0/stream = ExtResource("12_o7g6l")
+stream_1/stream = ExtResource("13_vi5kq")
+stream_2/stream = ExtResource("16_f4ese")
+stream_3/stream = ExtResource("17_rchyr")
+stream_4/stream = ExtResource("18_pljue")
+stream_5/stream = ExtResource("19_nx4yo")
+stream_6/stream = ExtResource("20_5tfui")
+stream_7/stream = ExtResource("21_38apo")
+stream_8/stream = ExtResource("22_khphd")
+stream_9/stream = ExtResource("23_g4yo4")
+stream_10/stream = ExtResource("14_y1tbi")
+stream_11/stream = ExtResource("15_c2s76")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_y1tbi"]
+random_pitch = 1.0293022
+random_volume_offset_db = 0.5
+streams_count = 5
+stream_0/stream = ExtResource("24_nx4yo")
+stream_1/stream = ExtResource("25_5tfui")
+stream_2/stream = ExtResource("26_38apo")
+stream_3/stream = ExtResource("27_khphd")
+stream_4/stream = ExtResource("28_g4yo4")
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_trn2v"]
 shader = ExtResource("2_lgr22")
 shader_parameter/cursor_pos = Vector2(0, 0)
@@ -195,9 +244,6 @@ size = Vector2(13.5, 438)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wfpdq"]
 radius = 29.017237
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_jnsvb"]
-radius = 20.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xrxkg"]
 atlas = ExtResource("5_c6i3y")
@@ -268,6 +314,12 @@ corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_khphd"]
+random_pitch = 1.0594631
+random_volume_offset_db = 2.0
+streams_count = 1
+stream_0/stream = ExtResource("44_khphd")
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wfpdq"]
 content_margin_left = 3.0
 content_margin_right = 2.0
@@ -306,11 +358,11 @@ corner_radius_bottom_left = 2
 shader = ExtResource("29_w3rk5")
 shader_parameter/pixel_resolution = 9.999999747e-05
 shader_parameter/color_steps = 32
-shader_parameter/noise_strength = 0.1050000049875
+shader_parameter/noise_strength = 0.10000000475
 shader_parameter/enable_dither = true
-shader_parameter/dither_strength = 0.09600000456
+shader_parameter/dither_strength = 0.10000000475
 shader_parameter/enable_vintage = true
-shader_parameter/vintage_strength = 0.8
+shader_parameter/vintage_strength = 0.800000038
 
 [node name="Control" type="Control" unique_id=2107743421 node_paths=PackedStringArray("rabbit")]
 layout_mode = 3
@@ -344,6 +396,7 @@ rabbit = NodePath("../RabbitSprite")
 [node name="Entrance2" parent="Root/Field" unique_id=176843185 node_paths=PackedStringArray("rabbit") instance=ExtResource("4_fpfj3")]
 position = Vector2(17, 279)
 rabbit = NodePath("../RabbitSprite")
+unlock_state = 1
 
 [node name="Forage" type="Node2D" parent="Root/Field" unique_id=1576079462]
 
@@ -401,7 +454,7 @@ script = ExtResource("2_trn2v")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="Root/Field/RabbitSprite" unique_id=709310755]
 sprite_frames = SubResource("SpriteFrames_5tuhn")
-animation = &"run_left"
+animation = &"run_right"
 
 [node name="Sprite2" type="AnimatedSprite2D" parent="Root/Field/RabbitSprite" unique_id=2116721507]
 visible = false
@@ -419,6 +472,17 @@ texture = SubResource("CompressedTexture2D_bg4s2")
 position = Vector2(-1, 6)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_jnsvb")
+
+[node name="FootstepSound" type="AudioStreamPlayer2D" parent="Root/Field/RabbitSprite" unique_id=2110109456]
+stream = SubResource("AudioStreamRandomizer_jnsvb")
+volume_db = -5.0
+pitch_scale = 1.2
+
+[node name="EatSound" type="AudioStreamPlayer2D" parent="Root/Field/RabbitSprite" unique_id=1548642062]
+position = Vector2(-321, -159)
+stream = SubResource("AudioStreamRandomizer_y1tbi")
+volume_db = 5.0
+pitch_scale = 1.2
 
 [node name="Grass" type="MultiMeshInstance2D" parent="Root/Field" unique_id=872540454 node_paths=PackedStringArray("rabbit", "nograss")]
 unique_name_in_owner = true
@@ -486,23 +550,13 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("12_c6i3y")
 script = ExtResource("14_bg4s2")
 
-[node name="Exit1" type="Area2D" parent="Root/Burrow" unique_id=1230138653 node_paths=PackedStringArray("entrance")]
+[node name="Exit1" parent="Root/Burrow" unique_id=444094360 node_paths=PackedStringArray("entrance") instance=ExtResource("38_im7ls")]
 position = Vector2(984, -914)
-scale = Vector2(2, 2)
-collision_layer = 2
-collision_mask = 2
-script = ExtResource("14_5tuhn")
 entrance = NodePath("../../Field/Entrance1")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Root/Burrow/Exit1" unique_id=773007238]
-shape = SubResource("CircleShape2D_jnsvb")
-
-[node name="Arrow" type="Sprite2D" parent="Root/Burrow/Exit1" unique_id=1399034500]
-modulate = Color(0.66, 0.66, 0.66, 1)
-z_index = 1
-position = Vector2(4, 0)
-texture = ExtResource("14_kjvhd")
-flip_h = true
+[node name="Exit2" parent="Root/Burrow" unique_id=888569608 node_paths=PackedStringArray("entrance") instance=ExtResource("38_im7ls")]
+position = Vector2(984, -462)
+entrance = NodePath("../../Field/Entrance2")
 
 [node name="BurrowBackground" type="Sprite2D" parent="Root/Burrow" unique_id=320721356]
 unique_name_in_owner = true
@@ -532,6 +586,14 @@ sprite_frames = SubResource("SpriteFrames_jnsvb")
 animation = &"dig"
 frame_progress = 0.88623995
 flip_h = true
+
+[node name="DigBunny2" type="AnimatedSprite2D" parent="Root/Burrow" unique_id=115159827]
+unique_name_in_owner = true
+position = Vector2(248, -668)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_jnsvb")
+animation = &"dig"
+frame_progress = 0.88623995
 
 [node name="Clock" type="Sprite2D" parent="Root" unique_id=565878146]
 modulate = Color(0.83, 0.83, 0.83, 1)
@@ -570,6 +632,18 @@ max_value = 1.0
 value = 0.3
 show_percentage = false
 
+[node name="DiggingSound1" type="AudioStreamPlayer" parent="Root/Clock/DigButton" unique_id=1442941140]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_khphd")
+volume_db = -5.0
+pitch_scale = 1.2
+
+[node name="DiggingSound2" type="AudioStreamPlayer" parent="Root/Clock/DigButton" unique_id=1570395582]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_khphd")
+volume_db = -5.0
+pitch_scale = 1.2
+
 [node name="SleepButton" type="Button" parent="Root/Clock" unique_id=1540932298]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(70, 0)
@@ -581,7 +655,7 @@ offset_bottom = 8.0
 theme_override_fonts/font = ExtResource("20_hhcpw")
 text = "Sleep (hold)"
 
-[node name="TooHungryPanel" type="PanelContainer" parent="Root/Clock" unique_id=1131995401]
+[node name="WarningPanel" type="PanelContainer" parent="Root/Clock" unique_id=1131995401]
 unique_name_in_owner = true
 offset_left = -65.0
 offset_top = 10.0
@@ -589,10 +663,30 @@ offset_right = 65.0
 offset_bottom = 25.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_wfpdq")
 
-[node name="TooHungryLabel" type="Label" parent="Root/Clock/TooHungryPanel" unique_id=318132640]
+[node name="WarningLabel" type="Label" parent="Root/Clock/WarningPanel" unique_id=318132640]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.48000002, 0.48000002, 1)
 text = "Too hungry to sleep or dig"
+
+[node name="ForestAmbience" type="AudioStreamPlayer" parent="Root" unique_id=1282262854]
+unique_name_in_owner = true
+stream = ExtResource("44_5tfui")
+volume_db = -5.0
+autoplay = true
+
+[node name="SpookAmbience" type="AudioStreamPlayer" parent="Root" unique_id=90131640]
+unique_name_in_owner = true
+stream = ExtResource("45_38apo")
+autoplay = true
+
+[node name="BeastApproachSound" type="AudioStreamPlayer" parent="Root" unique_id=1799616433]
+unique_name_in_owner = true
+stream = ExtResource("47_g4yo4")
+
+[node name="FinishDigSound" type="AudioStreamPlayer" parent="Root" unique_id=10791195]
+unique_name_in_owner = true
+stream = ExtResource("48_a34eg")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1493240666]
 visible = false
@@ -712,6 +806,17 @@ offset_bottom = 23.0
 theme_override_fonts/font = ExtResource("20_hhcpw")
 text = "Beast approaching!"
 horizontal_alignment = 1
+
+[node name="Darkness" type="ColorRect" parent="CanvasLayer" unique_id=33013945]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+script = ExtResource("53_im7ls")
 
 [node name="SpookyShader" type="ColorRect" parent="CanvasLayer" unique_id=917325579]
 unique_name_in_owner = true
