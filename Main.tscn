@@ -54,6 +54,8 @@
 [ext_resource type="Script" uid="uid://csu3g8dkhwffw" path="res://Scripts/DeathPopup.gd" id="32_gb15f"]
 [ext_resource type="PackedScene" uid="uid://dykgl1p1wijy7" path="res://Scenes/exit.tscn" id="38_im7ls"]
 [ext_resource type="Texture2D" uid="uid://b415wx4ncjbt2" path="res://Assets/predators/bild_silhouette.png" id="40_uy3go"]
+[ext_resource type="Script" uid="uid://b8amxyomu3mfe" path="res://Scripts/BirdSilhouette.gd" id="41_yf3a2"]
+[ext_resource type="AudioStream" uid="uid://bahtl153ddxfb" path="res://Assets/sound/hawk.mp3" id="42_gdb40"]
 [ext_resource type="AudioStream" uid="uid://cxc7nevvn7ars" path="res://Assets/sound/forest_ambience.mp3" id="44_5tfui"]
 [ext_resource type="AudioStream" uid="uid://c6ug8sfdqbnwb" path="res://Assets/sound/digging2.mp3" id="44_khphd"]
 [ext_resource type="AudioStream" uid="uid://4tboa81xp0ve" path="res://Assets/sound/spook_ambience.mp3" id="45_38apo"]
@@ -617,9 +619,20 @@ offset_bottom = 324.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="BildSilhouette" type="Sprite2D" parent="Root/Field" unique_id=1029636160]
+[node name="BirdSilhouette" type="Node2D" parent="Root/Field" unique_id=1741974932 node_paths=PackedStringArray("spawn1", "spawn2")]
+unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0.24705882)
-position = Vector2(298, 150)
+position = Vector2(165, -88)
+script = ExtResource("41_yf3a2")
+spawn1 = NodePath("../BirdSpawnTop")
+spawn2 = NodePath("../BirdSpawnBottom")
+
+[node name="HawkSound" type="AudioStreamPlayer2D" parent="Root/Field/BirdSilhouette" unique_id=1524380684]
+stream = ExtResource("42_gdb40")
+
+[node name="Sprite2D" type="Sprite2D" parent="Root/Field/BirdSilhouette" unique_id=482204185]
+position = Vector2(-20, -90)
+rotation = -1.5707964
 texture = ExtResource("40_uy3go")
 
 [node name="BirdSpawnTop" type="Area2D" parent="Root/Field" unique_id=1209555098]
@@ -641,10 +654,19 @@ unique_name_in_owner = true
 
 [node name="TestPredator" type="Node" parent="Root/PredatorSpawner/Predators" unique_id=885880264]
 script = ExtResource("17_5mvff")
+spawn_weight = 0.1
 warning_time = 2.0
 sprite = ExtResource("18_oye8v")
 entry_text = "Beast approaching!"
 exit_text = "Beast wandering off..."
+
+[node name="TestBird" type="Node" parent="Root/PredatorSpawner/Predators" unique_id=269551880]
+script = ExtResource("17_5mvff")
+type = 1
+movement_speed = 1000.0
+sprite = ExtResource("18_oye8v")
+entry_text = "Bird approaching!"
+exit_text = "Bird flying away..."
 
 [node name="Camera2D" type="Camera2D" parent="Root" unique_id=2110956189]
 position = Vector2(300, 160)

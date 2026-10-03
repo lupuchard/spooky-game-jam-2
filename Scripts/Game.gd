@@ -41,6 +41,7 @@ var location_change_tween: Tween
 @onready var time_until_predator_label := %TimeUntilPredatorLabel
 @onready var beast := %Beast
 @onready var beast_spawn := %BeastSpawn
+@onready var bird_silhouette := %BirdSilhouette
 
 @onready var burrow: Burrow = %Burrow
 @onready var entrances: Array[Entrance] = []
@@ -67,6 +68,7 @@ var predator: PredatorInfo = null
 var predator_active: bool = false
 var time_until_attack: float = 0.0
 var burrow_state: int = 0
+var bird_will_attack: bool = false
 
 var digging := false
 var sleeping := false
@@ -119,6 +121,14 @@ func _ready() -> void:
 	
 	outside_ambience = AudioServer.get_bus_index("OutsideAmbience")
 	spook_ambience.volume_db = -20.0
+	
+	bird_silhouette.flyby_finished.connect(func():
+		if bird_will_attack or !rabbit.standing:
+			spawn_beast()
+		else:
+			predator_begone()
+			time_until_predator = random_time_until_predator()
+	)
 
 func start_digging():
 	digging = true
@@ -210,10 +220,7 @@ func _process(delta: float) -> void:
 		if predator != null:
 			modify_time_until_attack(delta / 2.0 if predator_active else delta)
 			if time_until_attack >= predator.warning_time * 0.9:
-				predator_active = false
-				predator = null
-				beast.remove()
-				predator_warning.hide()
+				predator_begone()
 	elif predator == null:
 		time_until_predator -= delta
 		if time_until_predator < 0.0:
@@ -226,12 +233,23 @@ func _process(delta: float) -> void:
 				time_until_predator = random_time_until_predator()
 	elif predator != null:
 		modify_time_until_attack(-delta)
-		if time_until_attack <= 1.0 and !beast_approach_sound.playing:
+		if predator.type == PredatorInfo.Type.Beast and time_until_attack <= 1.0 and !beast_approach_sound.playing:
 			beast_approach_sound.play()
+		
 		if time_until_attack < 0.0 and !predator_active:
 			spawn_predator()
+			bird_will_attack = !rabbit.standing
+			if predator.type == PredatorInfo.Type.Bird and bird_will_attack:
+				beast_approach_sound.play()
 			
 	time_until_predator_label.text = "%.01f" % time_until_predator
+
+func predator_begone():
+	modify_time_until_attack(predator.warning_time)
+	predator_active = false
+	predator = null
+	beast.remove()
+	predator_warning.hide()
 
 func complete_dig():
 	dig_progress = 0
@@ -264,10 +282,15 @@ func modify_time_until_attack(amount: float):
 func spawn_predator() -> void:
 	match predator.type:
 		PredatorInfo.Type.Beast:
-			beast.set_predator(predator)
-			beast.global_position = Util.random_position_in_area(beast_spawn)
+			spawn_beast()
+		PredatorInfo.Type.Bird:
+			bird_silhouette.do_flyby()
 		_: push_error("Predator type not implemented yet %s" % predator.type)
 	predator_active = true
+
+func spawn_beast():
+	beast.set_predator(predator)
+	beast.global_position = Util.random_position_in_area(beast_spawn)
 
 func rabbit_died(text: String):
 	call_deferred("pause")
