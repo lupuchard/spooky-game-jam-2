@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://c2odhwnyioofi"]
+
+[ext_resource type="Shader" uid="uid://dr7t4gsw3c80b" path="res://Grass.gdshader" id="1_cphlf"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_cphlf")

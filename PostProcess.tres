@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://b01xijioyg2xi"]
+
+[ext_resource type="Shader" uid="uid://vrh364x6io7g" path="res://PostProcess.gdshader" id="1_g264g"]
+[ext_resource type="Texture2D" uid="uid://j3b4hjgkhigq" path="res://Assets/bayer4tile8.png" id="2_k6y01"]
+
+[resource]
+shader = ExtResource("1_g264g")
+shader_parameter/color_depth = 8.0
+shader_parameter/dithering_pattern_texture = ExtResource("2_k6y01")

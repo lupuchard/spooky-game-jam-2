@@ -1,0 +1,546 @@
+[gd_scene format=3 uid="uid://drdrs1qwlal"]
+
+[ext_resource type="Texture2D" uid="uid://c7cv0gx3aiy1e" path="res://Assets/grass_bg3.png" id="1_fos0i"]
+[ext_resource type="Script" uid="uid://cd3g2i13rddge" path="res://Scripts/Game.gd" id="1_fpfj3"]
+[ext_resource type="Script" uid="uid://chxqx2xxsa8ve" path="res://Scripts/Grass.gd" id="1_glv2v"]
+[ext_resource type="MultiMesh" uid="uid://nki7ua3nefhp" path="res://GrassMultimesh.tres" id="2_3dxm6"]
+[ext_resource type="Shader" uid="uid://dr7t4gsw3c80b" path="res://Grass.gdshader" id="2_lgr22"]
+[ext_resource type="Script" uid="uid://crcstgjsccvag" path="res://Scripts/RabbitSprite.gd" id="2_trn2v"]
+[ext_resource type="PackedScene" uid="uid://mq1e4rbf1qja" path="res://Scenes/entrance.tscn" id="4_fpfj3"]
+[ext_resource type="Script" uid="uid://dqoqkris17jhv" path="res://Scripts/RabbitState.gd" id="5_20pc6"]
+[ext_resource type="Texture2D" uid="uid://dgjgfmh7fh530" path="res://Assets/bunny.png" id="5_c6i3y"]
+[ext_resource type="Texture2D" uid="uid://b00hnpoxs0cyl" path="res://Assets/grass2.png" id="7_wkp8b"]
+[ext_resource type="Material" uid="uid://b01xijioyg2xi" path="res://PostProcess.tres" id="9_03owx"]
+[ext_resource type="Script" uid="uid://ddnnt3yp7nd0l" path="res://Scripts/PredatorSpawner.gd" id="11_5vvyt"]
+[ext_resource type="Texture2D" uid="uid://ltlry5ejtrk6" path="res://Assets/dirt.png" id="12_c6i3y"]
+[ext_resource type="Texture2D" uid="uid://dgj5oyyj22ujt" path="res://Assets/dens/burrow3.png" id="13_c2ibq"]
+[ext_resource type="Script" uid="uid://bj7e1xl6pel4u" path="res://Scripts/Exit.gd" id="14_5tuhn"]
+[ext_resource type="Script" uid="uid://clek30vf5u68c" path="res://Scripts/Burrow.gd" id="14_bg4s2"]
+[ext_resource type="Texture2D" uid="uid://tewgoij5w407" path="res://Assets/arrow.png" id="14_kjvhd"]
+[ext_resource type="Texture2D" uid="uid://dj1wnq17ngyrm" path="res://Assets/clock.png" id="15_fpfj3"]
+[ext_resource type="Texture2D" uid="uid://cd0dwa60fsf16" path="res://Assets/arrrow.png" id="16_sc1dx"]
+[ext_resource type="Texture2D" uid="uid://dtrijlhs14kks" path="res://Assets/fatigue_icon.png" id="20_2gh4u"]
+[ext_resource type="FontFile" uid="uid://cc10oe0627ff2" path="res://Assets/BitPotionExt.ttf" id="20_hhcpw"]
+[ext_resource type="Texture2D" uid="uid://jokgaceffol4" path="res://Assets/food_icon.png" id="21_3b0ty"]
+[ext_resource type="Texture2D" uid="uid://i4i1ehjkl00e" path="res://Assets/health_icon.png" id="22_bg4s2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5vvyt"]
+atlas = ExtResource("5_c6i3y")
+region = Rect2(0, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c6i3y"]
+atlas = ExtResource("5_c6i3y")
+region = Rect2(48, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c2ibq"]
+atlas = ExtResource("5_c6i3y")
+region = Rect2(96, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j4qnp"]
+atlas = ExtResource("5_c6i3y")
+region = Rect2(144, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fpfj3"]
+atlas = ExtResource("5_c6i3y")
+region = Rect2(0, 32, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sc1dx"]
+atlas = ExtResource("5_c6i3y")
+region = Rect2(48, 32, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kjvhd"]
+atlas = ExtResource("5_c6i3y")
+region = Rect2(96, 32, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bg4s2"]
+atlas = ExtResource("5_c6i3y")
+region = Rect2(144, 32, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hhcpw"]
+atlas = ExtResource("5_c6i3y")
+region = Rect2(0, 64, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mxvw5"]
+atlas = ExtResource("5_c6i3y")
+region = Rect2(48, 64, 48, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5tuhn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5vvyt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c6i3y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c2ibq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j4qnp")
+}],
+"loop": 1,
+"name": &"run_left",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fpfj3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sc1dx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kjvhd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bg4s2")
+}],
+"loop": 1,
+"name": &"run_right",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hhcpw")
+}],
+"loop": 1,
+"name": &"stand_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mxvw5")
+}],
+"loop": 1,
+"name": &"stand_right",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5tuhn"]
+atlas = ExtResource("5_c6i3y")
+region = Rect2(0, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2gh4u"]
+atlas = ExtResource("5_c6i3y")
+region = Rect2(48, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_devvj"]
+atlas = ExtResource("5_c6i3y")
+region = Rect2(96, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3b0ty"]
+atlas = ExtResource("5_c6i3y")
+region = Rect2(144, 0, 48, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5vvyt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5tuhn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2gh4u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_devvj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3b0ty")
+}],
+"loop": 1,
+"name": &"run_left",
+"speed": 5.0
+}]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bg4s2"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jnsvb"]
+height = 32.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_trn2v"]
+shader = ExtResource("2_lgr22")
+shader_parameter/cursor_pos = Vector2(0, 0)
+shader_parameter/searching_factor = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5vvyt"]
+shader = ExtResource("2_lgr22")
+shader_parameter/cursor_pos = Vector2(0, 0)
+shader_parameter/searching_factor = 0.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jnsvb"]
+radius = 20.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xrxkg"]
+atlas = ExtResource("5_c6i3y")
+region = Rect2(96, 64, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sqvbp"]
+atlas = ExtResource("5_c6i3y")
+region = Rect2(144, 64, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hri7i"]
+atlas = ExtResource("5_c6i3y")
+region = Rect2(0, 64, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w3rk5"]
+atlas = ExtResource("5_c6i3y")
+region = Rect2(0, 96, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5mvff"]
+atlas = ExtResource("5_c6i3y")
+region = Rect2(48, 96, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oye8v"]
+atlas = ExtResource("5_c6i3y")
+region = Rect2(96, 96, 48, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jnsvb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xrxkg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sqvbp")
+}],
+"loop": 1,
+"name": &"asleep",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hri7i")
+}],
+"loop": 1,
+"name": &"awake",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w3rk5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5mvff")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oye8v")
+}],
+"loop": 1,
+"name": &"dig",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jnsvb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_06wwg"]
+bg_color = Color(1, 1, 1, 0.5019608)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jnsvb"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(0.25, 0.25, 0.25, 0.2509804)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_devvj"]
+bg_color = Color(0.25, 0.25, 0.25, 0.5019608)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2gh4u"]
+bg_color = Color(1, 1, 1, 0.49803922)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[node name="Control" type="Control" unique_id=2107743421 node_paths=PackedStringArray("rabbit")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fpfj3")
+rabbit = NodePath("Root/Field/RabbitSprite")
+
+[node name="Root" type="Node2D" parent="." unique_id=1426861305]
+
+[node name="RabbitState" type="Node2D" parent="Root" unique_id=1133379522]
+script = ExtResource("5_20pc6")
+
+[node name="Field" type="Node2D" parent="Root" unique_id=873888986]
+
+[node name="Background" type="Sprite2D" parent="Root/Field" unique_id=1133721141]
+z_index = -2
+texture_repeat = 2
+position = Vector2(350, 175)
+texture = ExtResource("1_fos0i")
+region_enabled = true
+region_rect = Rect2(0, 0, 700, 350)
+
+[node name="Entrance1" parent="Root/Field" unique_id=146527494 node_paths=PackedStringArray("rabbit") instance=ExtResource("4_fpfj3")]
+position = Vector2(16, 55)
+rabbit = NodePath("../RabbitSprite")
+
+[node name="Entrance2" parent="Root/Field" unique_id=176843185 node_paths=PackedStringArray("rabbit") instance=ExtResource("4_fpfj3")]
+position = Vector2(17, 279)
+rabbit = NodePath("../RabbitSprite")
+
+[node name="RabbitSprite" type="Area2D" parent="Root/Field" unique_id=1204517704]
+position = Vector2(321, 159)
+script = ExtResource("2_trn2v")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="Root/Field/RabbitSprite" unique_id=709310755]
+sprite_frames = SubResource("SpriteFrames_5tuhn")
+animation = &"run_left"
+
+[node name="Sprite2" type="AnimatedSprite2D" parent="Root/Field/RabbitSprite" unique_id=2116721507]
+visible = false
+position = Vector2(-62, 18)
+sprite_frames = SubResource("SpriteFrames_5vvyt")
+animation = &"run_left"
+
+[node name="Sprite2D" type="Sprite2D" parent="Root/Field/RabbitSprite" unique_id=1178045177]
+visible = false
+z_index = -1
+scale = Vector2(2, 2)
+texture = SubResource("CompressedTexture2D_bg4s2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Root/Field/RabbitSprite" unique_id=1669486202]
+position = Vector2(-1, 6)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_jnsvb")
+
+[node name="Grass" type="MultiMeshInstance2D" parent="Root/Field" unique_id=872540454 node_paths=PackedStringArray("rabbit", "nograss")]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_trn2v")
+multimesh = ExtResource("2_3dxm6")
+texture = ExtResource("7_wkp8b")
+script = ExtResource("1_glv2v")
+rabbit = NodePath("../RabbitSprite")
+nograss = [NodePath("../Entrance1"), NodePath("../Entrance2")]
+
+[node name="BottomGrass" type="MultiMeshInstance2D" parent="Root/Field/Grass" unique_id=377090721]
+z_index = -1
+material = SubResource("ShaderMaterial_5vvyt")
+multimesh = ExtResource("2_3dxm6")
+texture = ExtResource("7_wkp8b")
+
+[node name="PredatorSpawner" type="Node2D" parent="Root" unique_id=1753401050]
+script = ExtResource("11_5vvyt")
+
+[node name="Predators" type="Node" parent="Root/PredatorSpawner" unique_id=1073571381]
+
+[node name="Camera2D" type="Camera2D" parent="Root" unique_id=2110956189]
+position = Vector2(300, 160)
+
+[node name="Burrow" type="Sprite2D" parent="Root" unique_id=2014011689]
+unique_name_in_owner = true
+position = Vector2(-512, 512)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("12_c6i3y")
+script = ExtResource("14_bg4s2")
+
+[node name="Exit1" type="Area2D" parent="Root/Burrow" unique_id=1230138653 node_paths=PackedStringArray("entrance")]
+position = Vector2(984, -914)
+scale = Vector2(2, 2)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("14_5tuhn")
+entrance = NodePath("../../Field/Entrance1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Root/Burrow/Exit1" unique_id=773007238]
+shape = SubResource("CircleShape2D_jnsvb")
+
+[node name="Arrow" type="Sprite2D" parent="Root/Burrow/Exit1" unique_id=1399034500]
+modulate = Color(0.66, 0.66, 0.66, 1)
+z_index = 1
+position = Vector2(4, 0)
+texture = ExtResource("14_kjvhd")
+flip_h = true
+
+[node name="BurrowBackground" type="Sprite2D" parent="Root/Burrow" unique_id=320721356]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.3137255)
+position = Vector2(448, -700)
+scale = Vector2(2, 2)
+texture = ExtResource("13_c2ibq")
+
+[node name="BurrowShadow" type="Sprite2D" parent="Root/Burrow/BurrowBackground" unique_id=1022332062]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.3137255)
+scale = Vector2(1.02, 1.1)
+texture = ExtResource("13_c2ibq")
+
+[node name="SleepBunny1" type="AnimatedSprite2D" parent="Root/Burrow" unique_id=81890820]
+unique_name_in_owner = true
+position = Vector2(352, -654)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_jnsvb")
+animation = &"awake"
+
+[node name="DigBunny1" type="AnimatedSprite2D" parent="Root/Burrow" unique_id=681212024]
+unique_name_in_owner = true
+position = Vector2(434, -656)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_jnsvb")
+animation = &"dig"
+frame_progress = 0.88623995
+flip_h = true
+
+[node name="Clock" type="Sprite2D" parent="Root" unique_id=565878146]
+modulate = Color(0.83, 0.83, 0.83, 1)
+position = Vector2(-300, 272)
+texture = ExtResource("15_fpfj3")
+
+[node name="HandCenter" type="Node2D" parent="Root/Clock" unique_id=23603689]
+unique_name_in_owner = true
+
+[node name="Arrrow" type="Sprite2D" parent="Root/Clock/HandCenter" unique_id=1145431765]
+position = Vector2(0, -37)
+texture = ExtResource("16_sc1dx")
+
+[node name="DigButton" type="Button" parent="Root/Clock" unique_id=487915624]
+unique_name_in_owner = true
+clip_children = 2
+custom_minimum_size = Vector2(70, 0)
+custom_maximum_size = Vector2(-1, 16)
+offset_left = 44.0
+offset_top = -8.0
+offset_right = 114.0
+offset_bottom = 8.0
+theme_override_fonts/font = ExtResource("20_hhcpw")
+text = " Dig (hold)"
+
+[node name="DigProgress" type="ProgressBar" parent="Root/Clock/DigButton" unique_id=847696029]
+unique_name_in_owner = true
+show_behind_parent = true
+layout_mode = 0
+offset_right = 70.0
+offset_bottom = 16.0
+mouse_filter = 2
+theme_override_styles/background = SubResource("StyleBoxEmpty_jnsvb")
+theme_override_styles/fill = SubResource("StyleBoxFlat_06wwg")
+max_value = 1.0
+value = 0.3
+show_percentage = false
+
+[node name="SleepButton" type="Button" parent="Root/Clock" unique_id=1540932298]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(70, 0)
+custom_maximum_size = Vector2(-1, 16)
+offset_left = -114.0
+offset_top = -8.0
+offset_right = -44.0
+offset_bottom = 8.0
+theme_override_fonts/font = ExtResource("20_hhcpw")
+text = "Sleep (hold)"
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1493240666]
+visible = false
+material = ExtResource("9_03owx")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=653516847]
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer" unique_id=1822712595]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -68.0
+offset_right = 68.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_jnsvb")
+
+[node name="Status" type="VBoxContainer" parent="CanvasLayer/PanelContainer" unique_id=1819899074]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/PanelContainer/Status" unique_id=2114829741]
+modulate = Color(0.25, 0.8125, 1, 1)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer/Status/HBoxContainer" unique_id=279775061]
+layout_mode = 2
+texture = ExtResource("20_2gh4u")
+stretch_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PanelContainer/Status/HBoxContainer" unique_id=617541489]
+layout_mode = 2
+theme_override_constants/margin_top = 2
+
+[node name="FatigueBar" type="ProgressBar" parent="CanvasLayer/PanelContainer/Status/HBoxContainer/MarginContainer" unique_id=1975218639]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 8)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_devvj")
+theme_override_styles/fill = SubResource("StyleBoxFlat_2gh4u")
+max_value = 1.0
+value = 0.4
+show_percentage = false
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/PanelContainer/Status" unique_id=927685498]
+modulate = Color(0.2509804, 1, 0, 1)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer/Status/HBoxContainer2" unique_id=609715171]
+layout_mode = 2
+texture = ExtResource("21_3b0ty")
+stretch_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PanelContainer/Status/HBoxContainer2" unique_id=594677557]
+layout_mode = 2
+theme_override_constants/margin_top = 2
+
+[node name="HungerBar" type="ProgressBar" parent="CanvasLayer/PanelContainer/Status/HBoxContainer2/MarginContainer" unique_id=2049115759]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 8)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_devvj")
+theme_override_styles/fill = SubResource("StyleBoxFlat_2gh4u")
+max_value = 1.0
+value = 0.4
+show_percentage = false
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/PanelContainer/Status" unique_id=991284994]
+modulate = Color(1, 0, 0, 1)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer/Status/HBoxContainer3" unique_id=2068320342]
+layout_mode = 2
+texture = ExtResource("22_bg4s2")
+stretch_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PanelContainer/Status/HBoxContainer3" unique_id=789895594]
+layout_mode = 2
+theme_override_constants/margin_top = 2
+
+[node name="HealthBar" type="ProgressBar" parent="CanvasLayer/PanelContainer/Status/HBoxContainer3/MarginContainer" unique_id=1226988464]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 8)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_devvj")
+theme_override_styles/fill = SubResource("StyleBoxFlat_2gh4u")
+max_value = 1.0
+value = 0.4
+show_percentage = false
