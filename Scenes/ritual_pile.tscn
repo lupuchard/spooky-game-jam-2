@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://b8aiwy1w2tkj3"]
+
+[ext_resource type="Script" uid="uid://dm21s6c3yfp3d" path="res://Scripts/RitualPile.gd" id="1_8ayj7"]
+[ext_resource type="Texture2D" uid="uid://bpypwjuto5hk0" path="res://Assets/ritual/papers.png" id="1_llak1"]
+[ext_resource type="Texture2D" uid="uid://dn17quj551phs" path="res://Assets/ritual/sacrifice.png" id="2_8ayj7"]
+[ext_resource type="Texture2D" uid="uid://b3n6yikei8jua" path="res://Assets/ritual/stone3.png" id="3_15r50"]
+[ext_resource type="Texture2D" uid="uid://dhubb2ab8rq0" path="res://Assets/ritual/stone1.png" id="4_wr8l2"]
+[ext_resource type="Texture2D" uid="uid://dold6vyi0xy3y" path="res://Assets/ritual/stone2.png" id="5_wqqgl"]
+[ext_resource type="Texture2D" uid="uid://f53gxl6kmt8w" path="res://Assets/ritual/stone4.png" id="6_32g2e"]
+[ext_resource type="Texture2D" uid="uid://bv4w78mqc3fbe" path="res://Assets/ritual/stone5.png" id="7_bllj1"]
+[ext_resource type="Texture2D" uid="uid://xr0h20btty3n" path="res://Assets/ritual/tinder.png" id="8_hdy7q"]
+
+[node name="RitualPile" type="Node2D" unique_id=1853055734]
+scale = Vector2(2, 2)
+script = ExtResource("1_8ayj7")
+
+[node name="Stone3" type="Sprite2D" parent="." unique_id=834227988]
+position = Vector2(16, -14)
+texture = ExtResource("3_15r50")
+
+[node name="Stone1" type="Sprite2D" parent="." unique_id=9748443]
+position = Vector2(27, -10)
+texture = ExtResource("4_wr8l2")
+
+[node name="Papers" type="Sprite2D" parent="." unique_id=72212297]
+position = Vector2(-26, -13)
+texture = ExtResource("1_llak1")
+
+[node name="Sacrifice" type="Sprite2D" parent="." unique_id=475787284]
+position = Vector2(-15, -23)
+texture = ExtResource("2_8ayj7")
+
+[node name="Stone2" type="Sprite2D" parent="." unique_id=640300758]
+position = Vector2(-2, -9)
+texture = ExtResource("5_wqqgl")
+
+[node name="Stone4" type="Sprite2D" parent="." unique_id=307196484]
+position = Vector2(13, -5)
+texture = ExtResource("6_32g2e")
+
+[node name="Stone5" type="Sprite2D" parent="." unique_id=242593296]
+position = Vector2(-2, -5)
+texture = ExtResource("7_bllj1")
+
+[node name="Tinder" type="Sprite2D" parent="." unique_id=503937301]
+position = Vector2(-29, -15)
+texture = ExtResource("8_hdy7q")

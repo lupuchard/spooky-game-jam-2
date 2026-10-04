@@ -6,12 +6,11 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_jnsvb"]
 radius = 20.0
 
-[node name="Exit1" type="Area2D" unique_id=444094360 node_paths=PackedStringArray("entrance")]
+[node name="Exit1" type="Area2D" unique_id=444094360]
 scale = Vector2(2, 2)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_ljsmn")
-entrance = NodePath("")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=103075413]
 shape = SubResource("CircleShape2D_jnsvb")

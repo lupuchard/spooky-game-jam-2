@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://j3b4hjgkhigq"
-path="res://.godot/imported/bayer4tile8.png-0e45a9a3904396318c90dc71c4f8a640.ctex"
+uid="uid://djdwqu2h1gcie"
+path="res://.godot/imported/tinder_glow.png-090f4f4adc78b5a1e4fb277ca32f7cac.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/bayer4tile8.png"
-dest_files=["res://.godot/imported/bayer4tile8.png-0e45a9a3904396318c90dc71c4f8a640.ctex"]
+source_file="res://Assets/ritual/tinder_glow.png"
+dest_files=["res://.godot/imported/tinder_glow.png-090f4f4adc78b5a1e4fb277ca32f7cac.ctex"]
 
 [params]
 

@@ -109,8 +109,8 @@ func update_grass_at_index(i: int):
 	else:
 		set_grass_state(i, GrassState.Full)
 	
-func _input(input_event: InputEvent):
-	if input_event.is_action_pressed("click") and Rect2i(Vector2.ZERO, GRASSES).has_point(hovering):
+func _input(event: InputEvent):
+	if event.is_action_pressed("click") and Rect2i(Vector2.ZERO, GRASSES).has_point(hovering):
 		var i = grass_indices[hovering.x + hovering.y * GRASSES.x]
 		if grass_growth[i] >= 1.0:
 			grass_growth[i] = 0.0

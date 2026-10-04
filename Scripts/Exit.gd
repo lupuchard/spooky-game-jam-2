@@ -35,6 +35,14 @@ func on_mouse_exited():
 	arrow.position = Vector2.ZERO
 	hovering = false
 
+func enable():
+	show()
+	process_mode = Node.PROCESS_MODE_INHERIT
+		
+func disable():
+	hide()
+	process_mode = Node.PROCESS_MODE_DISABLED
+
 func _input(event: InputEvent):
 	if (
 		hovering and event is InputEventMouseButton

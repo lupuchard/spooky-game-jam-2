@@ -13,7 +13,6 @@
 [ext_resource type="Texture2D" uid="uid://b00hnpoxs0cyl" path="res://Assets/grass2.png" id="7_wkp8b"]
 [ext_resource type="Texture2D" uid="uid://bjx6kmw13msr5" path="res://Assets/forage/clover.png" id="8_hri7i"]
 [ext_resource type="Texture2D" uid="uid://dv2f5fq7d7iih" path="res://Assets/forage/dandelion.png" id="8_mxvw5"]
-[ext_resource type="Material" uid="uid://b01xijioyg2xi" path="res://PostProcess.tres" id="9_03owx"]
 [ext_resource type="Texture2D" uid="uid://chl8a57l4dieh" path="res://Assets/forage/clover_glow.png" id="9_w3rk5"]
 [ext_resource type="Texture2D" uid="uid://b1x51ki1jjel" path="res://Assets/forage/dandelion_glow.png" id="9_xrxkg"]
 [ext_resource type="Texture2D" uid="uid://b532jwbcq2vxu" path="res://Assets/forage/thistle.png" id="10_ek63v"]
@@ -22,7 +21,6 @@
 [ext_resource type="Texture2D" uid="uid://ltlry5ejtrk6" path="res://Assets/dirt.png" id="12_c6i3y"]
 [ext_resource type="AudioStream" uid="uid://brqt77sdj60b" path="res://Assets/sound/footsteps/step1.mp3" id="12_o7g6l"]
 [ext_resource type="Script" uid="uid://dx6k0fi7d6glf" path="res://Scripts/Beast.gd" id="12_oye8v"]
-[ext_resource type="Texture2D" uid="uid://dgj5oyyj22ujt" path="res://Assets/dens/burrow3.png" id="13_c2ibq"]
 [ext_resource type="Texture2D" uid="uid://wksv26jipc2i" path="res://Assets/forage/yarrow_glow.png" id="13_uy3go"]
 [ext_resource type="AudioStream" uid="uid://cvyf421wn0sbh" path="res://Assets/sound/footsteps/step2.mp3" id="13_vi5kq"]
 [ext_resource type="Script" uid="uid://clek30vf5u68c" path="res://Scripts/Burrow.gd" id="14_bg4s2"]
@@ -31,41 +29,72 @@
 [ext_resource type="Texture2D" uid="uid://dj1wnq17ngyrm" path="res://Assets/clock.png" id="15_fpfj3"]
 [ext_resource type="AudioStream" uid="uid://dkpiyxqls27bn" path="res://Assets/sound/footsteps/step3.mp3" id="16_f4ese"]
 [ext_resource type="Texture2D" uid="uid://cd0dwa60fsf16" path="res://Assets/arrrow.png" id="16_sc1dx"]
+[ext_resource type="AudioStream" uid="uid://bn2xda3hwcimi" path="res://Assets/sound/chewing/chew1.mp3" id="17_2gl7k"]
 [ext_resource type="Script" uid="uid://bcmmflylr88mk" path="res://Scripts/PredatorInfo.gd" id="17_5mvff"]
 [ext_resource type="AudioStream" uid="uid://bifgpb4s1n5lv" path="res://Assets/sound/footsteps/step4.mp3" id="17_rchyr"]
+[ext_resource type="AudioStream" uid="uid://bk46twyo324js" path="res://Assets/sound/chewing/chew2.mp3" id="18_bf5p3"]
 [ext_resource type="Texture2D" uid="uid://bi5r81w0ju3ke" path="res://Assets/predators/grell_sheet.png" id="18_oye8v"]
 [ext_resource type="AudioStream" uid="uid://dp5r2myl80snj" path="res://Assets/sound/footsteps/step5.mp3" id="18_pljue"]
+[ext_resource type="AudioStream" uid="uid://bgv3b0xfps6ej" path="res://Assets/sound/chewing/chew3.mp3" id="19_ady3b"]
 [ext_resource type="AudioStream" uid="uid://drxbxnaqx0krx" path="res://Assets/sound/footsteps/step6.mp3" id="19_nx4yo"]
 [ext_resource type="Texture2D" uid="uid://dtrijlhs14kks" path="res://Assets/fatigue_icon.png" id="20_2gh4u"]
 [ext_resource type="AudioStream" uid="uid://e7toewndbctq" path="res://Assets/sound/footsteps/step7.mp3" id="20_5tfui"]
+[ext_resource type="AudioStream" uid="uid://dbr4mqn0s1ytv" path="res://Assets/sound/chewing/chew4.mp3" id="20_aoqpd"]
 [ext_resource type="FontFile" uid="uid://cc10oe0627ff2" path="res://Assets/BitPotionExt.ttf" id="20_hhcpw"]
 [ext_resource type="Texture2D" uid="uid://jokgaceffol4" path="res://Assets/food_icon.png" id="21_3b0ty"]
 [ext_resource type="AudioStream" uid="uid://bbpr40lbortuh" path="res://Assets/sound/footsteps/step8.mp3" id="21_38apo"]
+[ext_resource type="AudioStream" uid="uid://b5omspgt0qwkr" path="res://Assets/sound/chewing/chew5.mp3" id="21_m6lip"]
 [ext_resource type="Texture2D" uid="uid://i4i1ehjkl00e" path="res://Assets/health_icon.png" id="22_bg4s2"]
 [ext_resource type="AudioStream" uid="uid://btiucg2k4y1qk" path="res://Assets/sound/footsteps/step9.mp3" id="22_khphd"]
 [ext_resource type="Script" uid="uid://8vg5e6c1lafq" path="res://Scripts/Field.gd" id="23_8h1yq"]
 [ext_resource type="AudioStream" uid="uid://c0am6jgw6qx2f" path="res://Assets/sound/footsteps/step10.mp3" id="23_g4yo4"]
-[ext_resource type="AudioStream" uid="uid://bn2xda3hwcimi" path="res://Assets/sound/chew1.mp3" id="24_nx4yo"]
-[ext_resource type="AudioStream" uid="uid://bk46twyo324js" path="res://Assets/sound/chew2.mp3" id="25_5tfui"]
-[ext_resource type="AudioStream" uid="uid://bgv3b0xfps6ej" path="res://Assets/sound/chew3.mp3" id="26_38apo"]
-[ext_resource type="AudioStream" uid="uid://dbr4mqn0s1ytv" path="res://Assets/sound/chew4.mp3" id="27_khphd"]
-[ext_resource type="AudioStream" uid="uid://b5omspgt0qwkr" path="res://Assets/sound/chew5.mp3" id="28_g4yo4"]
 [ext_resource type="Shader" uid="uid://ov7i5ok613e3" path="res://spooky.gdshader" id="29_w3rk5"]
 [ext_resource type="FontFile" uid="uid://be670rmkfx2dq" path="res://Assets/m5x7.ttf" id="32_40n85"]
 [ext_resource type="Script" uid="uid://csu3g8dkhwffw" path="res://Scripts/DeathPopup.gd" id="32_gb15f"]
+[ext_resource type="AudioStream" uid="uid://bxy8hpmaayua0" path="res://Assets/sound/get_tinder.mp3" id="36_2gl7k"]
+[ext_resource type="Texture2D" uid="uid://dn17quj551phs" path="res://Assets/ritual/sacrifice.png" id="36_nn00d"]
+[ext_resource type="Texture2D" uid="uid://cby3ply7ssk8m" path="res://Assets/ritual/sacrifice_glow.png" id="37_oy6xi"]
+[ext_resource type="AudioStream" uid="uid://5nkapkf6dlua" path="res://Assets/sound/get_sacrifice.mp3" id="38_dfq0k"]
 [ext_resource type="PackedScene" uid="uid://dykgl1p1wijy7" path="res://Scenes/exit.tscn" id="38_im7ls"]
+[ext_resource type="Texture2D" uid="uid://b3n6yikei8jua" path="res://Assets/ritual/stone3.png" id="38_lo0ny"]
+[ext_resource type="Texture2D" uid="uid://bpypwjuto5hk0" path="res://Assets/ritual/papers.png" id="38_mplfx"]
+[ext_resource type="Texture2D" uid="uid://bif6i4d8srlpa" path="res://Assets/ritual/papers_glow.png" id="39_gyych"]
+[ext_resource type="Texture2D" uid="uid://vkl6tnn1lw30" path="res://Assets/ritual/stone3_glow.png" id="39_mitij"]
+[ext_resource type="Texture2D" uid="uid://xr0h20btty3n" path="res://Assets/ritual/tinder.png" id="40_gyych"]
+[ext_resource type="Texture2D" uid="uid://f53gxl6kmt8w" path="res://Assets/ritual/stone4.png" id="40_nmx32"]
 [ext_resource type="Texture2D" uid="uid://b415wx4ncjbt2" path="res://Assets/predators/bild_silhouette.png" id="40_uy3go"]
+[ext_resource type="Texture2D" uid="uid://dfcsm2nluq4xy" path="res://Assets/ritual/stone4_glow.png" id="41_d646h"]
+[ext_resource type="Texture2D" uid="uid://djdwqu2h1gcie" path="res://Assets/ritual/tinder_glow.png" id="41_xncey"]
 [ext_resource type="Script" uid="uid://b8amxyomu3mfe" path="res://Scripts/BirdSilhouette.gd" id="41_yf3a2"]
+[ext_resource type="AudioStream" uid="uid://bb1nuebgx22rb" path="res://Assets/sound/get_stone.mp3" id="42_bf5p3"]
 [ext_resource type="AudioStream" uid="uid://bahtl153ddxfb" path="res://Assets/sound/hawk.mp3" id="42_gdb40"]
 [ext_resource type="AudioStream" uid="uid://cxc7nevvn7ars" path="res://Assets/sound/forest_ambience.mp3" id="44_5tfui"]
 [ext_resource type="AudioStream" uid="uid://c6ug8sfdqbnwb" path="res://Assets/sound/digging2.mp3" id="44_khphd"]
 [ext_resource type="AudioStream" uid="uid://4tboa81xp0ve" path="res://Assets/sound/spook_ambience.mp3" id="45_38apo"]
 [ext_resource type="AudioStream" uid="uid://k72atv812ugb" path="res://Assets/sound/enemy_approach.mp3" id="47_g4yo4"]
+[ext_resource type="Texture2D" uid="uid://dhubb2ab8rq0" path="res://Assets/ritual/stone1.png" id="48_5y3io"]
 [ext_resource type="AudioStream" uid="uid://c4smolfg3gakm" path="res://Assets/sound/finish_dig.mp3" id="48_a34eg"]
+[ext_resource type="Script" uid="uid://dbdrytfylh5yv" path="res://Scripts/RitualInfo.gd" id="48_wrbn1"]
+[ext_resource type="Texture2D" uid="uid://c4fbx68jpbiv" path="res://Assets/ritual/stone1_glow.png" id="49_1nwvn"]
 [ext_resource type="AudioStream" uid="uid://c5bn1cg6j4n2c" path="res://Assets/sound/rain.mp3" id="49_via5u"]
+[ext_resource type="Texture2D" uid="uid://dold6vyi0xy3y" path="res://Assets/ritual/stone2.png" id="50_dfq0k"]
+[ext_resource type="AudioStream" uid="uid://do2dyueyecofn" path="res://Assets/sound/get_paper.mp3" id="51_ady3b"]
+[ext_resource type="Texture2D" uid="uid://sdaaum4wtoak" path="res://Assets/ritual/stone2_glow.png" id="51_sef48"]
 [ext_resource type="Shader" uid="uid://d2eg1hunieg8t" path="res://rain.gdshader" id="52_a34eg"]
+[ext_resource type="Texture2D" uid="uid://bv4w78mqc3fbe" path="res://Assets/ritual/stone5.png" id="52_nmx32"]
+[ext_resource type="Texture2D" uid="uid://cu7lvv06v0ym6" path="res://Assets/ritual/stone5_glow.png" id="53_d646h"]
 [ext_resource type="Script" uid="uid://cytgobtpvbtlo" path="res://Darkness.gd" id="53_im7ls"]
 [ext_resource type="AudioStream" uid="uid://c28v3i5qufia" path="res://Assets/sound/enter.mp3" id="57_fykug"]
+[ext_resource type="Texture2D" uid="uid://cr0gd51veb4bl" path="res://Assets/dens/burrow5.png" id="63_d646h"]
+[ext_resource type="PackedScene" uid="uid://bd7wtag3hstet" path="res://Scenes/ritual_requirement.tscn" id="65_d646h"]
+[ext_resource type="PackedScene" uid="uid://b8aiwy1w2tkj3" path="res://Scenes/ritual_pile.tscn" id="65_dfq0k"]
+[ext_resource type="Texture2D" uid="uid://ck4josb5n2rp2" path="res://Assets/dens/burrow6.png" id="67_aoqpd"]
+[ext_resource type="Texture2D" uid="uid://1j728twuuc2l" path="res://Assets/fire.png" id="69_2gl7k"]
+[ext_resource type="Texture2D" uid="uid://cdcnuchegjjjj" path="res://Assets/dens/underburrow.png" id="69_slndv"]
+[ext_resource type="AudioStream" uid="uid://bu4c0sw7pggd" path="res://Assets/sound/fire.mp3" id="72_bf5p3"]
+[ext_resource type="Texture2D" uid="uid://nw8p171ietp6" path="res://Assets/dens/entrance.png" id="78_m6lip"]
+[ext_resource type="AudioStream" uid="uid://7txen3gpjeos" path="res://Assets/sound/explosion.mp3" id="79_m6lip"]
+[ext_resource type="Script" uid="uid://cw1c38k82atf7" path="res://Scripts/NotificationText.gd" id="92_uy73y"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c2ibq"]
 atlas = ExtResource("5_c6i3y")
@@ -222,11 +251,11 @@ stream_11/stream = ExtResource("15_c2s76")
 random_pitch = 1.0293022
 random_volume_offset_db = 0.5
 streams_count = 5
-stream_0/stream = ExtResource("24_nx4yo")
-stream_1/stream = ExtResource("25_5tfui")
-stream_2/stream = ExtResource("26_38apo")
-stream_3/stream = ExtResource("27_khphd")
-stream_4/stream = ExtResource("28_g4yo4")
+stream_0/stream = ExtResource("17_2gl7k")
+stream_1/stream = ExtResource("18_bf5p3")
+stream_2/stream = ExtResource("19_ady3b")
+stream_3/stream = ExtResource("20_aoqpd")
+stream_4/stream = ExtResource("21_m6lip")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_06wwg"]
 radius = 13.0
@@ -300,6 +329,12 @@ shader_parameter/blur = 0.002
 shader_parameter/colour = Color(1, 1, 1, 1)
 shader_parameter/size = Vector2(0.01, 0.3)
 
+[sub_resource type="Gradient" id="Gradient_8dw04"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_jnsvb"]
+gradient = SubResource("Gradient_8dw04")
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_xrxkg"]
 atlas = ExtResource("5_c6i3y")
 region = Rect2(96, 64, 48, 32)
@@ -360,6 +395,11 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_jnsvb"]
+color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_06wwg"]
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jnsvb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_06wwg"]
@@ -368,6 +408,35 @@ corner_radius_top_left = 3
 corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bf5p3"]
+atlas = ExtResource("69_2gl7k")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ady3b"]
+atlas = ExtResource("69_2gl7k")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aoqpd"]
+atlas = ExtResource("69_2gl7k")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_06wwg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bf5p3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ady3b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aoqpd")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_khphd"]
 random_pitch = 1.0594631
@@ -383,6 +452,28 @@ corner_radius_top_left = 4
 corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jnsvb"]
+particle_flag_disable_z = true
+angle_min = -293.4
+angle_max = -226.7
+direction = Vector3(0, -1, 0)
+spread = 30.0
+initial_velocity_min = 73.53
+initial_velocity_max = 187.5
+gravity = Vector3(0, 98, 0)
+color = Color(0.78, 0.39, 0, 1)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_aoqpd"]
+particle_flag_disable_z = true
+angle_min = 1.0728835e-05
+angle_max = 360.00003
+direction = Vector3(0, -1, 0)
+spread = 20.0
+initial_velocity_min = 73.53
+initial_velocity_max = 187.5
+gravity = Vector3(0, 98, 0)
+color = Color(0, 0, 0, 0.25882354)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jnsvb"]
 content_margin_left = 2.0
@@ -495,11 +586,13 @@ rabbit = NodePath("../../RabbitSprite")
 unlock_state = 1
 
 [node name="Forage" type="Node2D" parent="Root/Field1" unique_id=1576079462]
+z_index = -1
 
 [node name="Dandelion" type="Node2D" parent="Root/Field1/Forage" unique_id=1490080677]
 script = ExtResource("7_mxvw5")
 restore_health = 0.15
 reduce_hunger = 0.1
+item_id = "dandelion1"
 respawn_time_minutes = 200.0
 base_sprite = ExtResource("8_mxvw5")
 glow_sprite = ExtResource("9_xrxkg")
@@ -525,6 +618,7 @@ shape = SubResource("RectangleShape2D_mxsw3")
 script = ExtResource("7_mxvw5")
 restore_health = 0.1
 reduce_hunger = 0.2
+item_id = "clover1"
 respawn_time_minutes = 300.0
 base_sprite = ExtResource("8_hri7i")
 glow_sprite = ExtResource("9_w3rk5")
@@ -550,6 +644,7 @@ shape = SubResource("RectangleShape2D_hri7i")
 script = ExtResource("7_mxvw5")
 restore_health = 0.15
 reduce_hunger = 0.1
+item_id = "thistle1"
 initial_spawn_time_minutes = 200.0
 respawn_time_minutes = 400.0
 base_sprite = ExtResource("10_ek63v")
@@ -576,6 +671,7 @@ shape = SubResource("RectangleShape2D_4bst2")
 script = ExtResource("7_mxvw5")
 restore_health = 0.15
 reduce_hunger = 0.2
+item_id = "yarrow1"
 respawn_time_minutes = 500.0
 base_sprite = ExtResource("12_4bst2")
 glow_sprite = ExtResource("13_uy3go")
@@ -596,6 +692,94 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Root/Field1/Forage/Yarrow/Spawn" unique_id=912145407]
 position = Vector2(470, 162)
 shape = SubResource("RectangleShape2D_yf3a2")
+
+[node name="Tinder" type="Node2D" parent="Root/Field1/Forage" unique_id=2113500240 node_paths=PackedStringArray("sound")]
+script = ExtResource("7_mxvw5")
+type = 3
+item_id = "tinder"
+initial_spawn_time_minutes = -1.0
+respawn_time_minutes = -1.0
+base_sprite = ExtResource("40_gyych")
+glow_sprite = ExtResource("41_xncey")
+sound = NodePath("GetTinderSound")
+
+[node name="Instance" type="Area2D" parent="Root/Field1/Forage/Tinder" unique_id=445936898]
+position = Vector2(137, 152)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Root/Field1/Forage/Tinder/Instance" unique_id=1439671867]
+shape = SubResource("CircleShape2D_06wwg")
+
+[node name="Sprite" type="Sprite2D" parent="Root/Field1/Forage/Tinder/Instance" unique_id=812493099]
+texture = ExtResource("40_gyych")
+
+[node name="GetTinderSound" type="AudioStreamPlayer2D" parent="Root/Field1/Forage/Tinder" unique_id=728798271]
+stream = ExtResource("36_2gl7k")
+
+[node name="Sacrifice" type="Node2D" parent="Root/Field1/Forage" unique_id=335905043 node_paths=PackedStringArray("sound")]
+script = ExtResource("7_mxvw5")
+type = 2
+item_id = "sacrifice"
+initial_spawn_time_minutes = -1.0
+respawn_time_minutes = -1.0
+base_sprite = ExtResource("36_nn00d")
+glow_sprite = ExtResource("37_oy6xi")
+sound = NodePath("GetSacrificeSound")
+
+[node name="Instance" type="Area2D" parent="Root/Field1/Forage/Sacrifice" unique_id=1624874184]
+position = Vector2(504, 164)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Root/Field1/Forage/Sacrifice/Instance" unique_id=544794030]
+shape = SubResource("CircleShape2D_06wwg")
+
+[node name="Sprite" type="Sprite2D" parent="Root/Field1/Forage/Sacrifice/Instance" unique_id=349741246]
+texture = ExtResource("36_nn00d")
+
+[node name="GetSacrificeSound" type="AudioStreamPlayer2D" parent="Root/Field1/Forage/Sacrifice" unique_id=870089493]
+stream = ExtResource("38_dfq0k")
+
+[node name="RitualStone3" type="Node2D" parent="Root/Field1/Forage" unique_id=1692370878 node_paths=PackedStringArray("sound")]
+script = ExtResource("7_mxvw5")
+type = 4
+item_id = "stone3"
+initial_spawn_time_minutes = -1.0
+respawn_time_minutes = -1.0
+base_sprite = ExtResource("38_lo0ny")
+glow_sprite = ExtResource("39_mitij")
+sound = NodePath("GetStoneSound")
+
+[node name="Instance" type="Area2D" parent="Root/Field1/Forage/RitualStone3" unique_id=1080601505]
+position = Vector2(269, 302)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Root/Field1/Forage/RitualStone3/Instance" unique_id=662512581]
+shape = SubResource("CircleShape2D_06wwg")
+
+[node name="Sprite" type="Sprite2D" parent="Root/Field1/Forage/RitualStone3/Instance" unique_id=785471097]
+texture = ExtResource("38_lo0ny")
+
+[node name="GetStoneSound" type="AudioStreamPlayer2D" parent="Root/Field1/Forage/RitualStone3" unique_id=368096960]
+stream = ExtResource("42_bf5p3")
+
+[node name="RitualStone4" type="Node2D" parent="Root/Field1/Forage" unique_id=657716141 node_paths=PackedStringArray("sound")]
+script = ExtResource("7_mxvw5")
+type = 4
+item_id = "stone4"
+initial_spawn_time_minutes = -1.0
+respawn_time_minutes = -1.0
+base_sprite = ExtResource("40_nmx32")
+glow_sprite = ExtResource("41_d646h")
+sound = NodePath("GetStoneSound")
+
+[node name="Instance" type="Area2D" parent="Root/Field1/Forage/RitualStone4" unique_id=1555486407]
+position = Vector2(336, 84)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Root/Field1/Forage/RitualStone4/Instance" unique_id=1704339108]
+shape = SubResource("CircleShape2D_06wwg")
+
+[node name="Sprite" type="Sprite2D" parent="Root/Field1/Forage/RitualStone4/Instance" unique_id=254298287]
+texture = ExtResource("40_nmx32")
+
+[node name="GetStoneSound" type="AudioStreamPlayer2D" parent="Root/Field1/Forage/RitualStone4" unique_id=393089192]
+stream = ExtResource("42_bf5p3")
 
 [node name="Grass" type="MultiMeshInstance2D" parent="Root/Field1" unique_id=872540454 node_paths=PackedStringArray("rabbit", "nograss")]
 material = SubResource("ShaderMaterial_trn2v")
@@ -666,11 +850,13 @@ rabbit = NodePath("../../RabbitSprite")
 unlock_state = 2
 
 [node name="Forage" type="Node2D" parent="Root/Field2" unique_id=343727702]
+z_index = -1
 
 [node name="Dandelion" type="Node2D" parent="Root/Field2/Forage" unique_id=2040627662]
 script = ExtResource("7_mxvw5")
 restore_health = 0.15
 reduce_hunger = 0.1
+item_id = "dandelion2"
 respawn_time_minutes = 200.0
 base_sprite = ExtResource("8_mxvw5")
 glow_sprite = ExtResource("9_xrxkg")
@@ -696,6 +882,7 @@ shape = SubResource("RectangleShape2D_fykug")
 script = ExtResource("7_mxvw5")
 restore_health = 0.1
 reduce_hunger = 0.2
+item_id = "clover2"
 respawn_time_minutes = 300.0
 base_sprite = ExtResource("8_hri7i")
 glow_sprite = ExtResource("9_w3rk5")
@@ -721,6 +908,7 @@ shape = SubResource("RectangleShape2D_wrbn1")
 script = ExtResource("7_mxvw5")
 restore_health = 0.15
 reduce_hunger = 0.1
+item_id = "thistle2"
 initial_spawn_time_minutes = 200.0
 respawn_time_minutes = 400.0
 base_sprite = ExtResource("10_ek63v")
@@ -747,6 +935,7 @@ shape = SubResource("RectangleShape2D_cfjnh")
 script = ExtResource("7_mxvw5")
 restore_health = 0.15
 reduce_hunger = 0.2
+item_id = "yarrow2"
 respawn_time_minutes = 500.0
 base_sprite = ExtResource("12_4bst2")
 glow_sprite = ExtResource("13_uy3go")
@@ -767,6 +956,93 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Root/Field2/Forage/Yarrow/Spawn" unique_id=852443892]
 position = Vector2(90.5, 131)
 shape = SubResource("RectangleShape2D_mplfx")
+
+[node name="RitualPaper" type="Node2D" parent="Root/Field2/Forage" unique_id=610128644 node_paths=PackedStringArray("sound")]
+script = ExtResource("7_mxvw5")
+type = 1
+item_id = "paper"
+respawn_time_minutes = -1.0
+base_sprite = ExtResource("38_mplfx")
+glow_sprite = ExtResource("39_gyych")
+sound = NodePath("GetPaperSound")
+
+[node name="Instance" type="Area2D" parent="Root/Field2/Forage/RitualPaper" unique_id=791447391]
+position = Vector2(202, 71)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Root/Field2/Forage/RitualPaper/Instance" unique_id=1890978048]
+shape = SubResource("CircleShape2D_06wwg")
+
+[node name="Sprite" type="Sprite2D" parent="Root/Field2/Forage/RitualPaper/Instance" unique_id=2119924975]
+texture = ExtResource("38_mplfx")
+
+[node name="GetPaperSound" type="AudioStreamPlayer2D" parent="Root/Field2/Forage/RitualPaper" unique_id=1140321217]
+stream = ExtResource("51_ady3b")
+
+[node name="RitualStone1" type="Node2D" parent="Root/Field2/Forage" unique_id=596569975 node_paths=PackedStringArray("sound")]
+script = ExtResource("7_mxvw5")
+type = 4
+item_id = "stone1"
+initial_spawn_time_minutes = -1.0
+respawn_time_minutes = -1.0
+base_sprite = ExtResource("48_5y3io")
+glow_sprite = ExtResource("49_1nwvn")
+sound = NodePath("GetStoneSound")
+
+[node name="Instance" type="Area2D" parent="Root/Field2/Forage/RitualStone1" unique_id=13201867]
+position = Vector2(493, 72)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Root/Field2/Forage/RitualStone1/Instance" unique_id=1406129148]
+shape = SubResource("CircleShape2D_06wwg")
+
+[node name="Sprite" type="Sprite2D" parent="Root/Field2/Forage/RitualStone1/Instance" unique_id=1940536697]
+texture = ExtResource("48_5y3io")
+
+[node name="GetStoneSound" type="AudioStreamPlayer2D" parent="Root/Field2/Forage/RitualStone1" unique_id=1267001434]
+stream = ExtResource("42_bf5p3")
+
+[node name="RitualStone2" type="Node2D" parent="Root/Field2/Forage" unique_id=995768062 node_paths=PackedStringArray("sound")]
+script = ExtResource("7_mxvw5")
+type = 4
+item_id = "stone2"
+initial_spawn_time_minutes = -1.0
+respawn_time_minutes = -1.0
+base_sprite = ExtResource("50_dfq0k")
+glow_sprite = ExtResource("51_sef48")
+sound = NodePath("GetStoneSound")
+
+[node name="Instance" type="Area2D" parent="Root/Field2/Forage/RitualStone2" unique_id=462512134]
+position = Vector2(300, 246)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Root/Field2/Forage/RitualStone2/Instance" unique_id=1251149974]
+shape = SubResource("CircleShape2D_06wwg")
+
+[node name="Sprite" type="Sprite2D" parent="Root/Field2/Forage/RitualStone2/Instance" unique_id=1621745097]
+texture = ExtResource("50_dfq0k")
+
+[node name="GetStoneSound" type="AudioStreamPlayer2D" parent="Root/Field2/Forage/RitualStone2" unique_id=1152741321]
+stream = ExtResource("42_bf5p3")
+
+[node name="RitualStone5" type="Node2D" parent="Root/Field2/Forage" unique_id=268759049 node_paths=PackedStringArray("sound")]
+script = ExtResource("7_mxvw5")
+type = 4
+item_id = "stone5"
+initial_spawn_time_minutes = -1.0
+respawn_time_minutes = -1.0
+base_sprite = ExtResource("52_nmx32")
+glow_sprite = ExtResource("53_d646h")
+sound = NodePath("GetStoneSound")
+
+[node name="Instance" type="Area2D" parent="Root/Field2/Forage/RitualStone5" unique_id=2083135791]
+position = Vector2(31, 131)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Root/Field2/Forage/RitualStone5/Instance" unique_id=643984012]
+shape = SubResource("CircleShape2D_06wwg")
+
+[node name="Sprite" type="Sprite2D" parent="Root/Field2/Forage/RitualStone5/Instance" unique_id=765048606]
+texture = ExtResource("52_nmx32")
+
+[node name="GetStoneSound" type="AudioStreamPlayer2D" parent="Root/Field2/Forage/RitualStone5" unique_id=377514267]
+stream = ExtResource("42_bf5p3")
 
 [node name="Grass" type="MultiMeshInstance2D" parent="Root/Field2" unique_id=1611350206 node_paths=PackedStringArray("rabbit", "nograss")]
 material = SubResource("ShaderMaterial_8h1yq")
@@ -857,6 +1133,12 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("12_c6i3y")
 script = ExtResource("14_bg4s2")
 
+[node name="Sprite2D" type="Sprite2D" parent="Root/Burrow" unique_id=1734577743]
+position = Vector2(448.3307, -135.91455)
+rotation = -1.5707964
+scale = Vector2(4.6702213, 1153.722)
+texture = SubResource("GradientTexture1D_jnsvb")
+
 [node name="Exit1" parent="Root/Burrow" unique_id=444094360 node_paths=PackedStringArray("entrance") instance=ExtResource("38_im7ls")]
 position = Vector2(984, -914)
 entrance = NodePath("../../Field1/Entrance1")
@@ -875,18 +1157,62 @@ position = Vector2(34, -984)
 rotation = -1.5707964
 entrance = NodePath("../../Field2/Entrance4")
 
+[node name="Exit5" parent="Root/Burrow" unique_id=654024672 instance=ExtResource("38_im7ls")]
+unique_name_in_owner = true
+position = Vector2(418, -424)
+rotation = -4.712389
+
 [node name="BurrowBackground" type="Sprite2D" parent="Root/Burrow" unique_id=320721356]
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0.3137255)
 position = Vector2(448, -700)
 scale = Vector2(2, 2)
-texture = ExtResource("13_c2ibq")
+texture = ExtResource("67_aoqpd")
 
 [node name="BurrowShadow" type="Sprite2D" parent="Root/Burrow/BurrowBackground" unique_id=1022332062]
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0.3137255)
 scale = Vector2(1.02, 1.1)
-texture = ExtResource("13_c2ibq")
+texture = ExtResource("63_d646h")
+
+[node name="Underburrow" type="Sprite2D" parent="Root/Burrow/BurrowBackground" unique_id=1809592626]
+position = Vector2(-1, 324)
+texture = ExtResource("69_slndv")
+
+[node name="UnderburrowShadow" type="Sprite2D" parent="Root/Burrow/BurrowBackground/Underburrow" unique_id=204944035]
+modulate = Color(1, 1, 1, 0.54901963)
+position = Vector2(1.0000366, 0)
+scale = Vector2(1.0590278, 1)
+texture = ExtResource("69_slndv")
+
+[node name="RitualPile1" parent="Root/Burrow" unique_id=1853055734 instance=ExtResource("65_dfq0k")]
+unique_name_in_owner = true
+position = Vector2(504, -556)
+
+[node name="Stone3" parent="Root/Burrow/RitualPile1" index="0" unique_id=834227988]
+position = Vector2(116, 45)
+rotation = 0.22115374
+
+[node name="Stone1" parent="Root/Burrow/RitualPile1" index="1" unique_id=9748443]
+position = Vector2(-34, -24)
+
+[node name="Sacrifice" parent="Root/Burrow/RitualPile1" index="3" unique_id=475787284]
+position = Vector2(-12, -17)
+
+[node name="Stone2" parent="Root/Burrow/RitualPile1" index="4" unique_id=640300758]
+position = Vector2(105, 44)
+rotation = 0.30660692
+
+[node name="Stone4" parent="Root/Burrow/RitualPile1" index="5" unique_id=307196484]
+position = Vector2(3, -6)
+
+[node name="Stone5" parent="Root/Burrow/RitualPile1" index="6" unique_id=242593296]
+position = Vector2(128, 51)
+
+[node name="RitualPile2" parent="Root/Burrow" unique_id=504133588 instance=ExtResource("65_dfq0k")]
+unique_name_in_owner = true
+visible = false
+position = Vector2(236, -498)
 
 [node name="SleepBunny1" type="AnimatedSprite2D" parent="Root/Burrow" unique_id=81890820]
 unique_name_in_owner = true
@@ -894,6 +1220,21 @@ position = Vector2(352, -654)
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_jnsvb")
 animation = &"awake"
+
+[node name="SleepBunny2" type="AnimatedSprite2D" parent="Root/Burrow" unique_id=567363922]
+unique_name_in_owner = true
+position = Vector2(488, -596)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_jnsvb")
+animation = &"awake"
+
+[node name="SleepBunny3" type="AnimatedSprite2D" parent="Root/Burrow" unique_id=1163729478]
+unique_name_in_owner = true
+position = Vector2(244, -562)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_jnsvb")
+animation = &"awake"
+flip_h = true
 
 [node name="DigBunny1" type="AnimatedSprite2D" parent="Root/Burrow" unique_id=681212024]
 unique_name_in_owner = true
@@ -912,9 +1253,123 @@ sprite_frames = SubResource("SpriteFrames_jnsvb")
 animation = &"dig"
 frame_progress = 0.88623995
 
+[node name="RitualInfo" type="VBoxContainer" parent="Root/Burrow" unique_id=515361517 node_paths=PackedStringArray("stone_sound", "tinder_sound", "sacrifice_sound", "fire_sound")]
+unique_name_in_owner = true
+offset_left = -98.0
+offset_top = -612.0
+offset_right = 9.0
+offset_bottom = -522.0
+scale = Vector2(2, 2)
+theme_override_constants/separation = 0
+script = ExtResource("48_wrbn1")
+stone_sound = NodePath("../../Field2/Forage/RitualStone1/GetStoneSound")
+tinder_sound = NodePath("../../Field1/Forage/Tinder/GetTinderSound")
+sacrifice_sound = NodePath("../../Field1/Forage/Sacrifice/GetSacrificeSound")
+fire_sound = NodePath("Fire/FireSound")
+
+[node name="Header" type="Label" parent="Root/Burrow/RitualInfo" unique_id=1001134988]
+layout_mode = 2
+text = "Ritual requirements"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Root/Burrow/RitualInfo" unique_id=1578202240]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_jnsvb")
+
+[node name="RitualDigReqLabel" parent="Root/Burrow/RitualInfo" unique_id=916898073 instance=ExtResource("65_d646h")]
+layout_mode = 2
+alignment = 1
+
+[node name="RitualStoneReqLabel" parent="Root/Burrow/RitualInfo" unique_id=984982000 instance=ExtResource("65_d646h")]
+layout_mode = 2
+alignment = 1
+text = "Ritual stones"
+
+[node name="RitualTinderReqLabel" parent="Root/Burrow/RitualInfo" unique_id=324503647 instance=ExtResource("65_d646h")]
+layout_mode = 2
+alignment = 1
+text = "Ritual tinder"
+
+[node name="RitualSacrificeReqLabel" parent="Root/Burrow/RitualInfo" unique_id=1104122037 instance=ExtResource("65_d646h")]
+layout_mode = 2
+alignment = 1
+text = "Sacrificial object"
+
+[node name="HSeparator2" type="HSeparator" parent="Root/Burrow/RitualInfo" unique_id=725488567]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_06wwg")
+
+[node name="RitualButton" type="Button" parent="Root/Burrow/RitualInfo" unique_id=281322679]
+custom_maximum_size = Vector2(-1, 16)
+layout_mode = 2
+text = "Perform ritual (hold)"
+
+[node name="RitualProgress" type="ProgressBar" parent="Root/Burrow/RitualInfo/RitualButton" unique_id=1270876089]
+show_behind_parent = true
+layout_mode = 0
+offset_right = 114.0
+offset_bottom = 16.0
+mouse_filter = 2
+theme_override_styles/background = SubResource("StyleBoxEmpty_jnsvb")
+theme_override_styles/fill = SubResource("StyleBoxFlat_06wwg")
+max_value = 1.0
+value = 0.3
+show_percentage = false
+
+[node name="Stone3" type="Sprite2D" parent="Root/Burrow/RitualInfo" unique_id=786908800]
+position = Vector2(173, 25)
+texture = ExtResource("38_lo0ny")
+
+[node name="Stone2" type="Sprite2D" parent="Root/Burrow/RitualInfo" unique_id=1613981877]
+position = Vector2(145, 34)
+texture = ExtResource("50_dfq0k")
+
+[node name="Tinder" type="Sprite2D" parent="Root/Burrow/RitualInfo" unique_id=189356897]
+position = Vector2(179, 45)
+texture = ExtResource("40_gyych")
+
+[node name="Sacrifice" type="Sprite2D" parent="Root/Burrow/RitualInfo" unique_id=495500933]
+position = Vector2(180, 33)
+texture = ExtResource("36_nn00d")
+
+[node name="Stone1" type="Sprite2D" parent="Root/Burrow/RitualInfo" unique_id=1037360186]
+position = Vector2(156, 51)
+texture = ExtResource("48_5y3io")
+
+[node name="Stone4" type="Sprite2D" parent="Root/Burrow/RitualInfo" unique_id=1373355977]
+position = Vector2(204, 40)
+texture = ExtResource("40_nmx32")
+
+[node name="Stone5" type="Sprite2D" parent="Root/Burrow/RitualInfo" unique_id=1067645740]
+position = Vector2(194, 53)
+texture = ExtResource("52_nmx32")
+
+[node name="Fire" type="AnimatedSprite2D" parent="Root/Burrow/RitualInfo" unique_id=812519127]
+position = Vector2(179, 32)
+sprite_frames = SubResource("SpriteFrames_06wwg")
+frame_progress = 0.81741667
+
+[node name="FireSound" type="AudioStreamPlayer2D" parent="Root/Burrow/RitualInfo/Fire" unique_id=2119514324]
+stream = ExtResource("72_bf5p3")
+pitch_scale = 1.2
+
+[node name="UnderburrowText" type="Label" parent="Root/Burrow" unique_id=1848917480]
+offset_left = 568.0
+offset_top = -354.0
+offset_right = 758.0
+offset_bottom = -272.0
+scale = Vector2(2, 2)
+text = "The rabbit has escaped into the underburrow, and is safe (for now).
+
+This is the end of the game.
+Thanks for playing!"
+horizontal_alignment = 1
+autowrap_mode = 2
+
 [node name="Clock" type="Sprite2D" parent="Root" unique_id=565878146]
+unique_name_in_owner = true
 modulate = Color(0.83, 0.83, 0.83, 1)
-position = Vector2(-300, 272)
+position = Vector2(-300, 282)
 texture = ExtResource("15_fpfj3")
 
 [node name="HandCenter" type="Node2D" parent="Root/Clock" unique_id=23603689]
@@ -986,6 +1441,31 @@ layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.48000002, 0.48000002, 1)
 text = "Too hungry to sleep or dig"
 
+[node name="RitualExplosion" type="GPUParticles2D" parent="Root" unique_id=1560255040]
+unique_name_in_owner = true
+position = Vector2(-303, 300)
+emitting = false
+amount = 16
+texture = ExtResource("52_nmx32")
+lifetime = 5.0
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_jnsvb")
+
+[node name="RitualExplosion2" type="GPUParticles2D" parent="Root/RitualExplosion" unique_id=1464837301]
+unique_name_in_owner = true
+emitting = false
+amount = 16
+texture = ExtResource("78_m6lip")
+lifetime = 5.0
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_aoqpd")
+
+[node name="ExplosionSound" type="AudioStreamPlayer2D" parent="Root/RitualExplosion" unique_id=2067827567]
+unique_name_in_owner = true
+stream = ExtResource("79_m6lip")
+
 [node name="ForestAmbience" type="AudioStreamPlayer" parent="Root" unique_id=1282262854]
 unique_name_in_owner = true
 stream = ExtResource("44_5tfui")
@@ -1034,21 +1514,10 @@ sprite = ExtResource("18_oye8v")
 entry_text = "Bird approaching!"
 exit_text = "Bird flying away..."
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1493240666]
-visible = false
-material = ExtResource("9_03owx")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=653516847]
 
-[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer" unique_id=1822712595]
+[node name="StatusBarsContainer" type="PanelContainer" parent="CanvasLayer" unique_id=1822712595]
+unique_name_in_owner = true
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -1058,24 +1527,24 @@ offset_bottom = 40.0
 grow_horizontal = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_jnsvb")
 
-[node name="Status" type="VBoxContainer" parent="CanvasLayer/PanelContainer" unique_id=1819899074]
+[node name="Status" type="VBoxContainer" parent="CanvasLayer/StatusBarsContainer" unique_id=1819899074]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/PanelContainer/Status" unique_id=2114829741]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/StatusBarsContainer/Status" unique_id=2114829741]
 modulate = Color(0.25, 0.8125, 1, 1)
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer/Status/HBoxContainer" unique_id=279775061]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/StatusBarsContainer/Status/HBoxContainer" unique_id=279775061]
 layout_mode = 2
 texture = ExtResource("20_2gh4u")
 stretch_mode = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PanelContainer/Status/HBoxContainer" unique_id=617541489]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/StatusBarsContainer/Status/HBoxContainer" unique_id=617541489]
 layout_mode = 2
 theme_override_constants/margin_top = 2
 
-[node name="FatigueBar" type="ProgressBar" parent="CanvasLayer/PanelContainer/Status/HBoxContainer/MarginContainer" unique_id=1975218639]
+[node name="FatigueBar" type="ProgressBar" parent="CanvasLayer/StatusBarsContainer/Status/HBoxContainer/MarginContainer" unique_id=1975218639]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(120, 8)
 layout_mode = 2
@@ -1085,20 +1554,20 @@ max_value = 1.0
 value = 0.4
 show_percentage = false
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/PanelContainer/Status" unique_id=927685498]
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/StatusBarsContainer/Status" unique_id=927685498]
 modulate = Color(0.2509804, 1, 0, 1)
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer/Status/HBoxContainer2" unique_id=609715171]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/StatusBarsContainer/Status/HBoxContainer2" unique_id=609715171]
 layout_mode = 2
 texture = ExtResource("21_3b0ty")
 stretch_mode = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PanelContainer/Status/HBoxContainer2" unique_id=594677557]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/StatusBarsContainer/Status/HBoxContainer2" unique_id=594677557]
 layout_mode = 2
 theme_override_constants/margin_top = 2
 
-[node name="HungerBar" type="ProgressBar" parent="CanvasLayer/PanelContainer/Status/HBoxContainer2/MarginContainer" unique_id=2049115759]
+[node name="HungerBar" type="ProgressBar" parent="CanvasLayer/StatusBarsContainer/Status/HBoxContainer2/MarginContainer" unique_id=2049115759]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(120, 8)
 layout_mode = 2
@@ -1108,20 +1577,20 @@ max_value = 1.0
 value = 0.4
 show_percentage = false
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/PanelContainer/Status" unique_id=991284994]
+[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/StatusBarsContainer/Status" unique_id=991284994]
 modulate = Color(1, 0, 0, 1)
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer/Status/HBoxContainer3" unique_id=2068320342]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/StatusBarsContainer/Status/HBoxContainer3" unique_id=2068320342]
 layout_mode = 2
 texture = ExtResource("22_bg4s2")
 stretch_mode = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PanelContainer/Status/HBoxContainer3" unique_id=789895594]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/StatusBarsContainer/Status/HBoxContainer3" unique_id=789895594]
 layout_mode = 2
 theme_override_constants/margin_top = 2
 
-[node name="HealthBar" type="ProgressBar" parent="CanvasLayer/PanelContainer/Status/HBoxContainer3/MarginContainer" unique_id=1226988464]
+[node name="HealthBar" type="ProgressBar" parent="CanvasLayer/StatusBarsContainer/Status/HBoxContainer3/MarginContainer" unique_id=1226988464]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(120, 8)
 layout_mode = 2
@@ -1165,6 +1634,19 @@ color = Color(0, 0, 0, 0)
 script = ExtResource("53_im7ls")
 rain = NodePath("../../Root/RainShader")
 rain_ambience = NodePath("../../Root/RainAmbience")
+
+[node name="NotificationText" type="Label" parent="CanvasLayer" unique_id=1454558886]
+unique_name_in_owner = true
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 11.0
+offset_top = -27.0
+offset_right = 115.0
+offset_bottom = -13.0
+grow_vertical = 0
+text = "Howdy doodly neighbor."
+script = ExtResource("92_uy73y")
 
 [node name="SpookyShader" type="ColorRect" parent="CanvasLayer" unique_id=917325579]
 unique_name_in_owner = true
@@ -1227,3 +1709,5 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("32_40n85")
 text = "0.0"
 horizontal_alignment = 1
+
+[editable path="Root/Burrow/RitualPile1"]
