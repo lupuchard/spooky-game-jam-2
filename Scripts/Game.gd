@@ -1,10 +1,5 @@
 extends Control
 
-enum Location {
-	EAST_FIELD,
-	BURROW
-}
-
 const FATIGUE_PER_DAY = 1.0
 const HUNGER_PER_DAY = 2.0
 const UNHEALTH_PER_DAY = 0.5
@@ -14,12 +9,9 @@ const DIG_REQUIRED = 0.5
 const HUNGER_WARNING_THRESH = 0.8
 const FATIGUE_WARNING_THRESH = 0.8
 
-var location = Location.EAST_FIELD
-var location_change_tween: Tween
-
 @export var rabbit: RabbitSprite
 
-@onready var east_grass_position: Vector2i = get_viewport().size / 4
+#@onready var east_grass_position: Vector2i = get_viewport().size / 4
 @onready var burrow_position: Vector2i = (get_viewport().size / 4) * Vector2i(-1, 1)
 @onready var camera := get_viewport().get_camera_2d()
 @onready var spooky_shader := %SpookyShader
@@ -34,15 +26,17 @@ var location_change_tween: Tween
 @onready var digging_sound2 := %DiggingSound2
 @onready var beast_approach_sound := %BeastApproachSound
 @onready var finish_dig_sound := %FinishDigSound
+@onready var enter_sound := %EnterSound
 
-@onready var grass := %Grass
+@onready var rain := %RainShader
 @onready var predator_warning := %PredatorWarning
 @onready var predator_warning_label := %PredatorWarning/Label
 @onready var time_until_predator_label := %TimeUntilPredatorLabel
 @onready var beast := %Beast
-@onready var beast_spawn := %BeastSpawn
+#@onready var beast_spawn := %BeastSpawn
 @onready var bird_silhouette := %BirdSilhouette
 
+@onready var field1 = %Field1
 @onready var burrow: Burrow = %Burrow
 @onready var entrances: Array[Entrance] = []
 @onready var exits: Array[Exit] = []
@@ -62,12 +56,15 @@ var forages: Array[Forage]
 var rabbit_over_forage: Array[Forage] = []
 #var rabbit_over_entrance: Entrance = null
 
+var location: Field
+var location_change_tween: Tween
+
 var time_until_predator: float = 100.0
 var predators: Array[PredatorInfo] = []
 var predator: PredatorInfo = null
 var predator_active: bool = false
 var time_until_attack: float = 0.0
-var burrow_state: int = 0
+var burrow_state: int = 2#0
 var bird_will_attack: bool = false
 
 var digging := false
@@ -75,13 +72,14 @@ var sleeping := false
 var dead := false
 
 var time_passed  := 0.0
-var fatigue      := 0.0
-var hunger       := 0.5
+var fatigue      := 0.4
+var hunger       := 0.6
 var unhealth     := 0.5
 var dig_progress := 0.0
 
 func _ready() -> void:
-	camera.global_position = east_grass_position
+	change_location(field1)
+	#camera.global_position = east_grass_position
 	
 	entrances.assign(get_tree().get_nodes_in_group("entrance"))
 	for entrance in entrances:
@@ -91,6 +89,8 @@ func _ready() -> void:
 	for exit in exits:
 		exit.exited.connect(func(): exit_burrow(exit.entrance))
 	
+	update_entrances()
+	
 	forages.assign(get_tree().get_nodes_in_group("forage"))
 	for forage in forages:
 		forage.rabbit_entered.connect(func(): on_enter_forage(forage))
@@ -98,7 +98,8 @@ func _ready() -> void:
 	
 	predators.assign(get_tree().get_nodes_in_group("predator_info"))
 	
-	grass.ate.connect(on_ate)
+	for field in get_tree().get_nodes_in_group("field"):
+		field.grass.ate.connect(on_ate)
 	
 	dig_button.button_down.connect(start_digging)
 	dig_button.button_up.connect(stop_digging)
@@ -129,6 +130,8 @@ func _ready() -> void:
 			predator_begone()
 			time_until_predator = random_time_until_predator()
 	)
+	
+	burrow.set_burrow_state(burrow_state)
 
 func start_digging():
 	digging = true
@@ -185,21 +188,22 @@ func _process(delta: float) -> void:
 	else:
 		warning_panel.hide()
 	
+	var time_speedup = 1.0
 	if digging:
-		pass_time(delta * ACTIVITY_SPEED)
+		time_speedup = ACTIVITY_SPEED
 		dig_progress += (delta * ACTIVITY_SPEED / MINUTES_PER_DAY) / DIG_REQUIRED
 		if dig_progress >= 1.0:
 			complete_dig()
-		grass.rate_mod = ACTIVITY_SPEED
 	elif sleeping:
 		fatigue = clamp(fatigue - FATIGUE_PER_DAY * 3.0 * delta * ACTIVITY_SPEED / MINUTES_PER_DAY, 0.0, 1.0)
 		if fatigue <= 0.0:
 			stop_sleeping()
-		pass_time(delta * ACTIVITY_SPEED)
-		grass.rate_mod = ACTIVITY_SPEED
-	else:
-		pass_time(delta)        # Minute per second
-		grass.rate_mod = 1.0
+		time_speedup = ACTIVITY_SPEED
+	
+	pass_time(time_speedup * delta)
+	if location != null:
+		location.grass.rate_mod = time_speedup
+		location.grass.can_eat = hunger > 0.05
 	
 	if unhealth >= 1.0:
 		if fatigue >= 1.0:
@@ -214,11 +218,9 @@ func _process(delta: float) -> void:
 	health_bar.value = 1.0 - unhealth
 	dig_progress_bar.value = dig_progress
 	
-	grass.can_eat = hunger > 0.05
-	
-	if location == Location.BURROW:
+	if location == null:
 		if predator != null:
-			modify_time_until_attack(delta / 2.0 if predator_active else delta)
+			modify_time_until_attack((delta / 2.0 if predator_active else delta) * time_speedup)
 			if time_until_attack >= predator.warning_time * 0.9:
 				predator_begone()
 	elif predator == null:
@@ -258,11 +260,14 @@ func complete_dig():
 		burrow.set_burrow_state(burrow_state)
 	stop_digging()
 	finish_dig_sound.play()
-	
+	update_entrances()
+
+func update_entrances():
 	for entrance in entrances:
-		var unlocked = entrance.unlock_state <= burrow_state
-		entrance.visible = unlocked
-		entrance.process_mode = Node.PROCESS_MODE_INHERIT if unlocked else Node.PROCESS_MODE_DISABLED
+		if entrance.unlock_state <= burrow_state:
+			entrance.enable()
+		else:
+			entrance.disable()
 	for exit in exits:
 		var unlocked = exit.entrance.unlock_state <= burrow_state
 		exit.visible = unlocked
@@ -273,7 +278,13 @@ func modify_time_until_attack(amount: float):
 	var value = clamp(1.0 - (time_until_attack / predator.warning_time), 0.0, 2.0)
 	predator_warning.value = value
 	
-	value = pow(value, 2)
+	if predator.type == PredatorInfo.Type.Beast or (
+		predator.type == PredatorInfo.Type.Bird && bird_will_attack
+	):
+		value = pow(value, 2)
+	else:
+		value = 0.0
+	
 	var shader: ShaderMaterial = spooky_shader.material
 	shader.set_shader_parameter("noise_strength", lerp(0.1, 0.2, value))
 	shader.set_shader_parameter("dither_strength", lerp(0.1, 0.2, value))
@@ -284,13 +295,19 @@ func spawn_predator() -> void:
 		PredatorInfo.Type.Beast:
 			spawn_beast()
 		PredatorInfo.Type.Bird:
-			bird_silhouette.do_flyby()
+			if location != null:
+				bird_silhouette.do_flyby(location)
+			else:
+				predator_begone()
 		_: push_error("Predator type not implemented yet %s" % predator.type)
 	predator_active = true
 
 func spawn_beast():
-	beast.set_predator(predator)
-	beast.global_position = Util.random_position_in_area(beast_spawn)
+	if location != null:
+		beast.set_predator(predator)
+		beast.global_position = Util.random_position_in_area(location.beast_spawn)
+	else:
+		predator_begone()
 
 func rabbit_died(text: String):
 	call_deferred("pause")
@@ -310,8 +327,8 @@ func update_state() -> void:
 		burrow.set_rabbit_state(Burrow.State.Sitting)
 
 func enter_burrow(_from: Entrance) -> void:
-	if location == Location.BURROW: return
-	change_location(Location.BURROW)
+	if location == null: return
+	change_location(null)
 	rabbit.process_mode = Node.PROCESS_MODE_DISABLED
 	beast.process_mode = Node.PROCESS_MODE_DISABLED
 	
@@ -324,11 +341,12 @@ func enter_burrow(_from: Entrance) -> void:
 	AudioServer.set_bus_volume_db(outside_ambience, -15.0)
 	spook_ambience.volume_db = 0.0
 	beast_approach_sound.stop()
+	enter_sound.play()
 
 func exit_burrow(to: Entrance) -> void:
-	if location != Location.BURROW: return
-	rabbit.position = to.position
-	change_location(Location.EAST_FIELD)
+	if location != null: return
+	rabbit.global_position = to.global_position
+	change_location(to.get_parent())
 	rabbit.process_mode = Node.PROCESS_MODE_INHERIT
 	beast.process_mode = Node.PROCESS_MODE_INHERIT
 	time_until_predator = random_time_until_predator()
@@ -339,20 +357,24 @@ func exit_burrow(to: Entrance) -> void:
 	#forest_ambience.volume_db = -5.0
 	AudioServer.set_bus_volume_db(outside_ambience, -5.0)
 	spook_ambience.volume_db = -10.0
+	enter_sound.play()
 
-func change_location(new_location: Location) -> void:
+func change_location(new_location: Field) -> void:
 	location = new_location
 	if location_change_tween != null:
 		location_change_tween.kill()
 	location_change_tween = create_tween()
 	location_change_tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 	location_change_tween.tween_property(camera, "global_position", get_location_position(), 0.5)
+	
+	if new_location != null:
+		rain.position = new_location.position
 
 func get_location_position() -> Vector2:
-	match location:
-		Location.EAST_FIELD: return east_grass_position
-		Location.BURROW: return burrow_position
-		_: return Vector2(0, 0)
+	if location == null:
+		return burrow_position
+	else:
+		return location.global_position + get_viewport().size / 4.0
 
 func pass_time(minutes: float) -> void:
 	time_passed += minutes / MINUTES_PER_DAY

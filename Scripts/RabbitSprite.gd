@@ -29,7 +29,7 @@ func _process(delta: float):
 	foraging = clamp(foraging, 0.0, 1.0)
 	sprite.speed_scale = 2.0 - foraging
 	
-	var mouse_pos := get_viewport().get_mouse_position()
+	var mouse_pos := get_global_mouse_position() #get_viewport().get_mouse_position()
 	var disp := mouse_pos - global_position
 	var speed = CURSOR_SPEED * lerp(1.0, FORAGING_SLOWDOWN_FACTOR, foraging)
 	if standing and disp.length_squared() < MIN_RUN_DIST * MIN_RUN_DIST:
@@ -49,5 +49,7 @@ func _process(delta: float):
 		if !sprite.is_playing():
 			sprite.play()
 		standing = false
-	global_position = global_position.clamp(Vector2.ZERO, get_viewport().get_visible_rect().size)
+	
+	var camera_rect = get_canvas_transform().affine_inverse() * get_viewport_rect()
+	global_position = global_position.clamp(camera_rect.position, camera_rect.end)
 	

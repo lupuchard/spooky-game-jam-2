@@ -90,7 +90,7 @@ func sort_by_y(a: int, b: int) -> bool:
 
 func _process(delta: float):
 	var shader = material as ShaderMaterial
-	shader.set_shader_parameter("cursor_pos", rabbit.global_position)
+	shader.set_shader_parameter("cursor_pos", rabbit_position())
 	shader.set_shader_parameter("searching_factor", rabbit.foraging)
 	update_hovering()
 	
@@ -122,7 +122,7 @@ func update_hovering():
 		return set_hovering(Vector2i(-1, -1))
 	
 	var mouse_pos = get_viewport().get_mouse_position()
-	if mouse_pos.distance_squared_to(rabbit.global_position) < pow(EAT_RANGE, 2):
+	if mouse_pos.distance_squared_to(rabbit_position()) < pow(EAT_RANGE, 2):
 		var viewport_size = get_viewport_rect().size
 		set_hovering(Vector2i((mouse_pos / viewport_size * (Vector2(GRASSES) - Vector2.ONE)).round()))
 		
@@ -134,6 +134,9 @@ func update_hovering():
 		#hovering = now_hovering
 	else:
 		set_hovering(Vector2i(-1, -1))
+
+func rabbit_position() -> Vector2:
+	return rabbit.global_position - global_position
 
 func set_hovering(new_hovering: Vector2i):
 	if new_hovering == hovering:
@@ -212,7 +215,8 @@ func set_multimesh_grass_state(mesh: MultiMesh, i: int, custom_data: Color):
 
 func is_nograss(pos: Vector2):
 	for nograss_node in nograss:
-		if nograss_node.global_position.distance_squared_to(pos) < NOGRASS_RANGE * NOGRASS_RANGE:
+		var nograss_position = nograss_node.global_position - global_position
+		if nograss_position.distance_squared_to(pos) < NOGRASS_RANGE * NOGRASS_RANGE:
 			return true
 	return false
 
