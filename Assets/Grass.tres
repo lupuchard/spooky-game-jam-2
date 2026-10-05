@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" format=3 uid="uid://c2odhwnyioofi"]
 
-[ext_resource type="Shader" uid="uid://dr7t4gsw3c80b" path="res://Grass.gdshader" id="1_cphlf"]
+[ext_resource type="Shader" uid="uid://dr7t4gsw3c80b" path="res://Shaders/Grass.gdshader" id="1_cphlf"]
 
 [resource]
 shader = ExtResource("1_cphlf")

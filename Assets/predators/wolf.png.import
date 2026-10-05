@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bi5r81w0ju3ke"
-path="res://.godot/imported/grell_sheet.png-c955faeacee5352294c3b16683467076.ctex"
+uid="uid://bcl71ibp2wusa"
+path="res://.godot/imported/wolf.png-c95054305f84fb11bf770ed66b370985.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/predators/grell_sheet.png"
-dest_files=["res://.godot/imported/grell_sheet.png-c955faeacee5352294c3b16683467076.ctex"]
+source_file="res://Assets/predators/wolf.png"
+dest_files=["res://.godot/imported/wolf.png-c95054305f84fb11bf770ed66b370985.ctex"]
 
 [params]
 

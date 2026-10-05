@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://cd3g2i13rddge" path="res://Scripts/Game.gd" id="1_fpfj3"]
 [ext_resource type="Script" uid="uid://chxqx2xxsa8ve" path="res://Scripts/Grass.gd" id="1_glv2v"]
 [ext_resource type="MultiMesh" uid="uid://nki7ua3nefhp" path="res://GrassMultimesh.tres" id="2_3dxm6"]
-[ext_resource type="Shader" uid="uid://dr7t4gsw3c80b" path="res://Grass.gdshader" id="2_lgr22"]
+[ext_resource type="Shader" uid="uid://dr7t4gsw3c80b" path="res://Shaders/Grass.gdshader" id="2_lgr22"]
 [ext_resource type="Script" uid="uid://crcstgjsccvag" path="res://Scripts/RabbitSprite.gd" id="2_trn2v"]
 [ext_resource type="Texture2D" uid="uid://qg5l3qjxutwy" path="res://Assets/stone.png" id="3_gdb40"]
 [ext_resource type="PackedScene" uid="uid://mq1e4rbf1qja" path="res://Scenes/entrance.tscn" id="4_fpfj3"]
@@ -33,7 +33,6 @@
 [ext_resource type="Script" uid="uid://bcmmflylr88mk" path="res://Scripts/PredatorInfo.gd" id="17_5mvff"]
 [ext_resource type="AudioStream" uid="uid://bifgpb4s1n5lv" path="res://Assets/sound/footsteps/step4.mp3" id="17_rchyr"]
 [ext_resource type="AudioStream" uid="uid://bk46twyo324js" path="res://Assets/sound/chewing/chew2.mp3" id="18_bf5p3"]
-[ext_resource type="Texture2D" uid="uid://bi5r81w0ju3ke" path="res://Assets/predators/grell_sheet.png" id="18_oye8v"]
 [ext_resource type="AudioStream" uid="uid://dp5r2myl80snj" path="res://Assets/sound/footsteps/step5.mp3" id="18_pljue"]
 [ext_resource type="AudioStream" uid="uid://bgv3b0xfps6ej" path="res://Assets/sound/chewing/chew3.mp3" id="19_ady3b"]
 [ext_resource type="AudioStream" uid="uid://drxbxnaqx0krx" path="res://Assets/sound/footsteps/step6.mp3" id="19_nx4yo"]
@@ -48,7 +47,7 @@
 [ext_resource type="AudioStream" uid="uid://btiucg2k4y1qk" path="res://Assets/sound/footsteps/step9.mp3" id="22_khphd"]
 [ext_resource type="Script" uid="uid://8vg5e6c1lafq" path="res://Scripts/Field.gd" id="23_8h1yq"]
 [ext_resource type="AudioStream" uid="uid://c0am6jgw6qx2f" path="res://Assets/sound/footsteps/step10.mp3" id="23_g4yo4"]
-[ext_resource type="Shader" uid="uid://ov7i5ok613e3" path="res://spooky.gdshader" id="29_w3rk5"]
+[ext_resource type="Shader" uid="uid://ov7i5ok613e3" path="res://Shaders/spooky.gdshader" id="29_w3rk5"]
 [ext_resource type="FontFile" uid="uid://be670rmkfx2dq" path="res://Assets/m5x7.ttf" id="32_40n85"]
 [ext_resource type="Script" uid="uid://csu3g8dkhwffw" path="res://Scripts/DeathPopup.gd" id="32_gb15f"]
 [ext_resource type="AudioStream" uid="uid://bxy8hpmaayua0" path="res://Assets/sound/get_tinder.mp3" id="36_2gl7k"]
@@ -80,11 +79,12 @@
 [ext_resource type="Texture2D" uid="uid://dold6vyi0xy3y" path="res://Assets/ritual/stone2.png" id="50_dfq0k"]
 [ext_resource type="AudioStream" uid="uid://do2dyueyecofn" path="res://Assets/sound/get_paper.mp3" id="51_ady3b"]
 [ext_resource type="Texture2D" uid="uid://sdaaum4wtoak" path="res://Assets/ritual/stone2_glow.png" id="51_sef48"]
-[ext_resource type="Shader" uid="uid://d2eg1hunieg8t" path="res://rain.gdshader" id="52_a34eg"]
+[ext_resource type="Shader" uid="uid://d2eg1hunieg8t" path="res://Shaders/rain.gdshader" id="52_a34eg"]
 [ext_resource type="Texture2D" uid="uid://bv4w78mqc3fbe" path="res://Assets/ritual/stone5.png" id="52_nmx32"]
 [ext_resource type="Texture2D" uid="uid://cu7lvv06v0ym6" path="res://Assets/ritual/stone5_glow.png" id="53_d646h"]
-[ext_resource type="Script" uid="uid://cytgobtpvbtlo" path="res://Darkness.gd" id="53_im7ls"]
+[ext_resource type="Script" uid="uid://cytgobtpvbtlo" path="res://Scripts/Darkness.gd" id="53_im7ls"]
 [ext_resource type="AudioStream" uid="uid://c28v3i5qufia" path="res://Assets/sound/enter.mp3" id="57_fykug"]
+[ext_resource type="Shader" uid="uid://davahubax1sl2" path="res://Shaders/distortion.gdshader" id="60_6ievk"]
 [ext_resource type="Texture2D" uid="uid://cr0gd51veb4bl" path="res://Assets/dens/burrow5.png" id="63_d646h"]
 [ext_resource type="PackedScene" uid="uid://bd7wtag3hstet" path="res://Scenes/ritual_requirement.tscn" id="65_d646h"]
 [ext_resource type="PackedScene" uid="uid://b8aiwy1w2tkj3" path="res://Scenes/ritual_pile.tscn" id="65_dfq0k"]
@@ -94,7 +94,15 @@
 [ext_resource type="AudioStream" uid="uid://bu4c0sw7pggd" path="res://Assets/sound/fire.mp3" id="72_bf5p3"]
 [ext_resource type="Texture2D" uid="uid://nw8p171ietp6" path="res://Assets/dens/entrance.png" id="78_m6lip"]
 [ext_resource type="AudioStream" uid="uid://7txen3gpjeos" path="res://Assets/sound/explosion.mp3" id="79_m6lip"]
+[ext_resource type="Texture2D" uid="uid://c22jl3dbrm6to" path="res://Assets/predators/creature.png" id="88_8dw04"]
+[ext_resource type="Texture2D" uid="uid://dlv0ogrh5m2xb" path="res://Assets/predators/beast3.png" id="89_tjmm3"]
+[ext_resource type="Texture2D" uid="uid://bcl71ibp2wusa" path="res://Assets/predators/wolf.png" id="90_deygs"]
+[ext_resource type="Texture2D" uid="uid://di2ekr2d7xmmr" path="res://Assets/predators/aazaa.png" id="91_6ievk"]
 [ext_resource type="Script" uid="uid://cw1c38k82atf7" path="res://Scripts/NotificationText.gd" id="92_uy73y"]
+[ext_resource type="AudioStream" uid="uid://dk5qriascnoa1" path="res://Assets/sound/jumpscare1.mp3" id="98_5cpvc"]
+[ext_resource type="Script" uid="uid://whutoifqosdr" path="res://Scripts/Jumpscare.gd" id="98_cxcit"]
+[ext_resource type="AudioStream" uid="uid://b17jk2f2ious7" path="res://Assets/sound/jumpscare2.mp3" id="99_cxcit"]
+[ext_resource type="Texture2D" uid="uid://cs0o2vfqm5ij" path="res://Assets/jumpscare1.jpg" id="100_6ievk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c2ibq"]
 atlas = ExtResource("5_c6i3y")
@@ -319,6 +327,12 @@ size = Vector2(13.5, 289)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wfpdq"]
 radius = 29.017237
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_06wwg"]
+shader = ExtResource("60_6ievk")
+shader_parameter/chaos = 24.00000114
+shader_parameter/radius = 1.0
+shader_parameter/attenuation = 1.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_im7ls"]
 shader = ExtResource("52_a34eg")
@@ -1088,15 +1102,22 @@ shape = SubResource("RectangleShape2D_06wwg")
 
 [node name="Beast" type="Area2D" parent="Root" unique_id=1105973653 node_paths=PackedStringArray("target")]
 unique_name_in_owner = true
-position = Vector2(434, -53)
+position = Vector2(333, -214)
 script = ExtResource("12_oye8v")
 target = NodePath("../RabbitSprite")
 
 [node name="Sprite" type="Sprite2D" parent="Root/Beast" unique_id=884765820]
-texture = ExtResource("18_oye8v")
+texture = ExtResource("88_8dw04")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Root/Beast" unique_id=173558587]
 shape = SubResource("CircleShape2D_wfpdq")
+
+[node name="ColorRect" type="ColorRect" parent="Root/Beast" unique_id=556408849]
+material = SubResource("ShaderMaterial_06wwg")
+offset_left = -80.0
+offset_top = -80.0
+offset_right = 80.0
+offset_bottom = 80.0
 
 [node name="RainShader" type="ColorRect" parent="Root" unique_id=323936370]
 unique_name_in_owner = true
@@ -1497,22 +1518,44 @@ stream = ExtResource("57_fykug")
 [node name="Predators" type="Node" parent="Root" unique_id=1073571381]
 unique_name_in_owner = true
 
-[node name="TestPredator" type="Node" parent="Root/Predators" unique_id=885880264]
+[node name="Beast1" type="Node" parent="Root/Predators" unique_id=885880264]
 script = ExtResource("17_5mvff")
-spawn_weight = 0.1
+max_day = 2.0
 warning_time = 3.0
-sprite = ExtResource("18_oye8v")
+damage = 0.4
+sprite = ExtResource("88_8dw04")
 entry_text = "Beast approaching!"
 exit_text = "Beast wandering off..."
 
-[node name="TestBird" type="Node" parent="Root/Predators" unique_id=269551880]
+[node name="Beast2" type="Node" parent="Root/Predators" unique_id=1346263473]
+script = ExtResource("17_5mvff")
+min_day = 1.0
+warning_time = 2.5
+movement_speed = 350.0
+damage = 0.8
+sprite = ExtResource("89_tjmm3")
+entry_text = "Hellrowf approaching!"
+exit_text = "Hellrowf wandering off..."
+
+[node name="Bird1" type="Node" parent="Root/Predators" unique_id=269551880]
 script = ExtResource("17_5mvff")
 type = 1
+min_day = 0.5
+max_day = 2.5
 warning_time = 1.5
 movement_speed = 1000.0
-sprite = ExtResource("18_oye8v")
+sprite = ExtResource("90_deygs")
 entry_text = "Bird approaching!"
 exit_text = "Bird flying away..."
+
+[node name="Bird2" type="Node" parent="Root/Predators" unique_id=1735429299]
+script = ExtResource("17_5mvff")
+type = 1
+min_day = 1.5
+movement_speed = 1000.0
+sprite = ExtResource("91_6ievk")
+entry_text = "Skinglider approaching!"
+exit_text = "Skinglider flying away..."
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=653516847]
 
@@ -1648,17 +1691,6 @@ grow_vertical = 0
 text = "Howdy doodly neighbor."
 script = ExtResource("92_uy73y")
 
-[node name="SpookyShader" type="ColorRect" parent="CanvasLayer" unique_id=917325579]
-unique_name_in_owner = true
-visible = false
-material = SubResource("ShaderMaterial_jnsvb")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
 [node name="DeathPopup" type="PanelContainer" parent="CanvasLayer" unique_id=1500776163]
 unique_name_in_owner = true
 anchors_preset = 8
@@ -1666,10 +1698,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -98.0
+offset_top = -21.0
+offset_right = 98.0
+offset_bottom = 21.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("32_gb15f")
@@ -1698,8 +1730,31 @@ layout_mode = 2
 size_flags_horizontal = 4
 text = "Restart"
 
-[node name="DebugValues" type="VBoxContainer" parent="CanvasLayer" unique_id=588097943]
+[node name="Jumpscare" type="Sprite2D" parent="CanvasLayer" unique_id=1288511662]
+unique_name_in_owner = true
+position = Vector2(288, 179)
+texture = ExtResource("100_6ievk")
+script = ExtResource("98_cxcit")
+
+[node name="JumpscareSound1" type="AudioStreamPlayer" parent="CanvasLayer/Jumpscare" unique_id=953645863]
+stream = ExtResource("98_5cpvc")
+
+[node name="JumpscareSound2" type="AudioStreamPlayer" parent="CanvasLayer/Jumpscare" unique_id=706449701]
+stream = ExtResource("99_cxcit")
+volume_db = -5.0
+
+[node name="SpookyShader" type="ColorRect" parent="CanvasLayer" unique_id=917325579]
+unique_name_in_owner = true
 visible = false
+material = SubResource("ShaderMaterial_jnsvb")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="DebugValues" type="VBoxContainer" parent="CanvasLayer" unique_id=588097943]
 offset_right = 40.0
 offset_bottom = 40.0
 

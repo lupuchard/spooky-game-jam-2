@@ -19,6 +19,7 @@ func set_predator(new_predator: PredatorInfo):
 func _process(delta: float):
 	if predator == null: return
 	global_position = global_position.move_toward(target.global_position, delta * predator.movement_speed)
+	sprite.flip_h = global_position.x < target.global_position.x
 
 func remove():
 	hide()
