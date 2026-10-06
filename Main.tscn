@@ -98,11 +98,16 @@
 [ext_resource type="Texture2D" uid="uid://dlv0ogrh5m2xb" path="res://Assets/predators/beast3.png" id="89_tjmm3"]
 [ext_resource type="Texture2D" uid="uid://bcl71ibp2wusa" path="res://Assets/predators/wolf.png" id="90_deygs"]
 [ext_resource type="Texture2D" uid="uid://di2ekr2d7xmmr" path="res://Assets/predators/aazaa.png" id="91_6ievk"]
+[ext_resource type="Texture2D" uid="uid://ccofkr12lrisn" path="res://Assets/bnuy2.jpg" id="92_llcqu"]
 [ext_resource type="Script" uid="uid://cw1c38k82atf7" path="res://Scripts/NotificationText.gd" id="92_uy73y"]
+[ext_resource type="Script" uid="uid://jawqi20it2cq" path="res://Scripts/MainMenu.gd" id="93_hln0y"]
+[ext_resource type="FontFile" uid="uid://ptky6wx6nuqa" path="res://Assets/fonts/Underdog-Regular.ttf" id="94_6nglk"]
 [ext_resource type="AudioStream" uid="uid://dk5qriascnoa1" path="res://Assets/sound/jumpscare1.mp3" id="98_5cpvc"]
+[ext_resource type="Script" uid="uid://cicqqotfc1yc1" path="res://Scripts/SurvivePopup.gd" id="98_b1va2"]
 [ext_resource type="Script" uid="uid://whutoifqosdr" path="res://Scripts/Jumpscare.gd" id="98_cxcit"]
 [ext_resource type="AudioStream" uid="uid://b17jk2f2ious7" path="res://Assets/sound/jumpscare2.mp3" id="99_cxcit"]
 [ext_resource type="Texture2D" uid="uid://cs0o2vfqm5ij" path="res://Assets/jumpscare1.jpg" id="100_6ievk"]
+[ext_resource type="Texture2D" uid="uid://bpvjxq5g6722t" path="res://Assets/jumpscare2.jpeg" id="101_8gn08"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c2ibq"]
 atlas = ExtResource("5_c6i3y")
@@ -1544,6 +1549,7 @@ min_day = 0.5
 max_day = 2.5
 warning_time = 1.5
 movement_speed = 1000.0
+damage = 0.4
 sprite = ExtResource("90_deygs")
 entry_text = "Bird approaching!"
 exit_text = "Bird flying away..."
@@ -1553,11 +1559,64 @@ script = ExtResource("17_5mvff")
 type = 1
 min_day = 1.5
 movement_speed = 1000.0
+damage = 0.6
 sprite = ExtResource("91_6ievk")
 entry_text = "Skinglider approaching!"
 exit_text = "Skinglider flying away..."
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=653516847]
+
+[node name="MainMenu" type="Control" parent="CanvasLayer" unique_id=550634618]
+unique_name_in_owner = true
+z_index = 1
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("93_hln0y")
+
+[node name="BackgroundImage" type="TextureRect" parent="CanvasLayer/MainMenu" unique_id=1064717644]
+layout_mode = 1
+offset_right = 288.0
+offset_bottom = 192.0
+scale = Vector2(2, 2)
+texture = ExtResource("92_llcqu")
+stretch_mode = 3
+
+[node name="Title" type="Label" parent="CanvasLayer/MainMenu" unique_id=1207705719]
+layout_mode = 0
+offset_left = 55.0
+offset_top = 20.0
+offset_right = 350.0
+offset_bottom = 58.0
+theme_override_colors/font_color = Color(0, 0.21960784, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.56078434)
+theme_override_colors/font_outline_color = Color(0, 1, 0.6333332, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("94_6nglk")
+theme_override_font_sizes/font_size = 48
+text = "MIDNIGHT MEADOW"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MainMenu" unique_id=1891703986]
+layout_mode = 0
+offset_left = 143.0
+offset_top = 145.0
+offset_right = 201.0
+offset_bottom = 203.0
+
+[node name="PlayButton" type="Button" parent="CanvasLayer/MainMenu/VBoxContainer" unique_id=1516101938]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("94_6nglk")
+text = "Play"
+
+[node name="CreditsButton" type="Button" parent="CanvasLayer/MainMenu/VBoxContainer" unique_id=1659712536]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("94_6nglk")
+text = "Credits"
 
 [node name="StatusBarsContainer" type="PanelContainer" parent="CanvasLayer" unique_id=1822712595]
 unique_name_in_owner = true
@@ -1693,6 +1752,7 @@ script = ExtResource("92_uy73y")
 
 [node name="DeathPopup" type="PanelContainer" parent="CanvasLayer" unique_id=1500776163]
 unique_name_in_owner = true
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -1721,6 +1781,7 @@ unique_name_in_owner = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("20_hhcpw")
 text = "You have died of gastrointestinal stasis."
+horizontal_alignment = 1
 
 [node name="RestartButton" type="Button" parent="CanvasLayer/DeathPopup/MarginContainer/VBoxContainer" unique_id=1474536073]
 unique_name_in_owner = true
@@ -1730,18 +1791,70 @@ layout_mode = 2
 size_flags_horizontal = 4
 text = "Restart"
 
-[node name="Jumpscare" type="Sprite2D" parent="CanvasLayer" unique_id=1288511662]
+[node name="SurvivePopup" type="PanelContainer" parent="CanvasLayer" unique_id=281926768]
 unique_name_in_owner = true
-position = Vector2(288, 179)
-texture = ExtResource("100_6ievk")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -89.0
+offset_top = -29.5
+offset_right = 89.0
+offset_bottom = 29.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("98_b1va2")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/SurvivePopup" unique_id=1551413543]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/SurvivePopup/MarginContainer" unique_id=272609844]
+layout_mode = 2
+
+[node name="SurviveText" type="Label" parent="CanvasLayer/SurvivePopup/MarginContainer/VBoxContainer" unique_id=1403503646]
+unique_name_in_owner = true
+custom_maximum_size = Vector2(170, -1)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("20_hhcpw")
+text = "You managed to fight it off, but were injured (-X health)."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="ContinueButton" type="Button" parent="CanvasLayer/SurvivePopup/MarginContainer/VBoxContainer" unique_id=770016294]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 0)
+custom_maximum_size = Vector2(-1, 16)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Continue"
+
+[node name="Jumpscare" type="Node2D" parent="CanvasLayer" unique_id=1745009908]
+unique_name_in_owner = true
+position = Vector2(283, 161)
 script = ExtResource("98_cxcit")
+
+[node name="Jumpscare1" type="Sprite2D" parent="CanvasLayer/Jumpscare" unique_id=1288511662]
+visible = false
+position = Vector2(5, 18)
+texture = ExtResource("100_6ievk")
+
+[node name="Jumpscare2" type="Sprite2D" parent="CanvasLayer/Jumpscare" unique_id=828101985]
+visible = false
+position = Vector2(31, 6.000001)
+scale = Vector2(2.75, 2.75)
+texture = ExtResource("101_8gn08")
 
 [node name="JumpscareSound1" type="AudioStreamPlayer" parent="CanvasLayer/Jumpscare" unique_id=953645863]
 stream = ExtResource("98_5cpvc")
+volume_db = -3.0
 
 [node name="JumpscareSound2" type="AudioStreamPlayer" parent="CanvasLayer/Jumpscare" unique_id=706449701]
 stream = ExtResource("99_cxcit")
-volume_db = -5.0
 
 [node name="SpookyShader" type="ColorRect" parent="CanvasLayer" unique_id=917325579]
 unique_name_in_owner = true

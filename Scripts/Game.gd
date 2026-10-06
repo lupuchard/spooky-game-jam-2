@@ -18,7 +18,9 @@ const FATIGUE_WARNING_THRESH = 0.8
 @onready var underburrow_position: Vector2i = (get_viewport().size / 4) * Vector2i(-1, 3)
 @onready var camera := get_viewport().get_camera_2d()
 @onready var spooky_shader := %SpookyShader
+@onready var main_menu := %MainMenu
 @onready var death_popup := %DeathPopup
+@onready var survive_popup := %SurvivePopup
 @onready var darkness := %Darkness
 @onready var jumpscare := %Jumpscare
 @onready var gameplay_root := $Root
@@ -44,6 +46,7 @@ const FATIGUE_WARNING_THRESH = 0.8
 @onready var burrow: Burrow = %Burrow
 @onready var entrances: Array[Entrance] = []
 @onready var exits: Array[Exit] = []
+@onready var fields: Array[Field] = []
 @onready var ritual_info := %RitualInfo
 @onready var hand_center := %HandCenter
 @onready var warning_panel := %WarningPanel
@@ -77,6 +80,7 @@ var digging := false
 var sleeping := false
 var doing_ritual := false
 var dead := false
+var paused := false
 
 var tutorial_state := 0
 var time_passed  := 0.0
@@ -92,7 +96,6 @@ var ritual_items_acquired: Array[Forage] = []
 var starting_save_state: Dictionary
 
 func _ready() -> void:
-	change_location(field1)
 	#camera.global_position = east_grass_position
 	
 	entrances.assign(get_tree().get_nodes_in_group("entrance"))
@@ -115,8 +118,10 @@ func _ready() -> void:
 	
 	predators.assign(get_tree().get_nodes_in_group("predator_info"))
 	
-	for field in get_tree().get_nodes_in_group("field"):
+	fields.assign(get_tree().get_nodes_in_group("field"))
+	for field in fields:
 		field.grass.ate.connect(on_ate)
+	change_location(field1)
 	
 	dig_button.button_down.connect(start_digging)
 	dig_button.button_up.connect(stop_digging)
@@ -130,6 +135,7 @@ func _ready() -> void:
 	predator_warning.hide()
 	beast.gottem.connect(beast_gottem)
 	death_popup.restart_pressed.connect(restart)
+	survive_popup.continue_pressed.connect(resume)
 	
 	digging_sound1.finished.connect(func():
 		if digging:
@@ -148,17 +154,31 @@ func _ready() -> void:
 			spawn_beast()
 		else:
 			predator_begone()
-			time_until_predator = random_time_until_predator()
 	)
 	
 	burrow.set_burrow_state(burrow_state)
 	
 	starting_save_state = get_save_state()
 	notification_text.show_text("Left click to eat grass.", 100.0)
+	
+	pause()
+	main_menu.play_pressed.connect(func(): 
+		main_menu.hide()
+		resume()
+	)
 
 func beast_gottem():
-	jumpscare.scare()
-	rabbit_died("You have been killed.")
+	if (1.0 - unhealth) > predator.damage + 0.05:
+		jumpscare.survive_scare()
+		unhealth += predator.damage
+		health_bar.value = 1.0 - unhealth
+		var text = "You managed to fight it off, but was injured (lost %s health)."
+		survive_popup.show_survive(text % int(predator.damage * 100))
+		predator_begone()
+		call_deferred("pause")
+	else:
+		jumpscare.death_scare()
+		rabbit_died("You have been killed.")
 
 func start_digging():
 	digging = true
@@ -207,7 +227,7 @@ func on_exit_forage(forage: Forage) -> void:
 	forage.set_glow(false)
 
 func _process(delta: float) -> void:
-	if dead or game_win:
+	if dead or game_win or paused:
 		return
 	
 	if (digging || doing_ritual) && fatigue > FATIGUE_WARNING_THRESH:
@@ -305,6 +325,8 @@ func predator_begone():
 	predator = null
 	beast.remove()
 	predator_warning.hide()
+	time_until_predator = random_time_until_predator()
+	beast_approach_sound.stop()
 
 func complete_dig():
 	dig_progress = 0
@@ -387,9 +409,11 @@ func rabbit_died(text: String):
 
 func pause():
 	gameplay_root.process_mode = Node.PROCESS_MODE_DISABLED
+	paused = true
 
 func resume():
 	gameplay_root.process_mode = Node.PROCESS_MODE_INHERIT
+	paused = false
 
 func update_state() -> void:
 	if digging:
@@ -401,6 +425,7 @@ func update_state() -> void:
 
 func enter_burrow(_from: Entrance) -> void:
 	if location == null: return
+	
 	rabbit.hide()
 	change_location(null)
 	rabbit.process_mode = Node.PROCESS_MODE_DISABLED
@@ -426,6 +451,7 @@ func enter_burrow(_from: Entrance) -> void:
 
 func exit_burrow(to: Entrance) -> void:
 	if location != null: return
+	
 	rabbit.global_position = to.global_position
 	rabbit.show()
 	change_location(to.get_parent())
@@ -450,6 +476,9 @@ func change_location(new_location: Field) -> void:
 	tween_camera(get_location_position())
 	if new_location != null:
 		rain.position = new_location.position
+		for field in fields:
+			if field != new_location:
+				field.hide()
 
 func tween_camera(destination: Vector2):
 	if location_change_tween != null:
@@ -495,6 +524,9 @@ func on_ate() -> void:
 		notification_text.show_text("Hold right click to search for forage.", 100.0)
 
 func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("pause"):
+		pause()
+		main_menu.show()
 	if event.is_action_pressed("click") and rabbit_over_forage.size() > 0:
 		var current_forage: Forage = rabbit_over_forage.back()
 		on_exit_forage(current_forage)
@@ -586,5 +618,6 @@ func restart():
 	change_location(field1)
 	rabbit.position = Vector2(300, 150)
 	call_deferred("resume")
-	time_until_predator = 100.0
+	time_until_predator = random_time_until_predator()
 	tutorial_state = 5
+	notification_text.hide_text()
