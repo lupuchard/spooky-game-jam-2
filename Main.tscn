@@ -94,12 +94,16 @@
 [ext_resource type="AudioStream" uid="uid://bu4c0sw7pggd" path="res://Assets/sound/fire.mp3" id="72_bf5p3"]
 [ext_resource type="Texture2D" uid="uid://nw8p171ietp6" path="res://Assets/dens/entrance.png" id="78_m6lip"]
 [ext_resource type="AudioStream" uid="uid://7txen3gpjeos" path="res://Assets/sound/explosion.mp3" id="79_m6lip"]
+[ext_resource type="AudioStream" uid="uid://b4n6cs2orhysp" path="res://Assets/sound/weasel_approach.mp3" id="85_cptku"]
 [ext_resource type="Texture2D" uid="uid://c22jl3dbrm6to" path="res://Assets/predators/creature.png" id="88_8dw04"]
+[ext_resource type="Texture2D" uid="uid://b3l06obwleeg6" path="res://Assets/predators/stoat0.png" id="89_6nglk"]
 [ext_resource type="Texture2D" uid="uid://dlv0ogrh5m2xb" path="res://Assets/predators/beast3.png" id="89_tjmm3"]
 [ext_resource type="Texture2D" uid="uid://bcl71ibp2wusa" path="res://Assets/predators/wolf.png" id="90_deygs"]
+[ext_resource type="Texture2D" uid="uid://d1xag62lalwdl" path="res://Assets/predators/creature2.png" id="90_xbxht"]
 [ext_resource type="Texture2D" uid="uid://di2ekr2d7xmmr" path="res://Assets/predators/aazaa.png" id="91_6ievk"]
 [ext_resource type="Texture2D" uid="uid://ccofkr12lrisn" path="res://Assets/bnuy2.jpg" id="92_llcqu"]
 [ext_resource type="Script" uid="uid://cw1c38k82atf7" path="res://Scripts/NotificationText.gd" id="92_uy73y"]
+[ext_resource type="Texture2D" uid="uid://d37ib0i50b6lw" path="res://Assets/predators/stoat2.png" id="93_dsf7v"]
 [ext_resource type="Script" uid="uid://jawqi20it2cq" path="res://Scripts/MainMenu.gd" id="93_hln0y"]
 [ext_resource type="FontFile" uid="uid://ptky6wx6nuqa" path="res://Assets/fonts/Underdog-Regular.ttf" id="94_6nglk"]
 [ext_resource type="AudioStream" uid="uid://dk5qriascnoa1" path="res://Assets/sound/jumpscare1.mp3" id="98_5cpvc"]
@@ -347,6 +351,30 @@ shader_parameter/speed = 40.0000007125
 shader_parameter/blur = 0.002
 shader_parameter/colour = Color(1, 1, 1, 1)
 shader_parameter/size = Vector2(0.01, 0.3)
+
+[sub_resource type="Curve2D" id="Curve2D_6nglk"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 252.92444, -450.30792, 107.37437, -4.568672, -107.37437, 4.568672, 0, -450.30792, 73.44223, -46.018337, -73.44223, 46.018337, -267.4233, -355.82367, 0, 0, 0, 0, -470.40726, -192.9891)
+}
+point_count = 4
+
+[sub_resource type="Curve2D" id="Curve2D_hln0y"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 156, 225, 27.438301, -0.30584875, -27.438301, 0.30584875, 49, 227, 44.883877, 41.19903, -44.883877, -41.19903, -180, 177, 0, 0, 0, 0, -311, 137)
+}
+point_count = 4
+
+[sub_resource type="Curve2D" id="Curve2D_dsf7v"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -98.27001, -814.1728, 4.209015, -140.97903, -4.209015, 140.97903, -96.65902, -574.9467, 73.44223, -46.018337, -73.44223, 46.018337, -267.4233, -355.82367, 0, 0, 0, 0, -470.40726, -192.9891)
+}
+point_count = 4
+
+[sub_resource type="Curve2D" id="Curve2D_xbxht"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -765.2173, -818.1934, -18.337051, -143.7925, 18.337051, 143.7925, -765.2173, -568.91583, -20.499714, -27.261913, 20.499714, 27.261913, -670.16925, -349.79276, 0, 0, 0, 0, -501.01593, -174.89636)
+}
+point_count = 4
 
 [sub_resource type="Gradient" id="Gradient_8dw04"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
@@ -1107,6 +1135,7 @@ shape = SubResource("RectangleShape2D_06wwg")
 
 [node name="Beast" type="Area2D" parent="Root" unique_id=1105973653 node_paths=PackedStringArray("target")]
 unique_name_in_owner = true
+z_index = 1
 position = Vector2(333, -214)
 script = ExtResource("12_oye8v")
 target = NodePath("../RabbitSprite")
@@ -1159,34 +1188,59 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("12_c6i3y")
 script = ExtResource("14_bg4s2")
 
-[node name="Sprite2D" type="Sprite2D" parent="Root/Burrow" unique_id=1734577743]
-position = Vector2(448.3307, -135.91455)
+[node name="Exits" type="Node2D" parent="Root/Burrow" unique_id=778092297]
+position = Vector2(1024, -1024)
+
+[node name="Exit1" parent="Root/Burrow/Exits" unique_id=444094360 node_paths=PackedStringArray("entrance") instance=ExtResource("38_im7ls")]
+position = Vector2(-40, 110)
+entrance = NodePath("../../../Field1/Entrance1")
+
+[node name="Path" type="Path2D" parent="Root/Burrow/Exits/Exit1" unique_id=1028873151]
+position = Vector2(0, 226)
+scale = Vector2(0.62073874, 0.49743736)
+curve = SubResource("Curve2D_6nglk")
+
+[node name="Exit2" parent="Root/Burrow/Exits" unique_id=888569608 node_paths=PackedStringArray("entrance") instance=ExtResource("38_im7ls")]
+position = Vector2(-40, 562)
+entrance = NodePath("../../../Field1/Entrance2")
+
+[node name="Path" type="Path2D" parent="Root/Burrow/Exits/Exit2" unique_id=587732408]
+position = Vector2(0, -226)
+curve = SubResource("Curve2D_hln0y")
+
+[node name="Exit3" parent="Root/Burrow/Exits" unique_id=1202126450 node_paths=PackedStringArray("entrance") instance=ExtResource("38_im7ls")]
+position = Vector2(-160, 42)
 rotation = -1.5707964
-scale = Vector2(4.6702213, 1153.722)
-texture = SubResource("GradientTexture1D_jnsvb")
+entrance = NodePath("../../../Field2/Entrance3")
 
-[node name="Exit1" parent="Root/Burrow" unique_id=444094360 node_paths=PackedStringArray("entrance") instance=ExtResource("38_im7ls")]
-position = Vector2(984, -914)
-entrance = NodePath("../../Field1/Entrance1")
+[node name="Path" type="Path2D" parent="Root/Burrow/Exits/Exit3" unique_id=349945779]
+position = Vector2(-260, 59.99999)
+rotation = 1.5707964
+scale = Vector2(0.62073874, 0.49743736)
+curve = SubResource("Curve2D_dsf7v")
 
-[node name="Exit2" parent="Root/Burrow" unique_id=888569608 node_paths=PackedStringArray("entrance") instance=ExtResource("38_im7ls")]
-position = Vector2(984, -462)
-entrance = NodePath("../../Field1/Entrance2")
-
-[node name="Exit3" parent="Root/Burrow" unique_id=1202126450 node_paths=PackedStringArray("entrance") instance=ExtResource("38_im7ls")]
-position = Vector2(864, -982)
+[node name="Exit4" parent="Root/Burrow/Exits" unique_id=1124086341 node_paths=PackedStringArray("entrance") instance=ExtResource("38_im7ls")]
+position = Vector2(-990, 40)
 rotation = -1.5707964
-entrance = NodePath("../../Field2/Entrance3")
+entrance = NodePath("../../../Field2/Entrance4")
 
-[node name="Exit4" parent="Root/Burrow" unique_id=1124086341 node_paths=PackedStringArray("entrance") instance=ExtResource("38_im7ls")]
-position = Vector2(34, -984)
-rotation = -1.5707964
-entrance = NodePath("../../Field2/Entrance4")
+[node name="Path" type="Path2D" parent="Root/Burrow/Exits/Exit4" unique_id=1536650634]
+position = Vector2(-261.00003, 475)
+rotation = 1.5707964
+scale = Vector2(0.62073874, 0.49743736)
+curve = SubResource("Curve2D_xbxht")
 
-[node name="Exit5" parent="Root/Burrow" unique_id=654024672 instance=ExtResource("38_im7ls")]
+[node name="Exit5" parent="Root/Burrow/Exits" unique_id=654024672 instance=ExtResource("38_im7ls")]
 unique_name_in_owner = true
-position = Vector2(418, -424)
-rotation = -4.712389
+position = Vector2(-606, 600)
+rotation = 1.5707964
+
+[node name="Depths" type="Sprite2D" parent="Root/Burrow" unique_id=1734577743]
+z_index = 1
+position = Vector2(448.3307, -142.67636)
+rotation = -1.5707964
+scale = Vector2(4.617395, 1153.722)
+texture = SubResource("GradientTexture1D_jnsvb")
 
 [node name="BurrowBackground" type="Sprite2D" parent="Root/Burrow" unique_id=320721356]
 unique_name_in_owner = true
@@ -1380,6 +1434,7 @@ stream = ExtResource("72_bf5p3")
 pitch_scale = 1.2
 
 [node name="UnderburrowText" type="Label" parent="Root/Burrow" unique_id=1848917480]
+custom_maximum_size = Vector2(190, -1)
 offset_left = 568.0
 offset_top = -354.0
 offset_right = 758.0
@@ -1507,6 +1562,10 @@ autoplay = true
 unique_name_in_owner = true
 stream = ExtResource("47_g4yo4")
 
+[node name="WeaselApproachSound" type="AudioStreamPlayer" parent="Root" unique_id=175286679]
+unique_name_in_owner = true
+stream = ExtResource("85_cptku")
+
 [node name="FinishDigSound" type="AudioStreamPlayer" parent="Root" unique_id=10791195]
 unique_name_in_owner = true
 stream = ExtResource("48_a34eg")
@@ -1525,7 +1584,7 @@ unique_name_in_owner = true
 
 [node name="Beast1" type="Node" parent="Root/Predators" unique_id=885880264]
 script = ExtResource("17_5mvff")
-max_day = 2.0
+max_day = 3.0
 warning_time = 3.0
 damage = 0.4
 sprite = ExtResource("88_8dw04")
@@ -1534,11 +1593,22 @@ exit_text = "Beast wandering off..."
 
 [node name="Beast2" type="Node" parent="Root/Predators" unique_id=1346263473]
 script = ExtResource("17_5mvff")
-min_day = 1.0
+min_day = 1.5
+max_day = 5.0
 warning_time = 2.5
 movement_speed = 350.0
-damage = 0.8
+damage = 0.6
 sprite = ExtResource("89_tjmm3")
+entry_text = "Hellrowf approaching!"
+exit_text = "Hellrowf wandering off..."
+
+[node name="Beast3" type="Node" parent="Root/Predators" unique_id=546677819]
+script = ExtResource("17_5mvff")
+min_day = 4.5
+warning_time = 2.0
+movement_speed = 400.0
+damage = 0.6
+sprite = ExtResource("90_xbxht")
 entry_text = "Hellrowf approaching!"
 exit_text = "Hellrowf wandering off..."
 
@@ -1546,7 +1616,7 @@ exit_text = "Hellrowf wandering off..."
 script = ExtResource("17_5mvff")
 type = 1
 min_day = 0.5
-max_day = 2.5
+max_day = 3.5
 warning_time = 1.5
 movement_speed = 1000.0
 damage = 0.4
@@ -1557,17 +1627,41 @@ exit_text = "Bird flying away..."
 [node name="Bird2" type="Node" parent="Root/Predators" unique_id=1735429299]
 script = ExtResource("17_5mvff")
 type = 1
-min_day = 1.5
+min_day = 2.0
 movement_speed = 1000.0
 damage = 0.6
 sprite = ExtResource("91_6ievk")
 entry_text = "Skinglider approaching!"
 exit_text = "Skinglider flying away..."
 
+[node name="Weasel1" type="Node" parent="Root/Predators" unique_id=1667528776]
+script = ExtResource("17_5mvff")
+type = 2
+min_day = 1.0
+max_day = 4.0
+warning_time = 3.0
+damage = 0.4
+sprite = ExtResource("89_6nglk")
+entry_text = "Weasel approaching!"
+exit_text = "Weasel wandering off..."
+
+[node name="Weasel2" type="Node" parent="Root/Predators" unique_id=547294030]
+script = ExtResource("17_5mvff")
+type = 2
+min_day = 2.5
+max_day = 2.0
+warning_time = 2.5
+movement_speed = 350.0
+damage = 0.6
+sprite = ExtResource("93_dsf7v")
+entry_text = "Lendri approaching!"
+exit_text = "Lendri wandering off..."
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=653516847]
 
 [node name="MainMenu" type="Control" parent="CanvasLayer" unique_id=550634618]
 unique_name_in_owner = true
+visible = false
 z_index = 1
 layout_mode = 3
 anchors_preset = 0

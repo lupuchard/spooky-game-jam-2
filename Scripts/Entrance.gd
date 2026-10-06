@@ -12,6 +12,9 @@ var enabled := false
 @onready var arrow: Sprite2D = $Arrow
 @onready var rock: Sprite2D = $Rock
 
+var exit: Node2D
+var dangerous := false
+
 func _enter_tree():
 	add_to_group("entrance")
 
@@ -39,7 +42,7 @@ func disable():
 	enabled = false
 
 func on_entered(area: Area2D):
-	if enabled && area == rabbit:
+	if enabled && area == rabbit && !dangerous:
 		arrow.show()
 		rabbit_here = true
 
@@ -54,3 +57,7 @@ func _input(event: InputEvent):
 		and event.button_index == MOUSE_BUTTON_LEFT and event.pressed
 	):
 		entered.emit()
+
+func set_dangerous(new_dangerous: bool):
+	dangerous = new_dangerous
+	arrow.modulate = Color.DARK_RED if dangerous else Color.WHITE

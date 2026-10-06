@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cl144l1lvm21c"
-path="res://.godot/imported/bird.jpg-ff7eb7c8ee7b5dde3cbbdc7184372617.ctex"
+uid="uid://b3l06obwleeg6"
+path="res://.godot/imported/stoat0.png-6dd85e0187b8863c390cfbc009e134d6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/predators/bird.jpg"
-dest_files=["res://.godot/imported/bird.jpg-ff7eb7c8ee7b5dde3cbbdc7184372617.ctex"]
+source_file="res://Assets/predators/stoat0.png"
+dest_files=["res://.godot/imported/stoat0.png-6dd85e0187b8863c390cfbc009e134d6.ctex"]
 
 [params]
 

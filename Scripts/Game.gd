@@ -31,6 +31,7 @@ const FATIGUE_WARNING_THRESH = 0.8
 @onready var digging_sound1 := %DiggingSound1
 @onready var digging_sound2 := %DiggingSound2
 @onready var beast_approach_sound := %BeastApproachSound
+@onready var weasel_approach_sound := %WeaselApproachSound
 @onready var finish_dig_sound := %FinishDigSound
 @onready var enter_sound := %EnterSound
 
@@ -39,7 +40,6 @@ const FATIGUE_WARNING_THRESH = 0.8
 @onready var predator_warning_label := %PredatorWarning/Label
 @onready var time_until_predator_label := %TimeUntilPredatorLabel
 @onready var beast := %Beast
-#@onready var beast_spawn := %BeastSpawn
 @onready var bird_silhouette := %BirdSilhouette
 
 @onready var field1 = %Field1
@@ -88,7 +88,7 @@ var fatigue      := 0.4
 var hunger       := 0.6
 var unhealth     := 0.5
 var dig_progress := 0.0
-var burrow_state: int = 0
+var burrow_state: int = 1#0
 var game_win := false
 
 var ritual_items_acquired: Array[Forage] = []
@@ -105,7 +105,7 @@ func _ready() -> void:
 	exits.assign(get_tree().get_nodes_in_group("exit"))
 	for exit in exits:
 		if exit.entrance != null:
-			exit.exited.connect(func(): exit_burrow(exit.entrance))
+			exit.exited.connect(func(): exit_burrow(exit))
 		else:
 			exit.exited.connect(into_the_underburrow)
 	
@@ -288,7 +288,7 @@ func _process(delta: float) -> void:
 	dig_progress_bar.value = dig_progress
 	
 	if location == null:
-		if predator != null:
+		if predator != null && (beast.path == null || beast.exiting_burrow):
 			modify_time_until_attack((delta / 2.0 if predator_active else delta) * time_speedup / 2.0)
 			if time_until_attack >= predator.warning_time * 0.95:
 				predator_begone()
@@ -306,6 +306,9 @@ func _process(delta: float) -> void:
 		modify_time_until_attack(-delta)
 		if predator.type == PredatorInfo.Type.Beast and time_until_attack <= 1.0 and !beast_approach_sound.playing:
 			beast_approach_sound.play()
+		
+		if predator.type == PredatorInfo.Type.Weasel and time_until_attack <= 0.5 and !weasel_approach_sound.playing:
+			weasel_approach_sound.play()
 		
 		if time_until_attack < 0.0 and !predator_active:
 			spawn_predator()
@@ -327,6 +330,7 @@ func predator_begone():
 	predator_warning.hide()
 	time_until_predator = random_time_until_predator()
 	beast_approach_sound.stop()
+	weasel_approach_sound.stop()
 
 func complete_dig():
 	dig_progress = 0
@@ -391,7 +395,11 @@ func spawn_predator() -> void:
 				bird_silhouette.do_flyby(location)
 			else:
 				predator_begone()
-		_: push_error("Predator type not implemented yet %s" % predator.type)
+		PredatorInfo.Type.Weasel:
+			if location != null:
+				spawn_beast()
+			else:
+				beast.set_predator(predator)
 	predator_active = true
 
 func spawn_beast():
@@ -423,23 +431,36 @@ func update_state() -> void:
 	else:
 		burrow.set_rabbit_state(Burrow.State.Sitting)
 
-func enter_burrow(_from: Entrance) -> void:
-	if location == null: return
+func enter_burrow(from: Entrance) -> void:
+	if location == null || from.dangerous: return
 	
 	rabbit.hide()
 	change_location(null)
 	rabbit.process_mode = Node.PROCESS_MODE_DISABLED
-	beast.process_mode = Node.PROCESS_MODE_DISABLED
 	
 	ritual_info.update(ritual_items_acquired, burrow_state)
 	burrow.update_ritual_pile(ritual_items_acquired)
 	
-	if predator != null:
-		if time_until_attack < 0.0:
-			time_until_attack = 0.0
-		predator_warning_label.text = predator.exit_text
+	for exit in exits:
+		exit.set_dangerous(false)
 	
-	#forest_ambience.volume_db = -15.0
+	if predator != null:
+		if predator.type == PredatorInfo.Type.Weasel and !beast.exiting_burrow:
+			if beast.predator == null:
+				spawn_predator()
+			if !weasel_approach_sound.playing:
+				weasel_approach_sound.play()
+			beast.follow_into_burrow(from.exit)
+			from.exit.set_dangerous(true)
+			time_until_attack = 0.0
+			predator_warning.value = 1.0
+		else:
+			if time_until_attack < 0.0:
+				time_until_attack = 0.0
+			predator_warning_label.text = predator.exit_text
+			beast.process_mode = Node.PROCESS_MODE_DISABLED
+			weasel_approach_sound.stop()
+	
 	AudioServer.set_bus_volume_db(outside_ambience, -15.0)
 	spook_ambience.volume_db = -5.0
 	beast_approach_sound.stop()
@@ -449,21 +470,29 @@ func enter_burrow(_from: Entrance) -> void:
 		tutorial_state = 4
 		notification_text.hide_text()
 
-func exit_burrow(to: Entrance) -> void:
-	if location != null: return
+func exit_burrow(exit: Exit) -> void:
+	if location != null || exit.dangerous: return
 	
-	rabbit.global_position = to.global_position
+	rabbit.global_position = exit.entrance.global_position
 	rabbit.show()
-	change_location(to.get_parent())
+	change_location(exit.entrance.get_parent())
 	rabbit.process_mode = Node.PROCESS_MODE_INHERIT
 	beast.process_mode = Node.PROCESS_MODE_INHERIT
-	time_until_predator = random_time_until_predator()
+	
+	for entrance in entrances:
+		entrance.set_dangerous(false)
 	
 	if predator != null:
-		predator_warning_label.text = predator.entry_text
-		beast_approach_sound.play()
+		if predator.type == PredatorInfo.Type.Weasel && !beast.exiting_burrow:
+			beast.follow_out_of_burrow(exit)
+			exit.entrance.set_dangerous(true)
+			beast_approach_sound.play()
+		else:
+			predator_warning_label.text = predator.entry_text
+			beast_approach_sound.play()
+	else:
+		time_until_predator = random_time_until_predator()
 	
-	#forest_ambience.volume_db = -5.0
 	AudioServer.set_bus_volume_db(outside_ambience, -5.0)
 	spook_ambience.volume_db = -15.0
 	enter_sound.play()
@@ -570,10 +599,21 @@ func random_predator() -> PredatorInfo:
 	var possible_predators = predators.filter(func(pred):
 		return pred.min_day <= time_passed && pred.max_day >= time_passed
 	)
+	
 	if possible_predators.size() == 0:
 		push_error("No possible predators to spawn!")
 		return null
-	return possible_predators.pick_random()
+	
+	var total_weight := 0.0
+	for possible_predator in possible_predators:
+		total_weight += possible_predator.spawn_weight
+	var choice = randf_range(0.0, total_weight)
+	var cumulative_weight := 0.0
+	for i in range(0, possible_predators.size() - 1):
+		cumulative_weight += possible_predators[i].spawn_weight
+		if choice < cumulative_weight:
+			return possible_predators[i]
+	return possible_predators.back()
 
 func get_save_state() -> Dictionary:
 	return {

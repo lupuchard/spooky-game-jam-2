@@ -27,6 +27,8 @@ func _ready():
 		credits_button.hide()
 		play_pressed.emit()
 	)
+	
+	show()
 
 func _process(delta: float):
 	if !visible:
