@@ -11,6 +11,17 @@ const RITUAL_REQUIRED = 0.1
 const HUNGER_WARNING_THRESH = 0.8
 const FATIGUE_WARNING_THRESH = 0.8
 
+enum TutorialStep {
+	START = 0,
+	SEARCH_FORAGE = 1,
+	EAT_FORAGE = 2,
+	ENTER_BURROW = 3,
+	BREAK1 = 4,
+	BIRDS = 5,
+	BREAK2 = 6,
+	WEASELS = 7
+}
+
 @export var rabbit: RabbitSprite
 
 #@onready var east_grass_position: Vector2i = get_viewport().size / 4
@@ -25,7 +36,7 @@ const FATIGUE_WARNING_THRESH = 0.8
 @onready var jumpscare := %Jumpscare
 @onready var gameplay_root := $Root
 
-#@onready var forest_ambience := %ForestAmbience
+@onready var forest_ambience := %ForestAmbience
 @onready var spook_ambience := %SpookAmbience
 @onready var outside_ambience: int
 @onready var digging_sound1 := %DiggingSound1
@@ -82,13 +93,13 @@ var doing_ritual := false
 var dead := false
 var paused := false
 
-var tutorial_state := 0
+var tutorial_step := 0
 var time_passed  := 0.0
 var fatigue      := 0.4
 var hunger       := 0.6
 var unhealth     := 0.5
 var dig_progress := 0.0
-var burrow_state: int = 1#0
+var burrow_state: int = 3#0
 var game_win := false
 
 var ritual_items_acquired: Array[Forage] = []
@@ -165,11 +176,15 @@ func _ready() -> void:
 	main_menu.play_pressed.connect(func(): 
 		main_menu.hide()
 		resume()
+		
+		if !forest_ambience.playing:
+			forest_ambience.play()
+			spook_ambience.play()
 	)
 
 func beast_gottem():
 	if (1.0 - unhealth) > predator.damage + 0.05:
-		jumpscare.survive_scare()
+		if main_menu.jumpscares_on(): jumpscare.survive_scare()
 		unhealth += predator.damage
 		health_bar.value = 1.0 - unhealth
 		var text = "You managed to fight it off, but was injured (lost %s health)."
@@ -177,7 +192,7 @@ func beast_gottem():
 		predator_begone()
 		call_deferred("pause")
 	else:
-		jumpscare.death_scare()
+		if main_menu.jumpscares_on(): jumpscare.death_scare()
 		rabbit_died("You have been killed.")
 
 func start_digging():
@@ -318,8 +333,8 @@ func _process(delta: float) -> void:
 			
 	time_until_predator_label.text = "%.01f" % time_until_predator
 	
-	if tutorial_state <= 1 && rabbit.foraging >= 0.8:
-		tutorial_state = 2
+	if tutorial_step <= TutorialStep.SEARCH_FORAGE && rabbit.foraging >= 0.8:
+		tutorial_step = TutorialStep.EAT_FORAGE
 		notification_text.show_text("Eat forage to restore health.", 100.0)
 
 func predator_begone():
@@ -352,10 +367,11 @@ func complete_ritual():
 	%ExplosionSound.play()
 	status_bars_container.show()
 	game_win = true
+	%UnderburrowDaysPassedText.text = "(It took %s.)" % format_days_passed()
 	
 	for exit in exits:
 		exit.hide()
-	%Exit5.enable()
+	%Exit6.enable()
 
 func update_entrances():
 	for entrance in entrances:
@@ -411,7 +427,7 @@ func spawn_beast():
 
 func rabbit_died(text: String):
 	call_deferred("pause")
-	death_popup.show_death(text)
+	death_popup.show_death(text + " (You survived for %s.)" % format_days_passed())
 	dead = true
 	darkness.color = Color.DARK_SLATE_GRAY
 
@@ -466,8 +482,8 @@ func enter_burrow(from: Entrance) -> void:
 	beast_approach_sound.stop()
 	enter_sound.play()
 	
-	if tutorial_state <= 3:
-		tutorial_state = 4
+	if tutorial_step <= TutorialStep.ENTER_BURROW:
+		tutorial_step = TutorialStep.BREAK1
 		notification_text.hide_text()
 
 func exit_burrow(exit: Exit) -> void:
@@ -507,7 +523,8 @@ func change_location(new_location: Field) -> void:
 		rain.position = new_location.position
 		for field in fields:
 			if field != new_location:
-				field.hide()
+				field.grass.hide()
+		new_location.grass.show()
 
 func tween_camera(destination: Vector2):
 	if location_change_tween != null:
@@ -548,14 +565,14 @@ func on_ate() -> void:
 		hunger = 0.0
 	rabbit.eat_sound.play()
 	
-	if tutorial_state == 0:
-		tutorial_state = 1
+	if tutorial_step == TutorialStep.START:
+		tutorial_step = TutorialStep.SEARCH_FORAGE
 		notification_text.show_text("Hold right click to search for forage.", 100.0)
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause"):
 		pause()
-		main_menu.show()
+		main_menu.show_menu()
 	if event.is_action_pressed("click") and rabbit_over_forage.size() > 0:
 		var current_forage: Forage = rabbit_over_forage.back()
 		on_exit_forage(current_forage)
@@ -568,8 +585,8 @@ func _input(event: InputEvent) -> void:
 			if unhealth < 0.0: unhealth = 0.0
 			rabbit.eat_sound.play()
 			
-			if tutorial_state <= 2:
-				tutorial_state = 3
+			if tutorial_step <= TutorialStep.EAT_FORAGE:
+				tutorial_step = TutorialStep.ENTER_BURROW
 				notification_text.show_text("Enter your burrow to evade predators.", 100.0)
 				time_until_predator = 5.0
 		else:
@@ -596,6 +613,13 @@ func random_time_until_predator() -> float:
 	return time
 
 func random_predator() -> PredatorInfo:
+	if tutorial_step < TutorialStep.BIRDS && time_passed >= 0.5:
+		tutorial_step = TutorialStep.BIRDS + 1
+		notification_text.show_text("Stay still when birds approach to evade detection.", 10.0)
+	elif tutorial_step < TutorialStep.WEASELS && time_passed >= 10.0:
+		tutorial_step = TutorialStep.WEASELS + 1
+		notification_text.show_text("Weasels will follow you into the burrow. Be evasive.", 10.0)
+	
 	var possible_predators = predators.filter(func(pred):
 		return pred.min_day <= time_passed && pred.max_day >= time_passed
 	)
@@ -624,17 +648,17 @@ func get_save_state() -> Dictionary:
 		"dig_progress": dig_progress,
 		"burrow_state": burrow_state,
 		"forages": forages.map(func(forage: Forage): return forage.get_save_state()),
-		"tutorial_state": tutorial_state
+		"tutorial_step": tutorial_step
 	}
 
-func load_save_state(state: Dictionary):
+func load_save_state(state: Dictionary) -> void:
 	time_passed = state.time_passed
 	fatigue = state.fatigue
 	hunger = state.hunger
 	unhealth = state.unhealth
 	dig_progress = state.dig_progress
 	burrow_state = state.burrow_state
-	tutorial_state = state.tutorial_state
+	tutorial_step = state.tutorial_step
 	predator_begone()
 	change_location(null)
 	digging = false
@@ -651,7 +675,7 @@ func load_save_state(state: Dictionary):
 	ritual_info.update(ritual_items_acquired, burrow_state)
 	burrow.update_ritual_pile(ritual_items_acquired)
 
-func restart():
+func restart() -> void:
 	dead = false
 	death_popup.hide()
 	load_save_state(starting_save_state)
@@ -659,5 +683,23 @@ func restart():
 	rabbit.position = Vector2(300, 150)
 	call_deferred("resume")
 	time_until_predator = random_time_until_predator()
-	tutorial_state = 5
+	tutorial_step = TutorialStep.BREAK1
 	notification_text.hide_text()
+
+var idx_to_number = [
+	"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine",
+	"ten", "eleven", "twelve", "thirteen", "fourteen", 
+	"fifteen", "sixteen", "seventeen", "eighteen", "nineteen"
+]
+
+func format_days_passed() -> String:
+	if time_passed < 0.5:
+		return "less than half a day"
+	elif time_passed < 1.0:
+		return "less than one day"
+	elif int(time_passed) >= idx_to_number.size():
+		return "over twenty days"
+	var days = idx_to_number[int(time_passed)]
+	if fmod(time_passed, 1.0) > 0.5:
+		days += " and a half"
+	return days + " days"

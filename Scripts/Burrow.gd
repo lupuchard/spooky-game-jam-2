@@ -1,5 +1,5 @@
 class_name Burrow
-extends Sprite2D
+extends Node2D
 
 enum State {
 	Sitting,

@@ -84,11 +84,12 @@
 [ext_resource type="Texture2D" uid="uid://cu7lvv06v0ym6" path="res://Assets/ritual/stone5_glow.png" id="53_d646h"]
 [ext_resource type="Script" uid="uid://cytgobtpvbtlo" path="res://Scripts/Darkness.gd" id="53_im7ls"]
 [ext_resource type="AudioStream" uid="uid://c28v3i5qufia" path="res://Assets/sound/enter.mp3" id="57_fykug"]
+[ext_resource type="Texture2D" uid="uid://coqjx63hnno3f" path="res://Assets/tree.png" id="58_i4gpc"]
 [ext_resource type="Shader" uid="uid://davahubax1sl2" path="res://Shaders/distortion.gdshader" id="60_6ievk"]
 [ext_resource type="Texture2D" uid="uid://cr0gd51veb4bl" path="res://Assets/dens/burrow5.png" id="63_d646h"]
 [ext_resource type="PackedScene" uid="uid://bd7wtag3hstet" path="res://Scenes/ritual_requirement.tscn" id="65_d646h"]
 [ext_resource type="PackedScene" uid="uid://b8aiwy1w2tkj3" path="res://Scenes/ritual_pile.tscn" id="65_dfq0k"]
-[ext_resource type="Texture2D" uid="uid://ck4josb5n2rp2" path="res://Assets/dens/burrow6.png" id="67_aoqpd"]
+[ext_resource type="Texture2D" uid="uid://bcv4euite3kwi" path="res://Assets/dens/burrow4.png" id="68_ucq2w"]
 [ext_resource type="Texture2D" uid="uid://1j728twuuc2l" path="res://Assets/fire.png" id="69_2gl7k"]
 [ext_resource type="Texture2D" uid="uid://cdcnuchegjjjj" path="res://Assets/dens/underburrow.png" id="69_slndv"]
 [ext_resource type="AudioStream" uid="uid://bu4c0sw7pggd" path="res://Assets/sound/fire.mp3" id="72_bf5p3"]
@@ -109,9 +110,12 @@
 [ext_resource type="AudioStream" uid="uid://dk5qriascnoa1" path="res://Assets/sound/jumpscare1.mp3" id="98_5cpvc"]
 [ext_resource type="Script" uid="uid://cicqqotfc1yc1" path="res://Scripts/SurvivePopup.gd" id="98_b1va2"]
 [ext_resource type="Script" uid="uid://whutoifqosdr" path="res://Scripts/Jumpscare.gd" id="98_cxcit"]
+[ext_resource type="ButtonGroup" uid="uid://lk6spfwljdg7" path="res://Scenes/jumpscare_setting_button_group.tres" id="99_67x5q"]
 [ext_resource type="AudioStream" uid="uid://b17jk2f2ious7" path="res://Assets/sound/jumpscare2.mp3" id="99_cxcit"]
+[ext_resource type="ButtonGroup" uid="uid://dpflkuysutyyn" path="res://Scenes/main_menu_button_group.tres" id="99_yaiuy"]
 [ext_resource type="Texture2D" uid="uid://cs0o2vfqm5ij" path="res://Assets/jumpscare1.jpg" id="100_6ievk"]
 [ext_resource type="Texture2D" uid="uid://bpvjxq5g6722t" path="res://Assets/jumpscare2.jpeg" id="101_8gn08"]
+[ext_resource type="AudioStream" uid="uid://8abtjtvahqyv" path="res://Assets/sound/menu_ambience.mp3" id="101_ucq2w"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c2ibq"]
 atlas = ExtResource("5_c6i3y")
@@ -289,6 +293,15 @@ size = Vector2(207, 294)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yf3a2"]
 size = Vector2(208, 294)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uecmj"]
+size = Vector2(178.5, 134)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rkgid"]
+size = Vector2(124, 185)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h0r08"]
+size = Vector2(391, 134)
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_trn2v"]
 shader = ExtResource("2_lgr22")
 shader_parameter/cursor_pos = Vector2(0, 0)
@@ -300,7 +313,7 @@ shader_parameter/cursor_pos = Vector2(0, 0)
 shader_parameter/searching_factor = 0.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jnsvb"]
-size = Vector2(527, 12)
+size = Vector2(483.5, 12)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5mvff"]
 size = Vector2(13.5, 438)
@@ -332,7 +345,31 @@ center_offset = Vector3(0, 0.5, 0)
 mesh = SubResource("QuadMesh_r0du0")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8h1yq"]
-size = Vector2(13.5, 289)
+size = Vector2(13.5, 354)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gbxmp"]
+size = Vector2(236, 318)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a7p2d"]
+size = Vector2(310, 317)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fbvi6"]
+size = Vector2(496, 201)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i4gpc"]
+size = Vector2(68, 311)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_md2r7"]
+size = Vector2(151, 120)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y5qkn"]
+size = Vector2(333.5, 261)
+
+[sub_resource type="MultiMesh" id="MultiMesh_i4gpc"]
+mesh = SubResource("QuadMesh_r0du0")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ucq2w"]
+size = Vector2(483, 15)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wfpdq"]
 radius = 29.017237
@@ -373,6 +410,12 @@ point_count = 4
 [sub_resource type="Curve2D" id="Curve2D_xbxht"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -765.2173, -818.1934, -18.337051, -143.7925, 18.337051, 143.7925, -765.2173, -568.91583, -20.499714, -27.261913, 20.499714, 27.261913, -670.16925, -349.79276, 0, 0, 0, 0, -501.01593, -174.89636)
+}
+point_count = 4
+
+[sub_resource type="Curve2D" id="Curve2D_i4gpc"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -9.665909, -271.39087, 1.6819954, -63.083893, -1.6819954, 63.083893, -6.443939, 14.072144, 46.5597, -123.87028, -46.5597, 123.87028, -37.052643, 235.2055, 0, 0, 0, 0, -169.1533, 458.34918)
 }
 point_count = 4
 
@@ -569,6 +612,17 @@ rabbit = NodePath("Root/RabbitSprite")
 
 [node name="Root" type="Node2D" parent="." unique_id=1426861305]
 
+[node name="Tree" type="Sprite2D" parent="Root" unique_id=1334829706]
+position = Vector2(-1049, 2.0000005)
+scale = Vector2(0.8125, 0.8125)
+texture = ExtResource("58_i4gpc")
+
+[node name="Marker2D" type="Marker2D" parent="Root/Tree" unique_id=598887539]
+position = Vector2(6.556511e-06, 43.076923)
+
+[node name="Marker2D2" type="Marker2D" parent="Root/Tree" unique_id=979255668]
+position = Vector2(6.556511e-06, 11.076921)
+
 [node name="Stone" type="Sprite2D" parent="Root" unique_id=367365534]
 position = Vector2(-370, -294)
 texture = ExtResource("3_gdb40")
@@ -616,10 +670,10 @@ script = ExtResource("23_8h1yq")
 [node name="Background" type="Sprite2D" parent="Root/Field1" unique_id=1133721141]
 z_index = -2
 texture_repeat = 2
-position = Vector2(350, 175)
+position = Vector2(288, 162)
 texture = ExtResource("1_fos0i")
 region_enabled = true
-region_rect = Rect2(0, 0, 700, 350)
+region_rect = Rect2(0, 0, 576, 324)
 
 [node name="Entrance1" parent="Root/Field1" unique_id=146527494 node_paths=PackedStringArray("rabbit") instance=ExtResource("4_fpfj3")]
 z_index = -1
@@ -762,27 +816,43 @@ texture = ExtResource("40_gyych")
 [node name="GetTinderSound" type="AudioStreamPlayer2D" parent="Root/Field1/Forage/Tinder" unique_id=728798271]
 stream = ExtResource("36_2gl7k")
 
-[node name="Sacrifice" type="Node2D" parent="Root/Field1/Forage" unique_id=335905043 node_paths=PackedStringArray("sound")]
+[node name="Spawn" type="Area2D" parent="Root/Field1/Forage/Tinder" unique_id=370348297]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Root/Field1/Forage/Tinder/Spawn" unique_id=593997630]
+position = Vector2(126.75, 168)
+shape = SubResource("RectangleShape2D_uecmj")
+
+[node name="Tinder2" type="Node2D" parent="Root/Field1/Forage" unique_id=1057490994 node_paths=PackedStringArray("sound")]
 script = ExtResource("7_mxvw5")
-type = 2
-item_id = "sacrifice"
+type = 3
+item_id = "tinder"
 initial_spawn_time_minutes = -1.0
 respawn_time_minutes = -1.0
-base_sprite = ExtResource("36_nn00d")
-glow_sprite = ExtResource("37_oy6xi")
-sound = NodePath("GetSacrificeSound")
+base_sprite = ExtResource("40_gyych")
+glow_sprite = ExtResource("41_xncey")
+sound = NodePath("GetTinderSound")
 
-[node name="Instance" type="Area2D" parent="Root/Field1/Forage/Sacrifice" unique_id=1624874184]
-position = Vector2(504, 164)
+[node name="Instance" type="Area2D" parent="Root/Field1/Forage/Tinder2" unique_id=605563382]
+position = Vector2(137, 152)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Root/Field1/Forage/Sacrifice/Instance" unique_id=544794030]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Root/Field1/Forage/Tinder2/Instance" unique_id=1888648996]
 shape = SubResource("CircleShape2D_06wwg")
 
-[node name="Sprite" type="Sprite2D" parent="Root/Field1/Forage/Sacrifice/Instance" unique_id=349741246]
-texture = ExtResource("36_nn00d")
+[node name="Sprite" type="Sprite2D" parent="Root/Field1/Forage/Tinder2/Instance" unique_id=142367332]
+texture = ExtResource("40_gyych")
 
-[node name="GetSacrificeSound" type="AudioStreamPlayer2D" parent="Root/Field1/Forage/Sacrifice" unique_id=870089493]
-stream = ExtResource("38_dfq0k")
+[node name="GetTinderSound" type="AudioStreamPlayer2D" parent="Root/Field1/Forage/Tinder2" unique_id=845117631]
+stream = ExtResource("36_2gl7k")
+
+[node name="Spawn" type="Area2D" parent="Root/Field1/Forage/Tinder2" unique_id=672454455]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Root/Field1/Forage/Tinder2/Spawn" unique_id=878485351]
+position = Vector2(235, 166.5)
+shape = SubResource("RectangleShape2D_rkgid")
 
 [node name="RitualStone3" type="Node2D" parent="Root/Field1/Forage" unique_id=1692370878 node_paths=PackedStringArray("sound")]
 script = ExtResource("7_mxvw5")
@@ -806,6 +876,14 @@ texture = ExtResource("38_lo0ny")
 [node name="GetStoneSound" type="AudioStreamPlayer2D" parent="Root/Field1/Forage/RitualStone3" unique_id=368096960]
 stream = ExtResource("42_bf5p3")
 
+[node name="Spawn" type="Area2D" parent="Root/Field1/Forage/RitualStone3" unique_id=1813675467]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Root/Field1/Forage/RitualStone3/Spawn" unique_id=537903348]
+position = Vector2(336.5, 239)
+shape = SubResource("RectangleShape2D_h0r08")
+
 [node name="RitualStone4" type="Node2D" parent="Root/Field1/Forage" unique_id=657716141 node_paths=PackedStringArray("sound")]
 script = ExtResource("7_mxvw5")
 type = 4
@@ -828,6 +906,14 @@ texture = ExtResource("40_nmx32")
 [node name="GetStoneSound" type="AudioStreamPlayer2D" parent="Root/Field1/Forage/RitualStone4" unique_id=393089192]
 stream = ExtResource("42_bf5p3")
 
+[node name="Spawn" type="Area2D" parent="Root/Field1/Forage/RitualStone4" unique_id=1173918221]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Root/Field1/Forage/RitualStone4/Spawn" unique_id=291907191]
+position = Vector2(335, 91)
+shape = SubResource("RectangleShape2D_h0r08")
+
 [node name="Grass" type="MultiMeshInstance2D" parent="Root/Field1" unique_id=872540454 node_paths=PackedStringArray("rabbit", "nograss")]
 material = SubResource("ShaderMaterial_trn2v")
 multimesh = ExtResource("2_3dxm6")
@@ -847,15 +933,15 @@ collision_layer = 0
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Root/Field1/BeastSpawn" unique_id=1025914226]
-position = Vector2(488, -55)
+position = Vector2(390.75, -60)
 shape = SubResource("RectangleShape2D_jnsvb")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Root/Field1/BeastSpawn" unique_id=1446748246]
-position = Vector2(498, 404)
+position = Vector2(387, 399)
 shape = SubResource("RectangleShape2D_jnsvb")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Root/Field1/BeastSpawn" unique_id=620624875]
-position = Vector2(760, 175)
+position = Vector2(641, 170)
 shape = SubResource("RectangleShape2D_5mvff")
 
 [node name="BirdSpawn1" type="Area2D" parent="Root/Field1" unique_id=1209555098]
@@ -877,10 +963,11 @@ script = ExtResource("23_8h1yq")
 [node name="Background" type="Sprite2D" parent="Root/Field2" unique_id=790047181]
 z_index = -2
 texture_repeat = 2
-position = Vector2(226, 149)
+position = Vector2(288, 162)
 texture = ExtResource("1_fos0i")
 region_enabled = true
-region_rect = Rect2(0, 0, 700, 350)
+region_rect = Rect2(0, 0, 576, 324)
+metadata/_edit_lock_ = true
 
 [node name="Entrance3" parent="Root/Field2" unique_id=1846557326 node_paths=PackedStringArray("rabbit") instance=ExtResource("4_fpfj3")]
 z_index = -1
@@ -922,6 +1009,7 @@ collision_layer = 0
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Root/Field2/Forage/Dandelion/Spawn" unique_id=1985361835]
+visible = false
 position = Vector2(293, 130)
 shape = SubResource("RectangleShape2D_fykug")
 
@@ -1047,28 +1135,6 @@ texture = ExtResource("48_5y3io")
 [node name="GetStoneSound" type="AudioStreamPlayer2D" parent="Root/Field2/Forage/RitualStone1" unique_id=1267001434]
 stream = ExtResource("42_bf5p3")
 
-[node name="RitualStone2" type="Node2D" parent="Root/Field2/Forage" unique_id=995768062 node_paths=PackedStringArray("sound")]
-script = ExtResource("7_mxvw5")
-type = 4
-item_id = "stone2"
-initial_spawn_time_minutes = -1.0
-respawn_time_minutes = -1.0
-base_sprite = ExtResource("50_dfq0k")
-glow_sprite = ExtResource("51_sef48")
-sound = NodePath("GetStoneSound")
-
-[node name="Instance" type="Area2D" parent="Root/Field2/Forage/RitualStone2" unique_id=462512134]
-position = Vector2(300, 246)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Root/Field2/Forage/RitualStone2/Instance" unique_id=1251149974]
-shape = SubResource("CircleShape2D_06wwg")
-
-[node name="Sprite" type="Sprite2D" parent="Root/Field2/Forage/RitualStone2/Instance" unique_id=1621745097]
-texture = ExtResource("50_dfq0k")
-
-[node name="GetStoneSound" type="AudioStreamPlayer2D" parent="Root/Field2/Forage/RitualStone2" unique_id=1152741321]
-stream = ExtResource("42_bf5p3")
-
 [node name="RitualStone5" type="Node2D" parent="Root/Field2/Forage" unique_id=268759049 node_paths=PackedStringArray("sound")]
 script = ExtResource("7_mxvw5")
 type = 4
@@ -1114,23 +1180,256 @@ position = Vector2(285, -59)
 shape = SubResource("RectangleShape2D_jnsvb")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Root/Field2/BeastSpawn" unique_id=1891271147]
-position = Vector2(610, 78)
+position = Vector2(639, 78)
 shape = SubResource("RectangleShape2D_8h1yq")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Root/Field2/BeastSpawn" unique_id=256194808]
-position = Vector2(-23, 78)
+position = Vector2(-60, 75)
 shape = SubResource("RectangleShape2D_8h1yq")
 
 [node name="BirdSpawn1" type="Area2D" parent="Root/Field2" unique_id=1570564367]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Root/Field2/BirdSpawn1" unique_id=570678624]
-position = Vector2(352, -89)
+position = Vector2(307, -90)
 shape = SubResource("RectangleShape2D_06wwg")
 
 [node name="BirdSpawn2" type="Area2D" parent="Root/Field2" unique_id=533036748]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Root/Field2/BirdSpawn2" unique_id=988315018]
-position = Vector2(340, 434)
+position = Vector2(295, 433)
+shape = SubResource("RectangleShape2D_06wwg")
+
+[node name="Field3" type="Node2D" parent="Root" unique_id=105124435]
+position = Vector2(-1152, 0)
+script = ExtResource("23_8h1yq")
+
+[node name="Background" type="Sprite2D" parent="Root/Field3" unique_id=1849020105]
+z_index = -2
+texture_repeat = 2
+position = Vector2(288, 162)
+texture = ExtResource("1_fos0i")
+region_enabled = true
+region_rect = Rect2(0, 0, 576, 324)
+
+[node name="Entrance5" parent="Root/Field3" unique_id=1401699163 node_paths=PackedStringArray("rabbit") instance=ExtResource("4_fpfj3")]
+z_index = -1
+position = Vector2(560, 80)
+rotation = -3.1415927
+rabbit = NodePath("../../RabbitSprite")
+unlock_state = 3
+
+[node name="Forage" type="Node2D" parent="Root/Field3" unique_id=165932982]
+z_index = -1
+
+[node name="Dandelion" type="Node2D" parent="Root/Field3/Forage" unique_id=1672107393]
+script = ExtResource("7_mxvw5")
+restore_health = 0.15
+reduce_hunger = 0.1
+item_id = "dandelion2"
+respawn_time_minutes = 200.0
+base_sprite = ExtResource("8_mxvw5")
+glow_sprite = ExtResource("9_xrxkg")
+
+[node name="Instance" type="Area2D" parent="Root/Field3/Forage/Dandelion" unique_id=203048226]
+position = Vector2(144, 59)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Root/Field3/Forage/Dandelion/Instance" unique_id=111276342]
+shape = SubResource("CircleShape2D_06wwg")
+
+[node name="Sprite" type="Sprite2D" parent="Root/Field3/Forage/Dandelion/Instance" unique_id=1790338629]
+texture = ExtResource("8_mxvw5")
+
+[node name="Spawn" type="Area2D" parent="Root/Field3/Forage/Dandelion" unique_id=116174173]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Root/Field3/Forage/Dandelion/Spawn" unique_id=1048449867]
+position = Vector2(409, 159)
+shape = SubResource("RectangleShape2D_gbxmp")
+
+[node name="Clover" type="Node2D" parent="Root/Field3/Forage" unique_id=246411716]
+script = ExtResource("7_mxvw5")
+restore_health = 0.1
+reduce_hunger = 0.2
+item_id = "clover2"
+respawn_time_minutes = 300.0
+base_sprite = ExtResource("8_hri7i")
+glow_sprite = ExtResource("9_w3rk5")
+
+[node name="Instance" type="Area2D" parent="Root/Field3/Forage/Clover" unique_id=306453912]
+position = Vector2(218, 157)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Root/Field3/Forage/Clover/Instance" unique_id=2126866398]
+shape = SubResource("CircleShape2D_06wwg")
+
+[node name="Sprite" type="Sprite2D" parent="Root/Field3/Forage/Clover/Instance" unique_id=1024087699]
+texture = ExtResource("8_hri7i")
+
+[node name="Spawn" type="Area2D" parent="Root/Field3/Forage/Clover" unique_id=1480175891]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Root/Field3/Forage/Clover/Spawn" unique_id=294469463]
+position = Vector2(290, 163.5)
+shape = SubResource("RectangleShape2D_a7p2d")
+
+[node name="Thistle" type="Node2D" parent="Root/Field3/Forage" unique_id=1170811158]
+script = ExtResource("7_mxvw5")
+restore_health = 0.15
+reduce_hunger = 0.1
+item_id = "thistle2"
+initial_spawn_time_minutes = 200.0
+respawn_time_minutes = 400.0
+base_sprite = ExtResource("10_ek63v")
+glow_sprite = ExtResource("11_oaklg")
+
+[node name="Instance" type="Area2D" parent="Root/Field3/Forage/Thistle" unique_id=518802425]
+position = Vector2(262, 43)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Root/Field3/Forage/Thistle/Instance" unique_id=648290247]
+shape = SubResource("CircleShape2D_06wwg")
+
+[node name="Sprite" type="Sprite2D" parent="Root/Field3/Forage/Thistle/Instance" unique_id=211897983]
+texture = ExtResource("10_ek63v")
+
+[node name="Spawn" type="Area2D" parent="Root/Field3/Forage/Thistle" unique_id=1064335543]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Root/Field3/Forage/Thistle/Spawn" unique_id=2087620728]
+position = Vector2(321, 217.5)
+shape = SubResource("RectangleShape2D_fbvi6")
+
+[node name="Yarrow" type="Node2D" parent="Root/Field3/Forage" unique_id=734272388]
+script = ExtResource("7_mxvw5")
+restore_health = 0.15
+reduce_hunger = 0.2
+item_id = "yarrow2"
+respawn_time_minutes = 500.0
+base_sprite = ExtResource("12_4bst2")
+glow_sprite = ExtResource("13_uy3go")
+
+[node name="Instance" type="Area2D" parent="Root/Field3/Forage/Yarrow" unique_id=1861224410]
+position = Vector2(262, 43)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Root/Field3/Forage/Yarrow/Instance" unique_id=499646472]
+shape = SubResource("CircleShape2D_06wwg")
+
+[node name="Sprite" type="Sprite2D" parent="Root/Field3/Forage/Yarrow/Instance" unique_id=676835122]
+texture = ExtResource("12_4bst2")
+
+[node name="Spawn" type="Area2D" parent="Root/Field3/Forage/Yarrow" unique_id=582220817]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Root/Field3/Forage/Yarrow/Spawn" unique_id=1546646056]
+position = Vector2(38, 161.5)
+shape = SubResource("RectangleShape2D_i4gpc")
+
+[node name="Sacrifice" type="Node2D" parent="Root/Field3/Forage" unique_id=335905043 node_paths=PackedStringArray("sound")]
+position = Vector2(1152, 0)
+script = ExtResource("7_mxvw5")
+type = 2
+item_id = "sacrifice"
+initial_spawn_time_minutes = -1.0
+respawn_time_minutes = -1.0
+base_sprite = ExtResource("36_nn00d")
+glow_sprite = ExtResource("37_oy6xi")
+sound = NodePath("GetSacrificeSound")
+
+[node name="Instance" type="Area2D" parent="Root/Field3/Forage/Sacrifice" unique_id=1624874184]
+position = Vector2(-1051, 119)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Root/Field3/Forage/Sacrifice/Instance" unique_id=544794030]
+shape = SubResource("CircleShape2D_06wwg")
+
+[node name="Sprite" type="Sprite2D" parent="Root/Field3/Forage/Sacrifice/Instance" unique_id=349741246]
+texture = ExtResource("36_nn00d")
+
+[node name="GetSacrificeSound" type="AudioStreamPlayer2D" parent="Root/Field3/Forage/Sacrifice" unique_id=870089493]
+stream = ExtResource("38_dfq0k")
+
+[node name="Spawn" type="Area2D" parent="Root/Field3/Forage/Sacrifice" unique_id=939657307]
+position = Vector2(-1152, 0)
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Root/Field3/Forage/Sacrifice/Spawn" unique_id=237709932]
+position = Vector2(93.5, 145)
+shape = SubResource("RectangleShape2D_md2r7")
+
+[node name="RitualStone2" type="Node2D" parent="Root/Field3/Forage" unique_id=995768062 node_paths=PackedStringArray("sound")]
+position = Vector2(576, -324)
+script = ExtResource("7_mxvw5")
+type = 4
+item_id = "stone2"
+initial_spawn_time_minutes = -1.0
+respawn_time_minutes = -1.0
+base_sprite = ExtResource("50_dfq0k")
+glow_sprite = ExtResource("51_sef48")
+sound = NodePath("GetStoneSound")
+
+[node name="Instance" type="Area2D" parent="Root/Field3/Forage/RitualStone2" unique_id=462512134]
+position = Vector2(-265, 491)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Root/Field3/Forage/RitualStone2/Instance" unique_id=1251149974]
+shape = SubResource("CircleShape2D_06wwg")
+
+[node name="Sprite" type="Sprite2D" parent="Root/Field3/Forage/RitualStone2/Instance" unique_id=1621745097]
+texture = ExtResource("50_dfq0k")
+
+[node name="GetStoneSound" type="AudioStreamPlayer2D" parent="Root/Field3/Forage/RitualStone2" unique_id=1152741321]
+stream = ExtResource("42_bf5p3")
+
+[node name="Spawn" type="Area2D" parent="Root/Field3/Forage/RitualStone2" unique_id=1878676482]
+position = Vector2(-1152, 0)
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Root/Field3/Forage/RitualStone2/Spawn" unique_id=1609271257]
+position = Vector2(905.25, 486.5)
+shape = SubResource("RectangleShape2D_y5qkn")
+
+[node name="Grass" type="MultiMeshInstance2D" parent="Root/Field3" unique_id=807760165 node_paths=PackedStringArray("rabbit", "nograss")]
+material = SubResource("ShaderMaterial_8h1yq")
+multimesh = SubResource("MultiMesh_i4gpc")
+texture = ExtResource("7_wkp8b")
+script = ExtResource("1_glv2v")
+rabbit = NodePath("../../RabbitSprite")
+nograss = [NodePath("../Entrance5"), NodePath("../../Tree/Marker2D"), NodePath("../../Tree/Marker2D2")]
+
+[node name="BottomGrass" type="MultiMeshInstance2D" parent="Root/Field3/Grass" unique_id=967043492]
+z_index = -2
+material = SubResource("ShaderMaterial_5vvyt")
+multimesh = ExtResource("2_3dxm6")
+texture = ExtResource("7_wkp8b")
+
+[node name="BeastSpawn" type="Area2D" parent="Root/Field3" unique_id=941456301]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Root/Field3/BeastSpawn" unique_id=967745291]
+position = Vector2(245, -62)
+shape = SubResource("RectangleShape2D_jnsvb")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Root/Field3/BeastSpawn" unique_id=905761275]
+position = Vector2(244.5, 384)
+shape = SubResource("RectangleShape2D_ucq2w")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Root/Field3/BeastSpawn" unique_id=119536357]
+position = Vector2(-67, 157)
+shape = SubResource("RectangleShape2D_8h1yq")
+
+[node name="BirdSpawn1" type="Area2D" parent="Root/Field3" unique_id=587107973]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Root/Field3/BirdSpawn1" unique_id=424183159]
+position = Vector2(275, -96)
+shape = SubResource("RectangleShape2D_06wwg")
+
+[node name="BirdSpawn2" type="Area2D" parent="Root/Field3" unique_id=262008375]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Root/Field3/BirdSpawn2" unique_id=575983576]
+position = Vector2(263, 427)
 shape = SubResource("RectangleShape2D_06wwg")
 
 [node name="Beast" type="Area2D" parent="Root" unique_id=1105973653 node_paths=PackedStringArray("target")]
@@ -1155,6 +1454,7 @@ offset_bottom = 80.0
 
 [node name="RainShader" type="ColorRect" parent="Root" unique_id=323936370]
 unique_name_in_owner = true
+visible = false
 material = SubResource("ShaderMaterial_im7ls")
 anchors_preset = 15
 anchor_right = 1.0
@@ -1181,15 +1481,20 @@ texture = ExtResource("40_uy3go")
 [node name="Camera2D" type="Camera2D" parent="Root" unique_id=2110956189]
 position = Vector2(300, 160)
 
-[node name="Burrow" type="Sprite2D" parent="Root" unique_id=2014011689]
+[node name="Burrow" type="Node2D" parent="Root" unique_id=1261629399]
 unique_name_in_owner = true
 position = Vector2(-512, 512)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("12_c6i3y")
 script = ExtResource("14_bg4s2")
 
+[node name="BurrowDirt" type="Sprite2D" parent="Root/Burrow" unique_id=1899319763]
+position = Vector2(224, -188)
+texture = ExtResource("12_c6i3y")
+region_enabled = true
+region_rect = Rect2(0, 0, 576, 648)
+
 [node name="Exits" type="Node2D" parent="Root/Burrow" unique_id=778092297]
-position = Vector2(1024, -1024)
+position = Vector2(511, -512)
+scale = Vector2(0.5, 0.5)
 
 [node name="Exit1" parent="Root/Burrow/Exits" unique_id=444094360 node_paths=PackedStringArray("entrance") instance=ExtResource("38_im7ls")]
 position = Vector2(-40, 110)
@@ -1230,24 +1535,33 @@ rotation = 1.5707964
 scale = Vector2(0.62073874, 0.49743736)
 curve = SubResource("Curve2D_xbxht")
 
-[node name="Exit5" parent="Root/Burrow/Exits" unique_id=654024672 instance=ExtResource("38_im7ls")]
+[node name="Exit5" parent="Root/Burrow/Exits" unique_id=1980789044 node_paths=PackedStringArray("entrance") instance=ExtResource("38_im7ls")]
+position = Vector2(-1110, 160)
+rotation = -3.1415927
+entrance = NodePath("../../../Field3/Entrance5")
+
+[node name="Path" type="Path2D" parent="Root/Burrow/Exits/Exit5" unique_id=1003451018]
+rotation = 1.5707964
+scale = Vector2(0.62073874, 0.49743736)
+curve = SubResource("Curve2D_i4gpc")
+
+[node name="Exit6" parent="Root/Burrow/Exits" unique_id=654024672 instance=ExtResource("38_im7ls")]
 unique_name_in_owner = true
 position = Vector2(-606, 600)
 rotation = 1.5707964
 
 [node name="Depths" type="Sprite2D" parent="Root/Burrow" unique_id=1734577743]
 z_index = 1
-position = Vector2(448.3307, -142.67636)
+position = Vector2(224.0758, -95)
 rotation = -1.5707964
-scale = Vector2(4.617395, 1153.722)
+scale = Vector2(2.001, 575.8483)
 texture = SubResource("GradientTexture1D_jnsvb")
 
 [node name="BurrowBackground" type="Sprite2D" parent="Root/Burrow" unique_id=320721356]
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0.3137255)
-position = Vector2(448, -700)
-scale = Vector2(2, 2)
-texture = ExtResource("67_aoqpd")
+position = Vector2(224, -350)
+texture = ExtResource("68_ucq2w")
 
 [node name="BurrowShadow" type="Sprite2D" parent="Root/Burrow/BurrowBackground" unique_id=1022332062]
 unique_name_in_owner = true
@@ -1267,7 +1581,8 @@ texture = ExtResource("69_slndv")
 
 [node name="RitualPile1" parent="Root/Burrow" unique_id=1853055734 instance=ExtResource("65_dfq0k")]
 unique_name_in_owner = true
-position = Vector2(504, -556)
+position = Vector2(274, -268)
+scale = Vector2(1, 1)
 
 [node name="Stone3" parent="Root/Burrow/RitualPile1" index="0" unique_id=834227988]
 position = Vector2(116, 45)
@@ -1291,35 +1606,37 @@ position = Vector2(128, 51)
 
 [node name="RitualPile2" parent="Root/Burrow" unique_id=504133588 instance=ExtResource("65_dfq0k")]
 unique_name_in_owner = true
-visible = false
-position = Vector2(236, -498)
+position = Vector2(127, -253)
+scale = Vector2(1, 1)
 
 [node name="SleepBunny1" type="AnimatedSprite2D" parent="Root/Burrow" unique_id=81890820]
 unique_name_in_owner = true
-position = Vector2(352, -654)
-scale = Vector2(4, 4)
+position = Vector2(177, -326)
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_jnsvb")
 animation = &"awake"
 
 [node name="SleepBunny2" type="AnimatedSprite2D" parent="Root/Burrow" unique_id=567363922]
 unique_name_in_owner = true
-position = Vector2(488, -596)
-scale = Vector2(4, 4)
+visible = false
+position = Vector2(247, -300)
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_jnsvb")
 animation = &"awake"
 
 [node name="SleepBunny3" type="AnimatedSprite2D" parent="Root/Burrow" unique_id=1163729478]
 unique_name_in_owner = true
-position = Vector2(244, -562)
-scale = Vector2(4, 4)
+visible = false
+position = Vector2(124, -284)
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_jnsvb")
 animation = &"awake"
 flip_h = true
 
 [node name="DigBunny1" type="AnimatedSprite2D" parent="Root/Burrow" unique_id=681212024]
 unique_name_in_owner = true
-position = Vector2(434, -656)
-scale = Vector2(4, 4)
+position = Vector2(237, -335)
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_jnsvb")
 animation = &"dig"
 frame_progress = 0.88623995
@@ -1327,24 +1644,23 @@ flip_h = true
 
 [node name="DigBunny2" type="AnimatedSprite2D" parent="Root/Burrow" unique_id=115159827]
 unique_name_in_owner = true
-position = Vector2(248, -668)
-scale = Vector2(4, 4)
+position = Vector2(153, -326)
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_jnsvb")
 animation = &"dig"
 frame_progress = 0.88623995
 
 [node name="RitualInfo" type="VBoxContainer" parent="Root/Burrow" unique_id=515361517 node_paths=PackedStringArray("stone_sound", "tinder_sound", "sacrifice_sound", "fire_sound")]
 unique_name_in_owner = true
-offset_left = -98.0
-offset_top = -612.0
-offset_right = 9.0
-offset_bottom = -522.0
-scale = Vector2(2, 2)
+offset_left = -54.0
+offset_top = -310.0
+offset_right = 60.0
+offset_bottom = -216.0
 theme_override_constants/separation = 0
 script = ExtResource("48_wrbn1")
 stone_sound = NodePath("../../Field2/Forage/RitualStone1/GetStoneSound")
 tinder_sound = NodePath("../../Field1/Forage/Tinder/GetTinderSound")
-sacrifice_sound = NodePath("../../Field1/Forage/Sacrifice/GetSacrificeSound")
+sacrifice_sound = NodePath("../../Field3/Forage/Sacrifice/GetSacrificeSound")
 fire_sound = NodePath("Fire/FireSound")
 
 [node name="Header" type="Label" parent="Root/Burrow/RitualInfo" unique_id=1001134988]
@@ -1435,16 +1751,27 @@ pitch_scale = 1.2
 
 [node name="UnderburrowText" type="Label" parent="Root/Burrow" unique_id=1848917480]
 custom_maximum_size = Vector2(190, -1)
-offset_left = 568.0
-offset_top = -354.0
-offset_right = 758.0
-offset_bottom = -272.0
-scale = Vector2(2, 2)
+offset_left = 290.0
+offset_top = -179.0
+offset_right = 480.0
+offset_bottom = -97.0
 text = "The rabbit has escaped into the underburrow, and is safe (for now).
 
 This is the end of the game.
 Thanks for playing!"
 horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="UnderburrowDaysPassedText" type="Label" parent="Root/Burrow" unique_id=89868077]
+unique_name_in_owner = true
+custom_maximum_size = Vector2(190, -1)
+offset_left = 398.0
+offset_top = -88.0
+offset_right = 505.0
+offset_bottom = -24.0
+text = "(It took seven days.)"
+horizontal_alignment = 1
+vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="Clock" type="Sprite2D" parent="Root" unique_id=565878146]
@@ -1550,13 +1877,11 @@ stream = ExtResource("79_m6lip")
 [node name="ForestAmbience" type="AudioStreamPlayer" parent="Root" unique_id=1282262854]
 unique_name_in_owner = true
 stream = ExtResource("44_5tfui")
-autoplay = true
 bus = &"OutsideAmbience"
 
 [node name="SpookAmbience" type="AudioStreamPlayer" parent="Root" unique_id=90131640]
 unique_name_in_owner = true
 stream = ExtResource("45_38apo")
-autoplay = true
 
 [node name="BeastApproachSound" type="AudioStreamPlayer" parent="Root" unique_id=1799616433]
 unique_name_in_owner = true
@@ -1706,11 +2031,101 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("94_6nglk")
 text = "Play"
 
+[node name="SettingsButton" type="Button" parent="CanvasLayer/MainMenu/VBoxContainer" unique_id=261216274]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("94_6nglk")
+toggle_mode = true
+button_group = ExtResource("99_yaiuy")
+text = "Settings"
+
 [node name="CreditsButton" type="Button" parent="CanvasLayer/MainMenu/VBoxContainer" unique_id=1659712536]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("94_6nglk")
+toggle_mode = true
+button_group = ExtResource("99_yaiuy")
 text = "Credits"
+
+[node name="SettingsPanel" type="PanelContainer" parent="CanvasLayer/MainMenu" unique_id=1425994665]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 224.0
+offset_top = 143.0
+offset_right = 296.0
+offset_bottom = 237.0
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MainMenu/SettingsPanel" unique_id=36049142]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MainMenu/SettingsPanel/MarginContainer" unique_id=1390311259]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/MainMenu/SettingsPanel/MarginContainer/VBoxContainer" unique_id=926064594]
+layout_mode = 2
+text = "Volume:"
+
+[node name="VolumeSlider" type="HSlider" parent="CanvasLayer/MainMenu/SettingsPanel/MarginContainer/VBoxContainer" unique_id=1211886671]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+
+[node name="HSeparator" type="HSeparator" parent="CanvasLayer/MainMenu/SettingsPanel/MarginContainer/VBoxContainer" unique_id=591193560]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="CanvasLayer/MainMenu/SettingsPanel/MarginContainer/VBoxContainer" unique_id=2052526798]
+layout_mode = 2
+text = "Jumpscares:"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MainMenu/SettingsPanel/MarginContainer/VBoxContainer" unique_id=801321794]
+layout_mode = 2
+
+[node name="JumpscaresOnButton" type="Button" parent="CanvasLayer/MainMenu/SettingsPanel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1186166639]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+toggle_mode = true
+button_pressed = true
+button_group = ExtResource("99_67x5q")
+text = "On"
+
+[node name="JumpscaresOffButton" type="Button" parent="CanvasLayer/MainMenu/SettingsPanel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=113369627]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("99_67x5q")
+text = "Off"
+
+[node name="CreditsPanel" type="PanelContainer" parent="CanvasLayer/MainMenu" unique_id=1537985691]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 224.0
+offset_top = 169.0
+offset_right = 282.0
+offset_bottom = 209.0
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MainMenu/CreditsPanel" unique_id=144431198]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="Label" type="Label" parent="CanvasLayer/MainMenu/CreditsPanel/MarginContainer" unique_id=849735560]
+layout_mode = 2
+text = "Placeholder"
+
+[node name="MenuAmbience" type="AudioStreamPlayer" parent="CanvasLayer/MainMenu" unique_id=771009744]
+unique_name_in_owner = true
+stream = ExtResource("101_ucq2w")
+autoplay = true
 
 [node name="StatusBarsContainer" type="PanelContainer" parent="CanvasLayer" unique_id=1822712595]
 unique_name_in_owner = true
@@ -1836,17 +2251,17 @@ unique_name_in_owner = true
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 11.0
-offset_top = -27.0
-offset_right = 115.0
-offset_bottom = -13.0
+offset_left = 23.0
+offset_top = -36.0
+offset_right = 127.0
+offset_bottom = -22.0
 grow_vertical = 0
+theme_override_constants/outline_size = 1
 text = "Howdy doodly neighbor."
 script = ExtResource("92_uy73y")
 
 [node name="DeathPopup" type="PanelContainer" parent="CanvasLayer" unique_id=1500776163]
 unique_name_in_owner = true
-visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -1854,8 +2269,8 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -98.0
 offset_top = -21.0
-offset_right = 98.0
-offset_bottom = 21.0
+offset_right = 80.0
+offset_bottom = 38.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("32_gb15f")
@@ -1872,10 +2287,13 @@ layout_mode = 2
 
 [node name="DeathText" type="Label" parent="CanvasLayer/DeathPopup/MarginContainer/VBoxContainer" unique_id=1560197453]
 unique_name_in_owner = true
+custom_maximum_size = Vector2(170, -1)
 layout_mode = 2
+size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("20_hhcpw")
 text = "You have died of gastrointestinal stasis."
 horizontal_alignment = 1
+autowrap_mode = 2
 
 [node name="RestartButton" type="Button" parent="CanvasLayer/DeathPopup/MarginContainer/VBoxContainer" unique_id=1474536073]
 unique_name_in_owner = true
@@ -1887,6 +2305,7 @@ text = "Restart"
 
 [node name="SurvivePopup" type="PanelContainer" parent="CanvasLayer" unique_id=281926768]
 unique_name_in_owner = true
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -1945,14 +2364,15 @@ texture = ExtResource("101_8gn08")
 
 [node name="JumpscareSound1" type="AudioStreamPlayer" parent="CanvasLayer/Jumpscare" unique_id=953645863]
 stream = ExtResource("98_5cpvc")
-volume_db = -3.0
 
 [node name="JumpscareSound2" type="AudioStreamPlayer" parent="CanvasLayer/Jumpscare" unique_id=706449701]
 stream = ExtResource("99_cxcit")
+volume_db = 3.0
 
 [node name="SpookyShader" type="ColorRect" parent="CanvasLayer" unique_id=917325579]
 unique_name_in_owner = true
 visible = false
+z_index = 2
 material = SubResource("ShaderMaterial_jnsvb")
 anchors_preset = 15
 anchor_right = 1.0
