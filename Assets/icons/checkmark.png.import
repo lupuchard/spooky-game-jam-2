@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://tewgoij5w407"
-path="res://.godot/imported/arrow.png-57f8c059c3343415ea6369e587d21c52.ctex"
+uid="uid://ckxne0ejuatmp"
+path="res://.godot/imported/checkmark.png-c39abc0a6a6dc4cd06bcc2f22d3da4a5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/arrow.png"
-dest_files=["res://.godot/imported/arrow.png-57f8c059c3343415ea6369e587d21c52.ctex"]
+source_file="res://Assets/icons/checkmark.png"
+dest_files=["res://.godot/imported/checkmark.png-c39abc0a6a6dc4cd06bcc2f22d3da4a5.ctex"]
 
 [params]
 

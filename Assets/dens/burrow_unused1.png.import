@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://i4i1ehjkl00e"
-path="res://.godot/imported/health_icon.png-b25055f65f43467edc9bc5eada5b34cb.ctex"
+uid="uid://cjpv2o84nynq3"
+path="res://.godot/imported/burrow_unused1.png-30842135f2c59e646a5d0b4df47b405d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/health_icon.png"
-dest_files=["res://.godot/imported/health_icon.png-b25055f65f43467edc9bc5eada5b34cb.ctex"]
+source_file="res://Assets/dens/burrow_unused1.png"
+dest_files=["res://.godot/imported/burrow_unused1.png-30842135f2c59e646a5d0b4df47b405d.ctex"]
 
 [params]
 

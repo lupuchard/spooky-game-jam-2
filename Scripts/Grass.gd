@@ -56,7 +56,7 @@ func _ready():
 	for y in range(0, GRASSES.y):
 		stagger = !stagger
 		for x in range(0, GRASSES.x):
-			var grass_pos := Vector2(x, y) / (Vector2(GRASSES) - Vector2.ONE) * window_size
+			var grass_pos := Vector2(x, y) / (Vector2(GRASSES) - Vector2(1, 2)) * window_size
 			grass_pos += POS_VARIATION * GRASS_SIZE * rand_vect() * 0.6
 			var grass_scale := (SIZE_VARIATION * rand_vect() + Vector2.ONE) * GRASS_SIZE
 			if randi_range(0, 1) == 1:
@@ -98,7 +98,13 @@ func _process(delta: float):
 	var i = cur_i % (grass_growth.size())
 	if grass_growth[i] != -1.0:
 		grass_growth[i] += delta * GRASS_GROW_RATE * rate_mod * grass_growth.size() * randf() * 2.0
-	
+
+func reset():
+	for i in range(0, grass_positions.size()):
+		if !is_nograss(grass_positions[i]):
+			grass_growth[i] = 1.0
+			set_grass_state(i, GrassState.Full)
+
 func update_grass_at_index(i: int):
 	if i == grass_index(hovering):
 		pass
@@ -124,7 +130,7 @@ func update_hovering():
 	var mouse_pos = get_viewport().get_mouse_position()
 	if mouse_pos.distance_squared_to(rabbit_position()) < pow(EAT_RANGE, 2):
 		var viewport_size = get_viewport_rect().size
-		set_hovering(Vector2i((mouse_pos / viewport_size * (Vector2(GRASSES) - Vector2.ONE)).round()))
+		set_hovering(Vector2i((mouse_pos / viewport_size * (Vector2(GRASSES) - Vector2(1, 2))).round()))
 		
 		#var now_hovering := 
 		#if now_hovering != hovering and Rect2i(Vector2.ZERO, GRASSES).has_point(now_hovering):

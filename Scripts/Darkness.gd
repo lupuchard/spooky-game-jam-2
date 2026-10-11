@@ -15,13 +15,22 @@ var rain_shader: ShaderMaterial
 var rain_tween: Tween
 
 func _ready():
+	show()
 	when_next_rain = random_time_until_rain()
 	rain_shader = rain.material
 	rain.hide()
 
+func is_day(time: float):
+	var time_of_day = fmod(time, 1.0)
+	return time_of_day < 0.2 || time_of_day > 0.8
+
+func is_night(time: float):
+	var time_of_day = fmod(time, 1.0)
+	return time_of_day > 0.3 && time_of_day < 0.7
+
 func set_time(time: float):
-	var modified_day_color = day_color.lerp(night_color, raining / 2.0)
-	var modified_twilight_color = twilight_color.lerp(night_color, raining / 2.0)
+	var modified_day_color = day_color.lerp(night_color, raining / 2.0 + 0.4)
+	var modified_twilight_color = twilight_color.lerp(night_color, raining / 2.0 + 0.4)
 	
 	var time_of_day = fmod(time, 1.0)
 	if time_of_day < 0.2:

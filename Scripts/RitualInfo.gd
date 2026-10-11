@@ -69,10 +69,10 @@ func update(ritual_items_acquired: Array[Forage], new_burrow_state: int):
 	dig_req_label.set_quantity(burrow_state - 2, 2)
 	
 	num_stones = count_ritual_items(ritual_items_acquired, Forage.Type.RitualStone)
-	stone_req_label.set_quantity(num_stones, 5)
+	stone_req_label.set_quantity(min(num_stones, 5), 5)
 	
 	num_tinder = count_ritual_items(ritual_items_acquired, Forage.Type.RitualTinder)
-	tinder_req_label.set_quantity(num_tinder, 1)
+	tinder_req_label.set_quantity(min(num_tinder, 1), 1)
 	
 	num_sacrifice = count_ritual_items(ritual_items_acquired, Forage.Type.RitualSacrifice)
 	sacrifice_req_label.set_quantity(num_sacrifice, 1)

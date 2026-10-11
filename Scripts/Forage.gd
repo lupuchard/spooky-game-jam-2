@@ -9,7 +9,9 @@ enum Type {
 	RitualPaper,
 	RitualSacrifice,
 	RitualTinder,
-	RitualStone
+	RitualStone,
+	Chest,
+	ChestKey
 }
 
 @export var restore_health: float = 0.0
@@ -22,6 +24,8 @@ enum Type {
 @export var base_sprite: Texture2D
 @export var glow_sprite: Texture2D
 @export var sound: AudioStreamPlayer2D
+
+@export var key: Forage
 
 @onready var instance: Area2D = $Instance
 @onready var sprite: Sprite2D = $Instance/Sprite

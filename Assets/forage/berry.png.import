@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtrijlhs14kks"
-path="res://.godot/imported/fatigue_icon.png-c0cbabbdb85b76064409547b2a53cce4.ctex"
+uid="uid://d10sdcgokvd4r"
+path="res://.godot/imported/berry.png-7fd967588dfe47a45aa9b98433a1ccfd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/fatigue_icon.png"
-dest_files=["res://.godot/imported/fatigue_icon.png-c0cbabbdb85b76064409547b2a53cce4.ctex"]
+source_file="res://Assets/forage/berry.png"
+dest_files=["res://.godot/imported/berry.png-7fd967588dfe47a45aa9b98433a1ccfd.ctex"]
 
 [params]
 

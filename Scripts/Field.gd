@@ -8,3 +8,4 @@ func _enter_tree() -> void:
 @onready var beast_spawn = $BeastSpawn
 @onready var bird_spawn1 = $BirdSpawn1
 @onready var bird_spawn2 = $BirdSpawn2
+@onready var berry = $Forage/Berry

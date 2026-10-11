@@ -28,7 +28,7 @@ func _process(delta: float):
 		foraging -= delta * FORAGING_TRANSITION_SPEED
 	foraging = clamp(foraging, 0.0, 1.0)
 	sprite.speed_scale = 2.0 - foraging
-	
+		
 	var mouse_pos := get_global_mouse_position() #get_viewport().get_mouse_position()
 	var disp := mouse_pos - global_position
 	var speed = CURSOR_SPEED * lerp(1.0, FORAGING_SLOWDOWN_FACTOR, foraging)

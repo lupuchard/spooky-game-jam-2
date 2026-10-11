@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ckxne0ejuatmp"
-path="res://.godot/imported/checkmark.png-d8d3ad1109469266027916075ff22f0b.ctex"
+uid="uid://jokgaceffol4"
+path="res://.godot/imported/food_icon.png-9d95b37eafc4a837927fb7e3bbed4682.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/checkmark.png"
-dest_files=["res://.godot/imported/checkmark.png-d8d3ad1109469266027916075ff22f0b.ctex"]
+source_file="res://Assets/icons/food_icon.png"
+dest_files=["res://.godot/imported/food_icon.png-9d95b37eafc4a837927fb7e3bbed4682.ctex"]
 
 [params]
 

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bd7wtag3hstet"]
 
 [ext_resource type="Script" uid="uid://bec171162ur4g" path="res://Scripts/RitualRequirementLabel.gd" id="1_anclr"]
-[ext_resource type="Texture2D" uid="uid://ckxne0ejuatmp" path="res://Assets/checkmark.png" id="2_t5bf7"]
+[ext_resource type="Texture2D" uid="uid://ckxne0ejuatmp" path="res://Assets/icons/checkmark.png" id="2_t5bf7"]
 
 [node name="RitualDigReqLabel" type="HBoxContainer" unique_id=916898073]
 script = ExtResource("1_anclr")

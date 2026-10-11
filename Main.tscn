@@ -28,7 +28,7 @@
 [ext_resource type="AudioStream" uid="uid://di7tayfhqwd83" path="res://Assets/sound/footsteps/step12.mp3" id="15_c2s76"]
 [ext_resource type="Texture2D" uid="uid://dj1wnq17ngyrm" path="res://Assets/clock.png" id="15_fpfj3"]
 [ext_resource type="AudioStream" uid="uid://dkpiyxqls27bn" path="res://Assets/sound/footsteps/step3.mp3" id="16_f4ese"]
-[ext_resource type="Texture2D" uid="uid://cd0dwa60fsf16" path="res://Assets/arrrow.png" id="16_sc1dx"]
+[ext_resource type="Texture2D" uid="uid://cd0dwa60fsf16" path="res://Assets/icons/arrrow.png" id="16_sc1dx"]
 [ext_resource type="AudioStream" uid="uid://bn2xda3hwcimi" path="res://Assets/sound/chewing/chew1.mp3" id="17_2gl7k"]
 [ext_resource type="Script" uid="uid://bcmmflylr88mk" path="res://Scripts/PredatorInfo.gd" id="17_5mvff"]
 [ext_resource type="AudioStream" uid="uid://bifgpb4s1n5lv" path="res://Assets/sound/footsteps/step4.mp3" id="17_rchyr"]
@@ -36,21 +36,22 @@
 [ext_resource type="AudioStream" uid="uid://dp5r2myl80snj" path="res://Assets/sound/footsteps/step5.mp3" id="18_pljue"]
 [ext_resource type="AudioStream" uid="uid://bgv3b0xfps6ej" path="res://Assets/sound/chewing/chew3.mp3" id="19_ady3b"]
 [ext_resource type="AudioStream" uid="uid://drxbxnaqx0krx" path="res://Assets/sound/footsteps/step6.mp3" id="19_nx4yo"]
-[ext_resource type="Texture2D" uid="uid://dtrijlhs14kks" path="res://Assets/fatigue_icon.png" id="20_2gh4u"]
+[ext_resource type="Texture2D" uid="uid://dtrijlhs14kks" path="res://Assets/icons/fatigue_icon.png" id="20_2gh4u"]
 [ext_resource type="AudioStream" uid="uid://e7toewndbctq" path="res://Assets/sound/footsteps/step7.mp3" id="20_5tfui"]
 [ext_resource type="AudioStream" uid="uid://dbr4mqn0s1ytv" path="res://Assets/sound/chewing/chew4.mp3" id="20_aoqpd"]
 [ext_resource type="FontFile" uid="uid://cc10oe0627ff2" path="res://Assets/BitPotionExt.ttf" id="20_hhcpw"]
-[ext_resource type="Texture2D" uid="uid://jokgaceffol4" path="res://Assets/food_icon.png" id="21_3b0ty"]
+[ext_resource type="Texture2D" uid="uid://jokgaceffol4" path="res://Assets/icons/food_icon.png" id="21_3b0ty"]
 [ext_resource type="AudioStream" uid="uid://bbpr40lbortuh" path="res://Assets/sound/footsteps/step8.mp3" id="21_38apo"]
 [ext_resource type="AudioStream" uid="uid://b5omspgt0qwkr" path="res://Assets/sound/chewing/chew5.mp3" id="21_m6lip"]
-[ext_resource type="Texture2D" uid="uid://i4i1ehjkl00e" path="res://Assets/health_icon.png" id="22_bg4s2"]
+[ext_resource type="Texture2D" uid="uid://i4i1ehjkl00e" path="res://Assets/icons/health_icon.png" id="22_bg4s2"]
 [ext_resource type="AudioStream" uid="uid://btiucg2k4y1qk" path="res://Assets/sound/footsteps/step9.mp3" id="22_khphd"]
 [ext_resource type="Script" uid="uid://8vg5e6c1lafq" path="res://Scripts/Field.gd" id="23_8h1yq"]
 [ext_resource type="AudioStream" uid="uid://c0am6jgw6qx2f" path="res://Assets/sound/footsteps/step10.mp3" id="23_g4yo4"]
 [ext_resource type="Shader" uid="uid://ov7i5ok613e3" path="res://Shaders/spooky.gdshader" id="29_w3rk5"]
-[ext_resource type="FontFile" uid="uid://be670rmkfx2dq" path="res://Assets/m5x7.ttf" id="32_40n85"]
 [ext_resource type="Script" uid="uid://csu3g8dkhwffw" path="res://Scripts/DeathPopup.gd" id="32_gb15f"]
+[ext_resource type="Texture2D" uid="uid://d10sdcgokvd4r" path="res://Assets/forage/berry.png" id="35_gbxmp"]
 [ext_resource type="AudioStream" uid="uid://bxy8hpmaayua0" path="res://Assets/sound/get_tinder.mp3" id="36_2gl7k"]
+[ext_resource type="Texture2D" uid="uid://bkr7sfrx22t5x" path="res://Assets/forage/berry_glow.png" id="36_a7p2d"]
 [ext_resource type="Texture2D" uid="uid://dn17quj551phs" path="res://Assets/ritual/sacrifice.png" id="36_nn00d"]
 [ext_resource type="Texture2D" uid="uid://cby3ply7ssk8m" path="res://Assets/ritual/sacrifice_glow.png" id="37_oy6xi"]
 [ext_resource type="AudioStream" uid="uid://5nkapkf6dlua" path="res://Assets/sound/get_sacrifice.mp3" id="38_dfq0k"]
@@ -70,9 +71,13 @@
 [ext_resource type="AudioStream" uid="uid://cxc7nevvn7ars" path="res://Assets/sound/forest_ambience.mp3" id="44_5tfui"]
 [ext_resource type="AudioStream" uid="uid://c6ug8sfdqbnwb" path="res://Assets/sound/digging2.mp3" id="44_khphd"]
 [ext_resource type="AudioStream" uid="uid://4tboa81xp0ve" path="res://Assets/sound/spook_ambience.mp3" id="45_38apo"]
+[ext_resource type="Script" uid="uid://7jwg4ep35p00" path="res://Scripts/Chest.gd" id="45_vybqf"]
+[ext_resource type="Texture2D" uid="uid://btiqvk1mdg5kj" path="res://Assets/chests/chest.png" id="45_y5qkn"]
 [ext_resource type="AudioStream" uid="uid://k72atv812ugb" path="res://Assets/sound/enemy_approach.mp3" id="47_g4yo4"]
+[ext_resource type="Texture2D" uid="uid://c4klo4kyi2wmc" path="res://Assets/chests/iron_key.png" id="47_vybqf"]
 [ext_resource type="Texture2D" uid="uid://dhubb2ab8rq0" path="res://Assets/ritual/stone1.png" id="48_5y3io"]
 [ext_resource type="AudioStream" uid="uid://c4smolfg3gakm" path="res://Assets/sound/finish_dig.mp3" id="48_a34eg"]
+[ext_resource type="Texture2D" uid="uid://bfk74hyr7db1g" path="res://Assets/chests/iron_key_glow.png" id="48_marsu"]
 [ext_resource type="Script" uid="uid://dbdrytfylh5yv" path="res://Scripts/RitualInfo.gd" id="48_wrbn1"]
 [ext_resource type="Texture2D" uid="uid://c4fbx68jpbiv" path="res://Assets/ritual/stone1_glow.png" id="49_1nwvn"]
 [ext_resource type="AudioStream" uid="uid://c5bn1cg6j4n2c" path="res://Assets/sound/rain.mp3" id="49_via5u"]
@@ -86,6 +91,8 @@
 [ext_resource type="AudioStream" uid="uid://c28v3i5qufia" path="res://Assets/sound/enter.mp3" id="57_fykug"]
 [ext_resource type="Texture2D" uid="uid://coqjx63hnno3f" path="res://Assets/tree.png" id="58_i4gpc"]
 [ext_resource type="Shader" uid="uid://davahubax1sl2" path="res://Shaders/distortion.gdshader" id="60_6ievk"]
+[ext_resource type="Texture2D" uid="uid://baii37tcv1px3" path="res://Assets/ritual/wildstone.png" id="61_a7p2d"]
+[ext_resource type="Texture2D" uid="uid://c4i5aekam6ljx" path="res://Assets/ritual/wildstone_glow.png" id="62_fbvi6"]
 [ext_resource type="Texture2D" uid="uid://cr0gd51veb4bl" path="res://Assets/dens/burrow5.png" id="63_d646h"]
 [ext_resource type="PackedScene" uid="uid://bd7wtag3hstet" path="res://Scenes/ritual_requirement.tscn" id="65_d646h"]
 [ext_resource type="PackedScene" uid="uid://b8aiwy1w2tkj3" path="res://Scenes/ritual_pile.tscn" id="65_dfq0k"]
@@ -102,7 +109,6 @@
 [ext_resource type="Texture2D" uid="uid://bcl71ibp2wusa" path="res://Assets/predators/wolf.png" id="90_deygs"]
 [ext_resource type="Texture2D" uid="uid://d1xag62lalwdl" path="res://Assets/predators/creature2.png" id="90_xbxht"]
 [ext_resource type="Texture2D" uid="uid://di2ekr2d7xmmr" path="res://Assets/predators/aazaa.png" id="91_6ievk"]
-[ext_resource type="Texture2D" uid="uid://ccofkr12lrisn" path="res://Assets/bnuy2.jpg" id="92_llcqu"]
 [ext_resource type="Script" uid="uid://cw1c38k82atf7" path="res://Scripts/NotificationText.gd" id="92_uy73y"]
 [ext_resource type="Texture2D" uid="uid://d37ib0i50b6lw" path="res://Assets/predators/stoat2.png" id="93_dsf7v"]
 [ext_resource type="Script" uid="uid://jawqi20it2cq" path="res://Scripts/MainMenu.gd" id="93_hln0y"]
@@ -116,6 +122,10 @@
 [ext_resource type="Texture2D" uid="uid://cs0o2vfqm5ij" path="res://Assets/jumpscare1.jpg" id="100_6ievk"]
 [ext_resource type="Texture2D" uid="uid://bpvjxq5g6722t" path="res://Assets/jumpscare2.jpeg" id="101_8gn08"]
 [ext_resource type="AudioStream" uid="uid://8abtjtvahqyv" path="res://Assets/sound/menu_ambience.mp3" id="101_ucq2w"]
+[ext_resource type="Texture2D" uid="uid://cmsm3mpw32hs" path="res://Assets/bnuy3.jpg" id="102_fbvi6"]
+[ext_resource type="ButtonGroup" uid="uid://eyhda47girmc" path="res://Scenes/hard_mode_button_group.tres" id="106_fbvi6"]
+[ext_resource type="Script" uid="uid://cthpc8ireod3u" path="res://Scripts/StatusBarsContainer.gd" id="108_rkgid"]
+[ext_resource type="Texture2D" uid="uid://ypndkaflg13g" path="res://Assets/icons/heart1.png" id="112_rkgid"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c2ibq"]
 atlas = ExtResource("5_c6i3y")
@@ -302,6 +312,9 @@ size = Vector2(124, 185)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h0r08"]
 size = Vector2(391, 134)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6xmvy"]
+size = Vector2(417.5, 86)
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_trn2v"]
 shader = ExtResource("2_lgr22")
 shader_parameter/cursor_pos = Vector2(0, 0)
@@ -333,7 +346,16 @@ size = Vector2(336, 261)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mplfx"]
 size = Vector2(157, 258)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_8h1yq"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vybqf"]
+size = Vector2(325.5, 145.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_marsu"]
+size = Vector2(142, 245)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_imbc2"]
+size = Vector2(250, 146)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fbvi6"]
 shader = ExtResource("2_lgr22")
 shader_parameter/cursor_pos = Vector2(0, 0)
 shader_parameter/searching_factor = 0.0
@@ -359,11 +381,19 @@ size = Vector2(496, 201)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i4gpc"]
 size = Vector2(68, 311)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_08030"]
+size = Vector2(283, 247)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_md2r7"]
 size = Vector2(151, 120)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y5qkn"]
 size = Vector2(333.5, 261)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8h1yq"]
+shader = ExtResource("2_lgr22")
+shader_parameter/cursor_pos = Vector2(0, 0)
+shader_parameter/searching_factor = 0.0
 
 [sub_resource type="MultiMesh" id="MultiMesh_i4gpc"]
 mesh = SubResource("QuadMesh_r0du0")
@@ -712,6 +742,7 @@ collision_layer = 0
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Root/Field1/Forage/Dandelion/Spawn" unique_id=1469135288]
+visible = false
 position = Vector2(317.5, 162)
 shape = SubResource("RectangleShape2D_mxsw3")
 
@@ -791,6 +822,33 @@ collision_layer = 0
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Root/Field1/Forage/Yarrow/Spawn" unique_id=912145407]
+position = Vector2(470, 162)
+shape = SubResource("RectangleShape2D_yf3a2")
+
+[node name="Berry" type="Node2D" parent="Root/Field1/Forage" unique_id=734628418]
+script = ExtResource("7_mxvw5")
+restore_health = 0.2
+reduce_hunger = 0.1
+item_id = "berry1"
+initial_spawn_time_minutes = -1.0
+respawn_time_minutes = -1.0
+base_sprite = ExtResource("35_gbxmp")
+glow_sprite = ExtResource("36_a7p2d")
+
+[node name="Instance" type="Area2D" parent="Root/Field1/Forage/Berry" unique_id=375807600]
+position = Vector2(339, 219)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Root/Field1/Forage/Berry/Instance" unique_id=1920803746]
+shape = SubResource("CircleShape2D_06wwg")
+
+[node name="Sprite" type="Sprite2D" parent="Root/Field1/Forage/Berry/Instance" unique_id=957986077]
+texture = ExtResource("35_gbxmp")
+
+[node name="Spawn" type="Area2D" parent="Root/Field1/Forage/Berry" unique_id=263540796]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Root/Field1/Forage/Berry/Spawn" unique_id=1537095199]
 position = Vector2(470, 162)
 shape = SubResource("RectangleShape2D_yf3a2")
 
@@ -913,6 +971,60 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Root/Field1/Forage/RitualStone4/Spawn" unique_id=291907191]
 position = Vector2(335, 91)
 shape = SubResource("RectangleShape2D_h0r08")
+
+[node name="IronKeyChest" type="Node2D" parent="Root/Field1/Forage" unique_id=1660476350]
+unique_name_in_owner = true
+script = ExtResource("45_vybqf")
+
+[node name="Instance" type="Area2D" parent="Root/Field1/Forage/IronKeyChest" unique_id=741312624]
+position = Vector2(336, 261)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Root/Field1/Forage/IronKeyChest/Instance" unique_id=1402227859]
+shape = SubResource("CircleShape2D_06wwg")
+
+[node name="Sprite" type="Sprite2D" parent="Root/Field1/Forage/IronKeyChest/Instance" unique_id=1833253054]
+texture = ExtResource("45_y5qkn")
+
+[node name="GetStoneSound" type="AudioStreamPlayer2D" parent="Root/Field1/Forage/IronKeyChest" unique_id=18955715]
+stream = ExtResource("42_bf5p3")
+
+[node name="Spawn" type="Area2D" parent="Root/Field1/Forage/IronKeyChest" unique_id=120574728]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Root/Field1/Forage/IronKeyChest/Spawn" unique_id=223399879]
+position = Vector2(348.25, 266)
+shape = SubResource("RectangleShape2D_6xmvy")
+
+[node name="IronKey" type="Node2D" parent="Root/Field1/Forage" unique_id=478595029 node_paths=PackedStringArray("sound")]
+script = ExtResource("7_mxvw5")
+type = 6
+item_id = "key1"
+initial_spawn_time_minutes = -1.0
+respawn_time_minutes = -1.0
+base_sprite = ExtResource("47_vybqf")
+glow_sprite = ExtResource("48_marsu")
+sound = NodePath("GetStoneSound")
+
+[node name="Instance" type="Area2D" parent="Root/Field1/Forage/IronKey" unique_id=1253215813]
+position = Vector2(378, 75)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Root/Field1/Forage/IronKey/Instance" unique_id=283287863]
+shape = SubResource("CircleShape2D_06wwg")
+
+[node name="Sprite" type="Sprite2D" parent="Root/Field1/Forage/IronKey/Instance" unique_id=731110637]
+texture = ExtResource("47_vybqf")
+
+[node name="GetStoneSound" type="AudioStreamPlayer2D" parent="Root/Field1/Forage/IronKey" unique_id=842551026]
+stream = ExtResource("42_bf5p3")
+
+[node name="Spawn" type="Area2D" parent="Root/Field1/Forage/IronKey" unique_id=1154076198]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Root/Field1/Forage/IronKey/Spawn" unique_id=1836923460]
+position = Vector2(352, 58)
+shape = SubResource("RectangleShape2D_6xmvy")
 
 [node name="Grass" type="MultiMeshInstance2D" parent="Root/Field1" unique_id=872540454 node_paths=PackedStringArray("rabbit", "nograss")]
 material = SubResource("ShaderMaterial_trn2v")
@@ -1092,6 +1204,33 @@ collision_mask = 0
 position = Vector2(90.5, 131)
 shape = SubResource("RectangleShape2D_mplfx")
 
+[node name="Berry" type="Node2D" parent="Root/Field2/Forage" unique_id=1764648031]
+script = ExtResource("7_mxvw5")
+restore_health = 0.2
+reduce_hunger = 0.1
+item_id = "berry2"
+initial_spawn_time_minutes = -1.0
+respawn_time_minutes = -1.0
+base_sprite = ExtResource("35_gbxmp")
+glow_sprite = ExtResource("36_a7p2d")
+
+[node name="Instance" type="Area2D" parent="Root/Field2/Forage/Berry" unique_id=1045412741]
+position = Vector2(339, 219)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Root/Field2/Forage/Berry/Instance" unique_id=1764321164]
+shape = SubResource("CircleShape2D_06wwg")
+
+[node name="Sprite" type="Sprite2D" parent="Root/Field2/Forage/Berry/Instance" unique_id=44610660]
+texture = ExtResource("35_gbxmp")
+
+[node name="Spawn" type="Area2D" parent="Root/Field2/Forage/Berry" unique_id=1770590548]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Root/Field2/Forage/Berry/Spawn" unique_id=1620776447]
+position = Vector2(403.75, 78.25)
+shape = SubResource("RectangleShape2D_vybqf")
+
 [node name="RitualPaper" type="Node2D" parent="Root/Field2/Forage" unique_id=610128644 node_paths=PackedStringArray("sound")]
 script = ExtResource("7_mxvw5")
 type = 1
@@ -1135,6 +1274,14 @@ texture = ExtResource("48_5y3io")
 [node name="GetStoneSound" type="AudioStreamPlayer2D" parent="Root/Field2/Forage/RitualStone1" unique_id=1267001434]
 stream = ExtResource("42_bf5p3")
 
+[node name="Spawn" type="Area2D" parent="Root/Field2/Forage/RitualStone1" unique_id=1918681064]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Root/Field2/Forage/RitualStone1/Spawn" unique_id=1107977149]
+position = Vector2(83, 137.5)
+shape = SubResource("RectangleShape2D_marsu")
+
 [node name="RitualStone5" type="Node2D" parent="Root/Field2/Forage" unique_id=268759049 node_paths=PackedStringArray("sound")]
 script = ExtResource("7_mxvw5")
 type = 4
@@ -1157,8 +1304,16 @@ texture = ExtResource("52_nmx32")
 [node name="GetStoneSound" type="AudioStreamPlayer2D" parent="Root/Field2/Forage/RitualStone5" unique_id=377514267]
 stream = ExtResource("42_bf5p3")
 
+[node name="Spawn" type="Area2D" parent="Root/Field2/Forage/RitualStone5" unique_id=1237057575]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Root/Field2/Forage/RitualStone5/Spawn" unique_id=353374972]
+position = Vector2(437, 84)
+shape = SubResource("RectangleShape2D_imbc2")
+
 [node name="Grass" type="MultiMeshInstance2D" parent="Root/Field2" unique_id=1611350206 node_paths=PackedStringArray("rabbit", "nograss")]
-material = SubResource("ShaderMaterial_8h1yq")
+material = SubResource("ShaderMaterial_fbvi6")
 multimesh = SubResource("MultiMesh_8h1yq")
 texture = ExtResource("7_wkp8b")
 script = ExtResource("1_glv2v")
@@ -1225,7 +1380,7 @@ z_index = -1
 script = ExtResource("7_mxvw5")
 restore_health = 0.15
 reduce_hunger = 0.1
-item_id = "dandelion2"
+item_id = "dandelion3"
 respawn_time_minutes = 200.0
 base_sprite = ExtResource("8_mxvw5")
 glow_sprite = ExtResource("9_xrxkg")
@@ -1251,7 +1406,7 @@ shape = SubResource("RectangleShape2D_gbxmp")
 script = ExtResource("7_mxvw5")
 restore_health = 0.1
 reduce_hunger = 0.2
-item_id = "clover2"
+item_id = "clover3"
 respawn_time_minutes = 300.0
 base_sprite = ExtResource("8_hri7i")
 glow_sprite = ExtResource("9_w3rk5")
@@ -1277,7 +1432,7 @@ shape = SubResource("RectangleShape2D_a7p2d")
 script = ExtResource("7_mxvw5")
 restore_health = 0.15
 reduce_hunger = 0.1
-item_id = "thistle2"
+item_id = "thistle3"
 initial_spawn_time_minutes = 200.0
 respawn_time_minutes = 400.0
 base_sprite = ExtResource("10_ek63v")
@@ -1304,7 +1459,7 @@ shape = SubResource("RectangleShape2D_fbvi6")
 script = ExtResource("7_mxvw5")
 restore_health = 0.15
 reduce_hunger = 0.2
-item_id = "yarrow2"
+item_id = "yarrow3"
 respawn_time_minutes = 500.0
 base_sprite = ExtResource("12_4bst2")
 glow_sprite = ExtResource("13_uy3go")
@@ -1325,6 +1480,33 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Root/Field3/Forage/Yarrow/Spawn" unique_id=1546646056]
 position = Vector2(38, 161.5)
 shape = SubResource("RectangleShape2D_i4gpc")
+
+[node name="Berry" type="Node2D" parent="Root/Field3/Forage" unique_id=1484397621]
+script = ExtResource("7_mxvw5")
+restore_health = 0.2
+reduce_hunger = 0.1
+item_id = "berry3"
+initial_spawn_time_minutes = -1.0
+respawn_time_minutes = -1.0
+base_sprite = ExtResource("35_gbxmp")
+glow_sprite = ExtResource("36_a7p2d")
+
+[node name="Instance" type="Area2D" parent="Root/Field3/Forage/Berry" unique_id=838983035]
+position = Vector2(339, 219)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Root/Field3/Forage/Berry/Instance" unique_id=1466322152]
+shape = SubResource("CircleShape2D_06wwg")
+
+[node name="Sprite" type="Sprite2D" parent="Root/Field3/Forage/Berry/Instance" unique_id=8344059]
+texture = ExtResource("35_gbxmp")
+
+[node name="Spawn" type="Area2D" parent="Root/Field3/Forage/Berry" unique_id=151142010]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Root/Field3/Forage/Berry/Spawn" unique_id=1616187580]
+position = Vector2(144.5, 185.5)
+shape = SubResource("RectangleShape2D_08030")
 
 [node name="Sacrifice" type="Node2D" parent="Root/Field3/Forage" unique_id=335905043 node_paths=PackedStringArray("sound")]
 position = Vector2(1152, 0)
@@ -1387,6 +1569,38 @@ collision_layer = 0
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Root/Field3/Forage/RitualStone2/Spawn" unique_id=1609271257]
+position = Vector2(905.25, 486.5)
+shape = SubResource("RectangleShape2D_y5qkn")
+
+[node name="Wildstone" type="Node2D" parent="Root/Field3/Forage" unique_id=130829556 node_paths=PackedStringArray("sound")]
+position = Vector2(576, -324)
+script = ExtResource("7_mxvw5")
+type = 4
+item_id = "wildstone"
+initial_spawn_time_minutes = -1.0
+respawn_time_minutes = -1.0
+base_sprite = ExtResource("61_a7p2d")
+glow_sprite = ExtResource("62_fbvi6")
+sound = NodePath("GetStoneSound")
+
+[node name="Instance" type="Area2D" parent="Root/Field3/Forage/Wildstone" unique_id=868361746]
+position = Vector2(-265, 491)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Root/Field3/Forage/Wildstone/Instance" unique_id=242006983]
+shape = SubResource("CircleShape2D_06wwg")
+
+[node name="Sprite" type="Sprite2D" parent="Root/Field3/Forage/Wildstone/Instance" unique_id=1549746108]
+texture = ExtResource("61_a7p2d")
+
+[node name="GetStoneSound" type="AudioStreamPlayer2D" parent="Root/Field3/Forage/Wildstone" unique_id=926059171]
+stream = ExtResource("42_bf5p3")
+
+[node name="Spawn" type="Area2D" parent="Root/Field3/Forage/Wildstone" unique_id=1695203566]
+position = Vector2(-1152, 0)
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Root/Field3/Forage/Wildstone/Spawn" unique_id=1105512156]
 position = Vector2(905.25, 486.5)
 shape = SubResource("RectangleShape2D_y5qkn")
 
@@ -1764,12 +1978,12 @@ autowrap_mode = 2
 
 [node name="UnderburrowDaysPassedText" type="Label" parent="Root/Burrow" unique_id=89868077]
 unique_name_in_owner = true
-custom_maximum_size = Vector2(190, -1)
-offset_left = 398.0
-offset_top = -88.0
-offset_right = 505.0
-offset_bottom = -24.0
-text = "(It took seven days.)"
+custom_maximum_size = Vector2(130, -1)
+offset_left = 373.0
+offset_top = -82.0
+offset_right = 503.0
+offset_bottom = -17.0
+text = "(It took seven days. Try on hard mode next time!)"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
@@ -1909,17 +2123,17 @@ unique_name_in_owner = true
 
 [node name="Beast1" type="Node" parent="Root/Predators" unique_id=885880264]
 script = ExtResource("17_5mvff")
-max_day = 3.0
+max_day = 4.8
 warning_time = 3.0
-damage = 0.4
+damage = 0.6
 sprite = ExtResource("88_8dw04")
 entry_text = "Beast approaching!"
 exit_text = "Beast wandering off..."
 
 [node name="Beast2" type="Node" parent="Root/Predators" unique_id=1346263473]
 script = ExtResource("17_5mvff")
-min_day = 1.5
-max_day = 5.0
+min_day = 2.4
+max_day = 8.0
 warning_time = 2.5
 movement_speed = 350.0
 damage = 0.6
@@ -1929,19 +2143,19 @@ exit_text = "Hellrowf wandering off..."
 
 [node name="Beast3" type="Node" parent="Root/Predators" unique_id=546677819]
 script = ExtResource("17_5mvff")
-min_day = 4.5
+min_day = 7.2
 warning_time = 2.0
 movement_speed = 400.0
-damage = 0.6
+damage = 0.8
 sprite = ExtResource("90_xbxht")
-entry_text = "Hellrowf approaching!"
-exit_text = "Hellrowf wandering off..."
+entry_text = "Theraphos approaching!"
+exit_text = "Theraphos wandering off..."
 
 [node name="Bird1" type="Node" parent="Root/Predators" unique_id=269551880]
 script = ExtResource("17_5mvff")
 type = 1
-min_day = 0.5
-max_day = 3.5
+min_day = 0.8
+max_day = 5.6
 warning_time = 1.5
 movement_speed = 1000.0
 damage = 0.4
@@ -1952,7 +2166,7 @@ exit_text = "Bird flying away..."
 [node name="Bird2" type="Node" parent="Root/Predators" unique_id=1735429299]
 script = ExtResource("17_5mvff")
 type = 1
-min_day = 2.0
+min_day = 3.2
 movement_speed = 1000.0
 damage = 0.6
 sprite = ExtResource("91_6ievk")
@@ -1962,8 +2176,8 @@ exit_text = "Skinglider flying away..."
 [node name="Weasel1" type="Node" parent="Root/Predators" unique_id=1667528776]
 script = ExtResource("17_5mvff")
 type = 2
-min_day = 1.0
-max_day = 4.0
+min_day = 1.6
+max_day = 6.4
 warning_time = 3.0
 damage = 0.4
 sprite = ExtResource("89_6nglk")
@@ -1973,8 +2187,7 @@ exit_text = "Weasel wandering off..."
 [node name="Weasel2" type="Node" parent="Root/Predators" unique_id=547294030]
 script = ExtResource("17_5mvff")
 type = 2
-min_day = 2.5
-max_day = 2.0
+min_day = 4.0
 warning_time = 2.5
 movement_speed = 350.0
 damage = 0.6
@@ -1998,8 +2211,7 @@ script = ExtResource("93_hln0y")
 layout_mode = 1
 offset_right = 288.0
 offset_bottom = 192.0
-scale = Vector2(2, 2)
-texture = ExtResource("92_llcqu")
+texture = ExtResource("102_fbvi6")
 stretch_mode = 3
 
 [node name="Title" type="Label" parent="CanvasLayer/MainMenu" unique_id=1207705719]
@@ -2017,6 +2229,25 @@ theme_override_constants/outline_size = 2
 theme_override_fonts/font = ExtResource("94_6nglk")
 theme_override_font_sizes/font_size = 48
 text = "MIDNIGHT MEADOW"
+
+[node name="Title2" type="Label" parent="CanvasLayer/MainMenu" unique_id=2112185022]
+visible = false
+layout_mode = 0
+offset_left = 128.0
+offset_top = 137.0
+offset_right = 423.0
+offset_bottom = 252.0
+theme_override_colors/font_color = Color(0, 0.21960784, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.56078434)
+theme_override_colors/font_outline_color = Color(0, 1, 0.6333332, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("94_6nglk")
+theme_override_font_sizes/font_size = 48
+text = "MIDNIGHT
+MEADOW"
+horizontal_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MainMenu" unique_id=1891703986]
 layout_mode = 0
@@ -2049,11 +2280,12 @@ text = "Credits"
 
 [node name="SettingsPanel" type="PanelContainer" parent="CanvasLayer/MainMenu" unique_id=1425994665]
 unique_name_in_owner = true
+visible = false
 layout_mode = 0
-offset_left = 224.0
-offset_top = 143.0
-offset_right = 296.0
-offset_bottom = 237.0
+offset_left = 223.0
+offset_top = 116.0
+offset_right = 315.0
+offset_bottom = 262.0
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MainMenu/SettingsPanel" unique_id=36049142]
 layout_mode = 2
@@ -2102,14 +2334,41 @@ toggle_mode = true
 button_group = ExtResource("99_67x5q")
 text = "Off"
 
+[node name="HSeparator2" type="HSeparator" parent="CanvasLayer/MainMenu/SettingsPanel/MarginContainer/VBoxContainer" unique_id=1717678413]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="CanvasLayer/MainMenu/SettingsPanel/MarginContainer/VBoxContainer" unique_id=587056864]
+layout_mode = 2
+text = "Hard mode:"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/MainMenu/SettingsPanel/MarginContainer/VBoxContainer" unique_id=1539429719]
+layout_mode = 2
+
+[node name="HardModeOnButton" type="Button" parent="CanvasLayer/MainMenu/SettingsPanel/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=311618376]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("106_fbvi6")
+text = "On"
+
+[node name="HardModeOffButton" type="Button" parent="CanvasLayer/MainMenu/SettingsPanel/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1560426475]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+toggle_mode = true
+button_pressed = true
+button_group = ExtResource("106_fbvi6")
+text = "Off"
+
 [node name="CreditsPanel" type="PanelContainer" parent="CanvasLayer/MainMenu" unique_id=1537985691]
 unique_name_in_owner = true
 visible = false
 layout_mode = 0
-offset_left = 224.0
-offset_top = 169.0
-offset_right = 282.0
-offset_bottom = 209.0
+offset_left = 223.0
+offset_top = 101.0
+offset_right = 413.0
+offset_bottom = 276.0
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MainMenu/CreditsPanel" unique_id=144431198]
 layout_mode = 2
@@ -2120,7 +2379,16 @@ theme_override_constants/margin_bottom = 4
 
 [node name="Label" type="Label" parent="CanvasLayer/MainMenu/CreditsPanel/MarginContainer" unique_id=849735560]
 layout_mode = 2
-text = "Placeholder"
+text = "Game by Luke Puchner-Hardman
+
+Fonts:
+  BitPotion by Joeb Rogers
+  Underdog by Sergey Steblina
+
+Sounds from ZapSplat
+
+Bunny animation modified from
+opengameart.org/content/bunny-sprite"
 
 [node name="MenuAmbience" type="AudioStreamPlayer" parent="CanvasLayer/MainMenu" unique_id=771009744]
 unique_name_in_owner = true
@@ -2137,6 +2405,7 @@ offset_right = 68.0
 offset_bottom = 40.0
 grow_horizontal = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_jnsvb")
+script = ExtResource("108_rkgid")
 
 [node name="Status" type="VBoxContainer" parent="CanvasLayer/StatusBarsContainer" unique_id=1819899074]
 layout_mode = 2
@@ -2146,7 +2415,8 @@ theme_override_constants/separation = 0
 modulate = Color(0.25, 0.8125, 1, 1)
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/StatusBarsContainer/Status/HBoxContainer" unique_id=279775061]
+[node name="FatigueIcon" type="TextureRect" parent="CanvasLayer/StatusBarsContainer/Status/HBoxContainer" unique_id=279775061]
+unique_name_in_owner = true
 layout_mode = 2
 texture = ExtResource("20_2gh4u")
 stretch_mode = 3
@@ -2169,7 +2439,8 @@ show_percentage = false
 modulate = Color(0.2509804, 1, 0, 1)
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/StatusBarsContainer/Status/HBoxContainer2" unique_id=609715171]
+[node name="HungerIcon" type="TextureRect" parent="CanvasLayer/StatusBarsContainer/Status/HBoxContainer2" unique_id=609715171]
+unique_name_in_owner = true
 layout_mode = 2
 texture = ExtResource("21_3b0ty")
 stretch_mode = 3
@@ -2192,7 +2463,8 @@ show_percentage = false
 modulate = Color(1, 0, 0, 1)
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/StatusBarsContainer/Status/HBoxContainer3" unique_id=2068320342]
+[node name="HealthIcon" type="TextureRect" parent="CanvasLayer/StatusBarsContainer/Status/HBoxContainer3" unique_id=2068320342]
+unique_name_in_owner = true
 layout_mode = 2
 texture = ExtResource("22_bg4s2")
 stretch_mode = 3
@@ -2211,15 +2483,33 @@ max_value = 1.0
 value = 0.4
 show_percentage = false
 
+[node name="LivesList" type="HBoxContainer" parent="CanvasLayer/StatusBarsContainer/Status" unique_id=644061989]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 3
+alignment = 1
+
+[node name="Heart1" type="TextureRect" parent="CanvasLayer/StatusBarsContainer/Status/LivesList" unique_id=213365174]
+layout_mode = 2
+texture = ExtResource("112_rkgid")
+
+[node name="Heart2" type="TextureRect" parent="CanvasLayer/StatusBarsContainer/Status/LivesList" unique_id=1865675742]
+layout_mode = 2
+texture = ExtResource("112_rkgid")
+
+[node name="Heart3" type="TextureRect" parent="CanvasLayer/StatusBarsContainer/Status/LivesList" unique_id=1166480127]
+layout_mode = 2
+texture = ExtResource("112_rkgid")
+
 [node name="PredatorWarning" type="ProgressBar" parent="CanvasLayer" unique_id=1130754267]
 unique_name_in_owner = true
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -100.0
-offset_top = 43.0
+offset_top = 52.0
 offset_right = 100.0
-offset_bottom = 59.0
+offset_bottom = 68.0
 grow_horizontal = 2
 max_value = 1.0
 value = 0.39
@@ -2229,12 +2519,12 @@ show_percentage = false
 layout_mode = 0
 offset_right = 200.0
 offset_bottom = 23.0
-theme_override_fonts/font = ExtResource("20_hhcpw")
 text = "Beast approaching!"
 horizontal_alignment = 1
 
 [node name="Darkness" type="ColorRect" parent="CanvasLayer" unique_id=33013945 node_paths=PackedStringArray("rain", "rain_ambience")]
 unique_name_in_owner = true
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -2382,13 +2672,13 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="DebugValues" type="VBoxContainer" parent="CanvasLayer" unique_id=588097943]
+visible = false
 offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="TimeUntilPredatorLabel" type="Label" parent="CanvasLayer/DebugValues" unique_id=608457004]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_fonts/font = ExtResource("32_40n85")
 text = "0.0"
 horizontal_alignment = 1
 

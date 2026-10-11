@@ -14,6 +14,9 @@ signal play_pressed
 @onready var jumpscares_on_button: Button = %JumpscaresOnButton
 @onready var jumpscares_off_button: Button = %JumpscaresOffButton
 
+@onready var hard_mode_on_button: Button = %HardModeOnButton
+@onready var hard_mode_off_button: Button = %HardModeOffButton
+
 @onready var menu_ambience := %MenuAmbience
 
 @onready var master_volume_index := AudioServer.get_bus_index("Master")
@@ -74,7 +77,8 @@ func _process(delta: float) -> void:
 func save_settings() -> void:
 	var settings = {
 		volume = volume_slider.value,
-		jumpscares = jumpscares_on_button.button_pressed
+		jumpscares = jumpscares_on(),
+		hard_mode = hard_mode_on()
 	}
 	
 	var save_file = FileAccess.open("user://settings.save", FileAccess.WRITE)
@@ -92,10 +96,14 @@ func load_settings() -> void:
 	
 	volume_slider.value = json.data.volume
 	jumpscares_on_button.button_pressed = json.data.jumpscares
+	hard_mode_on_button.button_pressed = json.data.hard_mode
 	update_volume()
 
 func jumpscares_on() -> bool:
 	return jumpscares_on_button.button_pressed
+
+func hard_mode_on() -> bool:
+	return hard_mode_on_button.button_pressed
 
 func update_volume() -> void:
 	AudioServer.set_bus_volume_linear(master_volume_index, pow(volume_slider.value, 2))

@@ -8,8 +8,11 @@ func _ready():
 	modulate = Color.TRANSPARENT
 	starting_position = position
 
-func show_text(new_text: String, duration: float):
+func show_text(new_text: String, duration: float, show_position: Vector2 = Vector2.ZERO):
 	text = new_text
+	
+	if show_position == Vector2.ZERO:
+		show_position = starting_position
 	
 	if color_tween != null:
 		color_tween.kill()
@@ -23,7 +26,7 @@ func show_text(new_text: String, duration: float):
 	position = starting_position - Vector2(0.0, 20.0)
 	motion_tween = create_tween()
 	motion_tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_ELASTIC)
-	motion_tween.tween_property(self, "position", starting_position, 0.5)
+	motion_tween.tween_property(self, "position", show_position, 0.5)
 	
 
 func hide_text():
@@ -31,3 +34,9 @@ func hide_text():
 		color_tween.kill()
 	color_tween = create_tween()
 	color_tween.tween_property(self, "modulate", Color.TRANSPARENT, 2.0)
+	
+	if motion_tween != null:
+		motion_tween.kill()
+	motion_tween = create_tween()
+	motion_tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_ELASTIC)
+	motion_tween.tween_property(self, "position", starting_position, 0.5)
