@@ -37,7 +37,7 @@ func update(fatigue: float, hunger: float, unhealth: float):
 
 func update_lives(lives: int, hard_mode: bool):
 	heart3.visible = !hard_mode
-	visible = !(lives >= 3 || (hard_mode && lives >= 2))
+	%LivesList.visible = !(lives >= 3 || (hard_mode && lives >= 2))
 	
 	if lives >= 3:
 		heart1.texture = heart_texture1

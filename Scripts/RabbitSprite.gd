@@ -1,7 +1,6 @@
 extends Area2D
 class_name RabbitSprite
 
-const CURSOR_SPEED := 150.0
 const MIN_RUN_DIST := 10.0
 
 const FORAGING_TRANSITION_SPEED = 3.0
@@ -11,6 +10,7 @@ const FORAGING_SLOWDOWN_FACTOR = 0.5
 @onready var footstep_sound: AudioStreamPlayer2D = $FootstepSound
 @onready var eat_sound: AudioStreamPlayer2D = $EatSound
 
+var rabbit_speed := 150.0
 var foraging := 0.0
 var facing_right := true
 var standing := true
@@ -31,7 +31,7 @@ func _process(delta: float):
 		
 	var mouse_pos := get_global_mouse_position() #get_viewport().get_mouse_position()
 	var disp := mouse_pos - global_position
-	var speed = CURSOR_SPEED * lerp(1.0, FORAGING_SLOWDOWN_FACTOR, foraging)
+	var speed = rabbit_speed * lerp(1.0, FORAGING_SLOWDOWN_FACTOR, foraging)
 	if standing and disp.length_squared() < MIN_RUN_DIST * MIN_RUN_DIST:
 		pass
 	elif disp.length() < delta * speed:

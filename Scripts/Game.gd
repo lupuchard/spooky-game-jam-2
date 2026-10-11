@@ -54,6 +54,7 @@ enum TutorialStep {
 @onready var weasel_approach_sound := %WeaselApproachSound
 @onready var finish_dig_sound := %FinishDigSound
 @onready var enter_sound := %EnterSound
+@onready var open_chest_sound := %OpenChestSound
 
 @onready var rain := %RainShader
 @onready var predator_warning := %PredatorWarning
@@ -81,8 +82,8 @@ enum TutorialStep {
 @onready var dig_button := %DigButton
 @onready var dig_progress_bar := %DigProgress
 @onready var sleep_button := %SleepButton
-
-@onready var iron_key_chest := %IronKeyChest
+@onready var dreamcatcher := %Dreamcatcher
+@onready var cloth_shoes := %ClothShoes
 
 var forages: Array[Forage]
 var rabbit_over_forage: Array[Forage] = []
@@ -114,8 +115,10 @@ var dig_progress := 0.0
 var burrow_state: int = 0
 var game_win := false
 var started_on_hard_mode := false
+var dreamcatcher_found := 0
+var shoes_found := 0
 
-var ritual_items_acquired: Array[Forage] = []
+var items_acquired: Array[Forage] = []
 
 var starting_save_state: Dictionary
 
@@ -197,6 +200,8 @@ func _ready() -> void:
 			forest_ambience.play()
 			spook_ambience.play()
 	)
+	
+	%RitualPaper.spawn()
 
 func beast_gottem():
 	var damage = predator.damage
@@ -216,7 +221,7 @@ func beast_gottem():
 		unhealth += damage
 		fatigue = min(fatigue + damage, 1.0)
 		status_bars_container.update(fatigue, hunger, unhealth)
-		var text = "You managed to fight it off, but was injured (lost %s health and %s energy). You have %s left."
+		var text = "You managed to fight it off, but were injured (lost %s health and %s energy). You have %s left."
 		survive_popup.show_survive(text % [int(damage * 100), int(damage * 100), lives_left_text()])
 		predator_begone()
 		call_deferred("pause")
@@ -309,7 +314,8 @@ func _process(delta: float) -> void:
 			complete_dig()
 	elif sleeping:
 		time_speedup = ACTIVITY_SPEED
-		fatigue = clamp(fatigue - FATIGUE_PER_DAY * 3.0 * delta * time_speedup / MINUTES_PER_DAY, 0.0, 1.0)
+		var sleep_effectiveness = 3.0 if dreamcatcher_found else 2.5
+		fatigue = clamp(fatigue - FATIGUE_PER_DAY * sleep_effectiveness * delta * time_speedup / MINUTES_PER_DAY, 0.0, 1.0)
 		if fatigue <= 0.0:
 			stop_sleeping()
 	elif doing_ritual:
@@ -393,8 +399,8 @@ func complete_dig():
 	finish_dig_sound.play()
 	update_entrances()
 	
-	ritual_info.update(ritual_items_acquired, burrow_state)
-	burrow.update_ritual_pile(ritual_items_acquired)
+	ritual_info.update(items_acquired, burrow_state)
+	burrow.update_ritual_pile(items_acquired)
 
 func complete_ritual():
 	stop_ritual()
@@ -410,6 +416,9 @@ func complete_ritual():
 	tween.tween_property(burrow, "position", burrow_pos, 0.5)
 	status_bars_container.show()
 	game_win = true
+	
+	spook_ambience.stop()
+	%UnderburrowAmbience.play()
 	
 	var hard_mode_text = ""
 	if !main_menu.hard_mode_on():
@@ -505,8 +514,11 @@ func enter_burrow(from: Entrance) -> void:
 	change_location(null)
 	rabbit.process_mode = Node.PROCESS_MODE_DISABLED
 	
-	ritual_info.update(ritual_items_acquired, burrow_state)
-	burrow.update_ritual_pile(ritual_items_acquired)
+	ritual_info.update(items_acquired, burrow_state)
+	burrow.update_ritual_pile(items_acquired)
+	
+	dreamcatcher.visible = dreamcatcher_found
+	cloth_shoes.visible = shoes_found
 	
 	for exit in exits:
 		exit.set_dangerous(false)
@@ -565,9 +577,11 @@ func exit_burrow(exit: Exit) -> void:
 	AudioServer.set_bus_volume_db(outside_ambience, -5.0)
 	spook_ambience.volume_db = -15.0
 	enter_sound.play()
+	update_speed()
 
 func into_the_underburrow() -> void:
 	tween_camera(underburrow_position)
+	%WinGameSound.play()
 
 func change_location(new_location: Field) -> void:
 	location = new_location
@@ -606,11 +620,13 @@ func pass_time(minutes: float) -> void:
 		
 	hunger += minutes * HUNGER_PER_DAY / MINUTES_PER_DAY
 	
-	
 	for forage in forages:
 		forage.pass_time(minutes)
 	
 	hand_center.rotation = time_passed * TAU
+
+func update_speed() -> void:
+	rabbit.rabbit_speed = 150.0 if shoes_found else 120.0
 
 func on_ate() -> void:
 	hunger -= 0.1
@@ -629,9 +645,32 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("click") and rabbit_over_forage.size() > 0:
 		var current_forage: Forage = rabbit_over_forage.back()
 		on_exit_forage(current_forage)
-		current_forage.remove()
 		
-		if current_forage.type == Forage.Type.Food:
+		if current_forage.type == Forage.Type.ChestKey:
+			items_acquired.push_back(current_forage)
+			current_forage.acquired = true
+			notification_text.show_text("Found %s." % current_forage.item_id, 3.0)
+			current_forage.remove()
+		elif current_forage is Chest:
+			if items_acquired.has(current_forage.key):
+				items_acquired.push_back(current_forage)
+				current_forage.acquired = true
+				open_chest_sound.play()
+				current_forage.show_open()
+				current_forage.remove()
+				match current_forage.contents:
+					Chest.Trinket.Dreamcatcher:
+						dreamcatcher_found = true
+						notification_text.show_text("Found dreamcatcher! Sleep effectiveness increased.", 3.0)
+					Chest.Trinket.Shoes:
+						shoes_found = true
+						update_speed()
+						notification_text.show_text("Found someone's old shoes! Speed increased.", 3.0)
+			else:
+				notification_text.show_text(current_forage.locked_text, 3.0)
+				current_forage.key.spawn()
+		elif current_forage is Food:
+			current_forage.remove()
 			hunger -= current_forage.reduce_hunger
 			if hunger < 0.0: hunger = 0.0
 			unhealth -= current_forage.restore_health
@@ -643,10 +682,14 @@ func _input(event: InputEvent) -> void:
 				notification_text.show_text("<- Enter your burrow to evade predators.", 100.0, Vector2(50, 40))
 				time_until_predator = 5.0
 		else:
-			ritual_items_acquired.push_back(current_forage)
+			current_forage.remove()
+			items_acquired.push_back(current_forage)
 			current_forage.acquired = true
 			for forage in forages:
-				if forage.type != Forage.Type.Food && !forage.acquired:
+				if ((forage.type == Forage.Type.RitualStone
+				or forage.type == Forage.Type.RitualSacrifice
+				or forage.type == Forage.Type.RitualTinder)
+				and !forage.available and !forage.acquired):
 					forage.spawn()
 			match current_forage.type:
 				Forage.Type.RitualPaper:
@@ -705,7 +748,9 @@ func get_save_state() -> Dictionary:
 		"burrow_state": burrow_state,
 		"forages": forages.map(func(forage: Forage): return forage.get_save_state()),
 		"tutorial_step": tutorial_step,
-		"started_on_hard_mode": started_on_hard_mode
+		"started_on_hard_mode": started_on_hard_mode,
+		"dreamcatcher": dreamcatcher_found,
+		"shoes": shoes_found
 	}
 
 func load_save_state(state: Dictionary) -> void:
@@ -716,21 +761,24 @@ func load_save_state(state: Dictionary) -> void:
 	dig_progress = state.dig_progress
 	burrow_state = state.burrow_state
 	tutorial_step = state.tutorial_step
+	started_on_hard_mode = state.started_on_hard_mode
+	dreamcatcher_found = state.dreamcatcher
+	shoes_found = state.shoes
 	predator_begone()
 	change_location(null)
 	digging = false
 	sleeping = false
 	
-	ritual_items_acquired = []
+	items_acquired = []
 	for forage_info in state.forages:
 		var forage_idx = forages.find_custom(func(x): return x.item_id == forage_info.id)
 		if forage_idx == -1: continue
 		var forage = forages[forage_idx]
 		forage.load_save_state(forage_info)
 		if forage.type != Forage.Type.Food && forage.acquired:
-			ritual_items_acquired.push_back(forage)
-	ritual_info.update(ritual_items_acquired, burrow_state)
-	burrow.update_ritual_pile(ritual_items_acquired)
+			items_acquired.push_back(forage)
+	ritual_info.update(items_acquired, burrow_state)
+	burrow.update_ritual_pile(items_acquired)
 
 func restart() -> void:
 	dead = false
@@ -746,6 +794,7 @@ func restart() -> void:
 	notification_text.hide_text()
 	started_on_hard_mode = main_menu.hard_mode_on()
 	status_bars_container.update_lives(lives, started_on_hard_mode)
+	update_speed()
 	
 	for field in fields:
 		field.grass.reset()
