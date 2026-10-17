@@ -214,7 +214,7 @@ func beast_gottem():
 	else:
 		lives -= 1
 	
-	if lives <= 0 || (1.0 - unhealth) > damage + 0.05:
+	if lives > 0 && (1.0 - unhealth) > damage + 0.05:
 		if main_menu.jumpscares_on(): jumpscare.survive_scare()
 		if location != null:
 			location.berry.spawn()
@@ -229,6 +229,9 @@ func beast_gottem():
 	else:
 		if main_menu.jumpscares_on(): jumpscare.death_scare()
 		rabbit_died("You have been killed.")
+	
+	for exit in exits:
+		exit.set_dangerous(false)
 
 func lives_left_text() -> String:
 	return "two lives" if lives >= 2 else "one life"
@@ -744,6 +747,7 @@ func get_save_state() -> Dictionary:
 		"fatigue": fatigue,
 		"hunger": hunger,
 		"unhealth": unhealth,
+		"lives": lives,
 		"dig_progress": dig_progress,
 		"burrow_state": burrow_state,
 		"forages": forages.map(func(forage: Forage): return forage.get_save_state()),
@@ -758,6 +762,7 @@ func load_save_state(state: Dictionary) -> void:
 	fatigue = state.fatigue
 	hunger = state.hunger
 	unhealth = state.unhealth
+	lives = state.lives
 	dig_progress = state.dig_progress
 	burrow_state = state.burrow_state
 	tutorial_step = state.tutorial_step
