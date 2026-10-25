@@ -11,6 +11,7 @@ signal play_pressed
 @onready var credits_panel := %CreditsPanel
 
 @onready var volume_slider := %VolumeSlider
+@onready var gamma_slider := %GammaSlider
 @onready var jumpscares_on_button: Button = %JumpscaresOnButton
 @onready var jumpscares_off_button: Button = %JumpscaresOffButton
 
@@ -20,6 +21,7 @@ signal play_pressed
 @onready var menu_ambience := %MenuAmbience
 
 @onready var master_volume_index := AudioServer.get_bus_index("Master")
+@onready var environment: Environment = %WorldEnvironment.environment
 
 var starting_y: float
 var time: float = 0.0
@@ -58,6 +60,9 @@ func _ready() -> void:
 	volume_slider.value = 1.0
 	volume_slider.value_changed.connect(func(_value): update_volume())
 	
+	gamma_slider.value = 0.5
+	gamma_slider.value_changed.connect(func(_value): update_gamma())
+	
 	load_settings()
 	
 	show()
@@ -77,6 +82,7 @@ func _process(delta: float) -> void:
 func save_settings() -> void:
 	var settings = {
 		volume = volume_slider.value,
+		gamma = gamma_slider.value,
 		jumpscares = jumpscares_on(),
 		hard_mode = hard_mode_on()
 	}
@@ -95,6 +101,7 @@ func load_settings() -> void:
 	json.parse(json_string)
 	
 	volume_slider.value = json.data.volume
+	gamma_slider.value = json.data.gamma
 	jumpscares_on_button.button_pressed = json.data.jumpscares
 	hard_mode_on_button.button_pressed = json.data.hard_mode
 	update_volume()
@@ -107,3 +114,6 @@ func hard_mode_on() -> bool:
 
 func update_volume() -> void:
 	AudioServer.set_bus_volume_linear(master_volume_index, pow(volume_slider.value, 2))
+
+func update_gamma() -> void:
+	environment.adjustment_brightness = gamma_slider.value * 2.0

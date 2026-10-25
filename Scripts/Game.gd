@@ -790,7 +790,6 @@ func restart() -> void:
 	death_popup.hide()
 	load_save_state(starting_save_state)
 	change_location(field1)
-	rabbit.position = Vector2(300, 150)
 	call_deferred("resume")
 	time_until_predator = random_time_until_predator()
 	if !darkness.is_day(time_passed):
@@ -800,6 +799,10 @@ func restart() -> void:
 	started_on_hard_mode = main_menu.hard_mode_on()
 	status_bars_container.update_lives(lives, started_on_hard_mode)
 	update_speed()
+	
+	rabbit.show()
+	rabbit.process_mode = Node.PROCESS_MODE_INHERIT
+	rabbit.position = Vector2(300, 150)
 	
 	for field in fields:
 		field.grass.reset()

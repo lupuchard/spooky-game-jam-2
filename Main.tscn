@@ -649,6 +649,11 @@ shader_parameter/dither_strength = 0.10000000475
 shader_parameter/enable_vintage = true
 shader_parameter/vintage_strength = 0.800000038
 
+[sub_resource type="Environment" id="Environment_jnsvb"]
+background_mode = 3
+background_canvas_max_layer = 6
+adjustment_enabled = true
+
 [node name="Control" type="Control" unique_id=2107743421 node_paths=PackedStringArray("rabbit")]
 layout_mode = 3
 anchors_preset = 15
@@ -2302,7 +2307,6 @@ exit_text = "Lendri wandering off..."
 
 [node name="MainMenu" type="Control" parent="CanvasLayer" unique_id=550634618]
 unique_name_in_owner = true
-visible = false
 z_index = 1
 layout_mode = 3
 anchors_preset = 0
@@ -2383,7 +2387,6 @@ text = "Credits"
 
 [node name="SettingsPanel" type="PanelContainer" parent="CanvasLayer/MainMenu" unique_id=1425994665]
 unique_name_in_owner = true
-visible = false
 layout_mode = 0
 offset_left = 223.0
 offset_top = 116.0
@@ -2411,6 +2414,19 @@ max_value = 1.0
 step = 0.05
 
 [node name="HSeparator" type="HSeparator" parent="CanvasLayer/MainMenu/SettingsPanel/MarginContainer/VBoxContainer" unique_id=591193560]
+layout_mode = 2
+
+[node name="Label4" type="Label" parent="CanvasLayer/MainMenu/SettingsPanel/MarginContainer/VBoxContainer" unique_id=849303630]
+layout_mode = 2
+text = "Gamma:"
+
+[node name="GammaSlider" type="HSlider" parent="CanvasLayer/MainMenu/SettingsPanel/MarginContainer/VBoxContainer" unique_id=910460653]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+
+[node name="HSeparator3" type="HSeparator" parent="CanvasLayer/MainMenu/SettingsPanel/MarginContainer/VBoxContainer" unique_id=1508030206]
 layout_mode = 2
 
 [node name="Label2" type="Label" parent="CanvasLayer/MainMenu/SettingsPanel/MarginContainer/VBoxContainer" unique_id=2052526798]
@@ -2784,5 +2800,9 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "0.0"
 horizontal_alignment = 1
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1760477727]
+unique_name_in_owner = true
+environment = SubResource("Environment_jnsvb")
 
 [editable path="Root/Burrow/RitualPile1"]
