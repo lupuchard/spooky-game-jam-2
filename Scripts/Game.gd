@@ -385,7 +385,8 @@ func _process(delta: float) -> void:
 		notification_text.show_text("Eat forage to restore health.", 100.0)
 
 func predator_begone():
-	modify_time_until_attack(predator.warning_time)
+	if predator != null:
+		modify_time_until_attack(predator.warning_time)
 	predator_active = false
 	predator = null
 	beast.remove()
@@ -765,6 +766,7 @@ func load_save_state(state: Dictionary) -> void:
 	lives = state.lives
 	dig_progress = state.dig_progress
 	burrow_state = state.burrow_state
+	burrow.set_burrow_state(burrow_state)
 	tutorial_step = state.tutorial_step
 	started_on_hard_mode = state.started_on_hard_mode
 	dreamcatcher_found = state.dreamcatcher
@@ -797,6 +799,7 @@ func restart() -> void:
 	tutorial_step = TutorialStep.BREAK1
 	notification_text.hide_text()
 	started_on_hard_mode = main_menu.hard_mode_on()
+	update_entrances()
 	status_bars_container.update_lives(lives, started_on_hard_mode)
 	update_speed()
 	
